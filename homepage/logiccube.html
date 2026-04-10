@@ -495,7 +495,7 @@
         <span data-i18n="hero_title2_1">실시간 승인부터<br>정교한 정산까지,<br></span><span class="accent" data-i18n="hero_title2_accent">금융 인터페이스의 무결성</span>
       </h1>
       <p class="hero-sub" style="font-size:15px; color:rgba(255,255,255,0.6); margin-bottom:36px; max-width:100%; line-height:1.8; word-break:break-word; overflow-wrap:break-word;" data-i18n="hero_sub2">
-        실시간 승인부터 정교한 정산까지, 금융 인터페이스의 무결성을 설계합니다.
+        실시간 승인부터 정교한 정산까지, 금융 인터페이스의 무결성을 설계합니다
       </p>
     </div>
 
@@ -506,7 +506,7 @@
       </h1>
       <p class="hero-sub" style="font-size:15px; color:rgba(255,255,255,0.6); margin-bottom:36px; max-width:100%; line-height:1.8; word-break:break-word; overflow-wrap:break-word;" data-i18n="hero_sub">
         로직큐브는 고도화된 기술력과 금융 도메인 지식을 결합하여
-        국내 및 글로벌 시장을 선도하는 최적의 금융 IT 솔루션을 제공합니다.
+        국내 및 글로벌 시장을 선도하는 최적의 금융 IT 솔루션을 제공합니다
       </p>
     </div>
 
@@ -1118,12 +1118,12 @@
     ko: {
       // Hero
       hero_title_1:      '금융 데이터의 가치를<br>극대화하는<br>',
-      hero_title_accent:  '논리적 설계의 완성.',
+      hero_title_accent:  '논리적 설계를 완성합니다.',
       hero_sub:          '로직큐브는 고도화된 기술력과 금융 도메인 지식을 결합하여 국내 및 글로벌 시장을 선도하는 최적의 금융 IT 솔루션을 제공합니다.',
       hero_btn1:         '솔루션 상담하기',
       hero_btn2:         '제안서 요청 →',
       hero_title2_1:     '실시간 승인부터<br>정교한 정산까지,<br>',
-      hero_title2_accent:'금융 인터페이스의 무결성.',
+      hero_title2_accent:'금융 인터페이스의 무결성',
       hero_sub2:         '실시간 승인부터 정교한 정산까지, 금융 인터페이스의 무결성을 설계합니다.',
       // Values
       values_title:      '로직큐브가 추구하는 세 가지 핵심 가치',
@@ -1428,21 +1428,34 @@
     let   phraseTimer = null;
 
     function showPhrase(show, hide) {
+      // fade-out 먼저
       hide.style.opacity = '0';
       hide.style.pointerEvents = 'none';
-      show.style.opacity = '1';
-      show.style.pointerEvents = 'auto';
+      // 0.8초 후 fade-in (transition 시간과 동기화)
+      setTimeout(() => {
+        show.style.opacity = '1';
+        show.style.pointerEvents = 'auto';
+      }, 800);
     }
 
     function startPhraseLoop(duration) {
-      // duration: 동영상 총 길이(초). 절반 지점에서 전환
       const half = (duration / 2) * 1000;
-
       clearTimeout(phraseTimer);
-      showPhrase(phaseA, phaseB);                          // A 표시
+      // 초기: A 즉시 표시 (transition 없이)
+      phaseA.style.transition = 'none';
+      phaseB.style.transition = 'none';
+      phaseA.style.opacity = '1'; phaseA.style.pointerEvents = 'auto';
+      phaseB.style.opacity = '0'; phaseB.style.pointerEvents = 'none';
+      // transition 복원
+      requestAnimationFrame(() => {
+        requestAnimationFrame(() => {
+          phaseA.style.transition = '';
+          phaseB.style.transition = '';
+        });
+      });
 
       phraseTimer = setTimeout(() => {
-        showPhrase(phaseB, phaseA);                        // B로 전환
+        showPhrase(phaseB, phaseA);
       }, half);
     }
 
@@ -1483,7 +1496,18 @@
         e.stopPropagation();
         langSelector.classList.toggle('open');
       });
+      // 모바일 터치로 버튼 열기
+      langBtn.addEventListener('touchend', function(e) {
+        e.preventDefault();
+        e.stopPropagation();
+        langSelector.classList.toggle('open');
+      });
     }
+
+    // lang-selector 내부 터치는 닫힘 방지
+    langSelector.addEventListener('touchstart', function(e) {
+      e.stopPropagation();
+    }, { passive: true });
 
     // 외부 클릭/터치 → 드롭다운 닫기
     document.addEventListener('click', function() {
@@ -1494,29 +1518,35 @@
     }, { passive: true });
 
     document.querySelectorAll('.lang-item').forEach(item => {
+      // PC 클릭
       item.addEventListener('click', function(e) {
         e.preventDefault();
         e.stopPropagation();
-        const lang   = this.dataset.lang;
-        const imgSrc = this.dataset.img;
-        const label  = this.dataset.label;
-        const btn    = this.closest('.lang-selector').querySelector('.lang-btn');
-
-        // 버튼 UI 업데이트
-        btn.querySelector('.lang-flag-img').src = imgSrc;
-        btn.querySelector('.lang-label').textContent = label;
-
-        // active 클래스 전환
-        document.querySelectorAll('.lang-item').forEach(i => i.classList.remove('active'));
-        this.classList.add('active');
-
-        // 언어 적용 (4개 언어 모두 지원) — userSelected=true: localStorage에 저장
-        applyLang(SUPPORTED_LANGS.includes(lang) ? lang : 'ko', true);
-
-        // 드롭다운 즉시 닫기
-        this.closest('.lang-selector').classList.remove('open');
+        applyLangItem(this);
+      });
+      // 모바일 터치
+      item.addEventListener('touchend', function(e) {
+        e.preventDefault();
+        e.stopPropagation();
+        applyLangItem(this);
       });
     });
+
+    function applyLangItem(el) {
+      const lang   = el.dataset.lang;
+      const imgSrc = el.dataset.img;
+      const label  = el.dataset.label;
+      const btn    = el.closest('.lang-selector').querySelector('.lang-btn');
+
+      btn.querySelector('.lang-flag-img').src = imgSrc;
+      btn.querySelector('.lang-label').textContent = label;
+
+      document.querySelectorAll('.lang-item').forEach(i => i.classList.remove('active'));
+      el.classList.add('active');
+
+      applyLang(SUPPORTED_LANGS.includes(lang) ? lang : 'ko', true);
+      el.closest('.lang-selector').classList.remove('open');
+    }
 
     // ── 초기 언어 결정 ──────────────────────────────────────
     // 우선순위: ① localStorage 저장값(사용자가 직접 선택한 경우만)  ② 기본값 'ko'
