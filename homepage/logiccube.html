@@ -15,8 +15,8 @@
     --gray-mid: #7a8ea8;
   }
   * { margin:0; padding:0; box-sizing:border-box; }
-  html { scroll-behavior: smooth; }
-  body { font-family:'Noto Sans KR',sans-serif; overflow-x:hidden; }
+  html { scroll-behavior: smooth; overflow-x: hidden; }
+  body { font-family:'Noto Sans KR',sans-serif; overflow-x:hidden; max-width:100vw; }
 
   /* ══ GNB — 고정 ══ */
   header {
@@ -91,7 +91,7 @@
     border: 1px solid #e2eaf4;
     overflow: hidden; padding: 4px 0;
   }
-  .lang-selector:hover .lang-dropdown,
+  .lang-selector:hover .lang-dropdown { display: none; }
   .lang-selector.open .lang-dropdown { display: block; }
   .lang-item {
     display: flex; align-items: center; gap: 10px;
@@ -131,10 +131,12 @@
   #hero .hero-left {
     position: relative; z-index: 2;
     width: 52%;
+    max-width: 52%;
     height: 100%;
     display: flex; flex-direction: column; justify-content: center;
-    padding: 0 0 0 60px;
-	background: transparent;   /* ← 혹시 배경이 없다면 명시 */
+    padding: 0 40px 0 60px;   /* ← 우측 패딩 추가: 동영상 영역 침범 방지 */
+    overflow: hidden;
+	background: transparent;
   }
   .hero-badge {
     display: inline-flex; align-items: center; gap: 8px;
@@ -148,7 +150,7 @@
   .hero-title {
     font-size: clamp(32px, 3.8vw, 56px);
     font-weight: 700; color: white; line-height: 1.25;
-    margin-bottom: 14px; word-break: keep-all;
+    margin-bottom: 14px; word-break: break-word; overflow-wrap: break-word;
   }
   .hero-title .accent { color: var(--neon); }
   .hero-sub {
@@ -399,6 +401,9 @@
   .scroll-indicator:hover svg { color: var(--neon); }
   .scroll-indicator:hover span { color: rgba(255,255,255,0.7); }
 
+  .hero-phrase {
+    transition: opacity 0.8s ease;
+  }
   /* ══ ANIMATIONS ══ */
   @keyframes fadeUp {
     from { opacity:0; transform:translateY(24px); }
@@ -414,7 +419,7 @@
 
 <!-- ══ GNB ══ -->
 <header>
-  <a href="#hero" class="logo">
+  <a href="#hero" class="logo" onclick="navJump('hero');return false;">
     <div class="logo-box"><svg xmlns="http://www.w3.org/2000/svg" viewBox="34397 11288 32319 37324" width="54" height="54"><path fill="#00A1E9" d="M 50558,11288 L 50558,19110 59945,24527 59945,35369 66716,39281 66716,20621 50558,11288 Z"/><path fill="#046EB8" d="M 59945,35368 L 50559,40772 50559,40777 41168,35368 34397,39280 50559,48612 57348,44688 66716,39280 59945,35368 Z"/><path fill="#00A1E9" d="M 41169,16709 L 41169,35369 34397,39281 34397,20620 41169,16709 Z"/><path fill="#F39700" d="M 58637,25284 L 58637,34616 50554,39281 50556,29669 47372,27879 47372,30595 48123,31076 48121,36944 C 48121,36944 48121,37458 47600,37575 L 42476,34616 42476,25284 50554,20620 58637,25284 Z"/></svg></div>
     LogicCube
   </a>
@@ -483,13 +488,28 @@
       <span class="badge-dot"></span>
       20+ Years of Financial IT Excellence
     </div>
-    <h1 class="hero-title">
-      <span data-i18n="hero_title_1">금융 데이터의 가치를<br>극대화하는<br></span><span class="accent" data-i18n="hero_title_accent">논리적 설계의 완성.</span>
-    </h1>
-	<p class="hero-sub" style="font-size:15px; color:rgba(255,255,255,0.6); margin-bottom:36px; max-width:480px; line-height:1.8; word-break:keep-all;" data-i18n="hero_sub">
-	  로직큐브는 고도화된 기술력과 금융 도메인 지식을 결합하여 
-	  국내 및 글로벌 시장을 선도하는 최적의 금융 IT 솔루션을 제공합니다.
-	</p>
+
+    <!-- ── 문구 슬롯 A (0~4초): 실시간 승인 ── -->
+    <div class="hero-phrase" id="heroPhaseA">
+      <h1 class="hero-title">
+        <span data-i18n="hero_title2_1">실시간 승인부터<br>정교한 정산까지,<br></span><span class="accent" data-i18n="hero_title2_accent">금융 인터페이스의 무결성</span>
+      </h1>
+      <p class="hero-sub" style="font-size:15px; color:rgba(255,255,255,0.6); margin-bottom:36px; max-width:100%; line-height:1.8; word-break:break-word; overflow-wrap:break-word;" data-i18n="hero_sub2">
+        실시간 승인부터 정교한 정산까지, 금융 인터페이스의 무결성을 설계합니다.
+      </p>
+    </div>
+
+    <!-- ── 문구 슬롯 B (4~8초, 종료 후 유지): 금융 데이터 ── -->
+    <div class="hero-phrase" id="heroPhaseB" style="position:absolute; left:60px; right:40px; opacity:0; pointer-events:none;">
+      <h1 class="hero-title">
+        <span data-i18n="hero_title_1">금융 데이터의 가치를<br>극대화하는<br></span><span class="accent" data-i18n="hero_title_accent">논리적 설계를 완성합니다</span>
+      </h1>
+      <p class="hero-sub" style="font-size:15px; color:rgba(255,255,255,0.6); margin-bottom:36px; max-width:100%; line-height:1.8; word-break:break-word; overflow-wrap:break-word;" data-i18n="hero_sub">
+        로직큐브는 고도화된 기술력과 금융 도메인 지식을 결합하여
+        국내 및 글로벌 시장을 선도하는 최적의 금융 IT 솔루션을 제공합니다.
+      </p>
+    </div>
+
     <div class="hero-btns">
       <a href="#contact" onclick="navJump('contact');return false;" class="btn-primary" data-i18n="hero_btn1">솔루션 상담하기</a>
       <a href="#contact" onclick="navJump('contact');return false;" class="btn-ghost" data-i18n="hero_btn2">제안서 요청 →</a>
@@ -900,6 +920,9 @@
     .logo { font-size: 18px; }
     .logo-box svg { width: 40px; height: 40px; }
 
+    /* Hero 문구 B — 모바일 padding 맞춤 */
+    #heroPhaseB { left: 20px !important; right: 20px !important; }
+
     /* 공통 섹션 */
     .section { height: auto; min-height: 100svh; padding-top: 56px; }
     .section-title { font-size: clamp(22px, 6vw, 32px); margin-bottom: 28px !important; }
@@ -909,10 +932,12 @@
     #hero { display: flex; flex-direction: column; }
     #hero .hero-left {
       width: 100% !important;
+      max-width: 100% !important;
       padding: 24px 20px 0 20px !important;
       justify-content: flex-start;
+      overflow: hidden;
     }
-    .hero-title { font-size: clamp(26px, 7vw, 40px) !important; }
+    .hero-title { font-size: clamp(26px, 7vw, 40px) !important; word-break: break-word !important; }
     .hero-sub { font-size: 10px; }
     .hero-btns { flex-wrap: wrap; gap: 10px; }
     .btn-primary, .btn-ghost { padding: 11px 20px; font-size: 13px; }
@@ -1030,6 +1055,12 @@
     .section { min-height: 100svh; height: auto; padding-top: 52px; }
     header { height: 52px; }
 
+    /* 가로 모드 — 메뉴 전체 표시 */
+    nav ul li { display: flex !important; }
+    nav ul { gap: 10px; }
+    nav a { font-size: 10px; letter-spacing: 0.4px; }
+    .btn-contact { padding: 5px 12px !important; font-size: 10px !important; }
+
     /* Hero 가로모드 */
     #hero { display: grid !important; grid-template-columns: 50% 50%; align-items: center; }
     #hero .hero-left { padding: 10px 16px 10px 20px !important; width: 100% !important; }
@@ -1091,6 +1122,9 @@
       hero_sub:          '로직큐브는 고도화된 기술력과 금융 도메인 지식을 결합하여 국내 및 글로벌 시장을 선도하는 최적의 금융 IT 솔루션을 제공합니다.',
       hero_btn1:         '솔루션 상담하기',
       hero_btn2:         '제안서 요청 →',
+      hero_title2_1:     '실시간 승인부터<br>정교한 정산까지,<br>',
+      hero_title2_accent:'금융 인터페이스의 무결성.',
+      hero_sub2:         '실시간 승인부터 정교한 정산까지, 금융 인터페이스의 무결성을 설계합니다.',
       // Values
       values_title:      '로직큐브가 추구하는 세 가지 핵심 가치',
       val_precision:     '타협하지 않는 기술적 완성도로<br>최적의 시스템을 구축합니다',
@@ -1153,6 +1187,9 @@
       hero_sub:          'LogicCube combines advanced technology with deep financial domain expertise to deliver optimal financial IT solutions that lead both domestic and global markets.',
       hero_btn1:         'Get a Consultation',
       hero_btn2:         'Request a Proposal →',
+      hero_title2_1:     'From Real-Time Approval<br>to Precise Settlement,<br>',
+      hero_title2_accent:'Integrity by Design.',
+      hero_sub2:         'We architect the integrity of financial interfaces — from real-time authorization to precise settlement.',
       // Values
       values_title:      'Three Core Values That Define LogicCube',
       val_precision:     'Building the optimal system<br>with uncompromising technical excellence',
@@ -1215,6 +1252,9 @@
       hero_sub:          'LogicCube将先进技术与深厚的金融领域知识相结合，为国内外市场提供最优质的金融IT解决方案。',
       hero_btn1:         '咨询解决方案',
       hero_btn2:         '申请提案 →',
+      hero_title2_1:     '从实时授权<br>到精准清算，<br>',
+      hero_title2_accent:'金融接口的完整性设计。',
+      hero_sub2:         '从实时授权到精准清算，我们为金融接口的完整性而设计。',
       // Values
       values_title:      'LogicCube追求的三大核心价值',
       val_precision:     '以毫不妥协的技术完成度<br>构建最优化的系统',
@@ -1277,6 +1317,9 @@
       hero_sub:          'LogicCubeは高度な技術力と金融ドメインの知見を組み合わせ、国内外の市場をリードする最適な金融ITソリューションを提供します。',
       hero_btn1:         'ソリューション相談',
       hero_btn2:         '提案書を申請 →',
+      hero_title2_1:     'リアルタイム承認から<br>精緻な決済まで、<br>',
+      hero_title2_accent:'金融インターフェースの無欠性。',
+      hero_sub2:         'リアルタイム承認から精緻な決済まで、金融インターフェースの無欠性を設計します。',
       // Values
       values_title:      'LogicCubeが追求する3つのコアバリュー',
       val_precision:     '妥協しない技術的完成度で<br>最適なシステムを構築します',
@@ -1378,16 +1421,82 @@
   document.addEventListener('DOMContentLoaded', function () {
 
     // 동영상 종료 후 클릭 시 처음부터 재생
-    const heroVideo = document.getElementById('heroVideo');
+    // ── Hero 문구 전환 (동영상 타이밍 동기화) ──────────────
+    const heroVideo  = document.getElementById('heroVideo');
+    const phaseA     = document.getElementById('heroPhaseA');
+    const phaseB     = document.getElementById('heroPhaseB');
+    let   phraseTimer = null;
+
+    function showPhrase(show, hide) {
+      hide.style.opacity = '0';
+      hide.style.pointerEvents = 'none';
+      show.style.opacity = '1';
+      show.style.pointerEvents = 'auto';
+    }
+
+    function startPhraseLoop(duration) {
+      // duration: 동영상 총 길이(초). 절반 지점에서 전환
+      const half = (duration / 2) * 1000;
+
+      clearTimeout(phraseTimer);
+      showPhrase(phaseA, phaseB);                          // A 표시
+
+      phraseTimer = setTimeout(() => {
+        showPhrase(phaseB, phaseA);                        // B로 전환
+      }, half);
+    }
+
     if (heroVideo) {
-      heroVideo.addEventListener('ended', function() { this.pause(); });
-      heroVideo.addEventListener('click', function() { this.currentTime = 0; this.play(); });
+      // 동영상 메타데이터 로드 후 길이 파악 → 루프 시작
+      heroVideo.addEventListener('loadedmetadata', function() {
+        startPhraseLoop(this.duration || 8);
+      });
+
+      // 동영상 종료 → B(금융 데이터) 유지 (마지막 문구 그대로)
+      heroVideo.addEventListener('ended', function() {
+        this.pause();
+        clearTimeout(phraseTimer);
+        showPhrase(phaseB, phaseA);  // B = 금융 데이터 문구 유지
+      });
+
+      // 클릭 시 처음부터 재생 + 문구 루프 재시작
+      heroVideo.addEventListener('click', function() {
+        this.currentTime = 0;
+        this.play();
+        startPhraseLoop(this.duration || 8);
+      });
+
+      // 이미 재생 중인 경우(autoplay) 대비
+      heroVideo.addEventListener('play', function() {
+        if (this.currentTime < 0.5) {
+          startPhraseLoop(this.duration || 8);
+        }
+      });
     }
 
     // 언어 선택 클릭 이벤트
+    // 언어 버튼 클릭 → 드롭다운 토글
+    const langSelector = document.querySelector('.lang-selector');
+    const langBtn      = document.getElementById('langBtn');
+    if (langBtn) {
+      langBtn.addEventListener('click', function(e) {
+        e.stopPropagation();
+        langSelector.classList.toggle('open');
+      });
+    }
+
+    // 외부 클릭/터치 → 드롭다운 닫기
+    document.addEventListener('click', function() {
+      langSelector.classList.remove('open');
+    });
+    document.addEventListener('touchstart', function() {
+      langSelector.classList.remove('open');
+    }, { passive: true });
+
     document.querySelectorAll('.lang-item').forEach(item => {
       item.addEventListener('click', function(e) {
         e.preventDefault();
+        e.stopPropagation();
         const lang   = this.dataset.lang;
         const imgSrc = this.dataset.img;
         const label  = this.dataset.label;
@@ -1404,7 +1513,7 @@
         // 언어 적용 (4개 언어 모두 지원) — userSelected=true: localStorage에 저장
         applyLang(SUPPORTED_LANGS.includes(lang) ? lang : 'ko', true);
 
-        // 드롭다운 닫기
+        // 드롭다운 즉시 닫기
         this.closest('.lang-selector').classList.remove('open');
       });
     });
