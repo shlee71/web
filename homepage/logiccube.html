@@ -157,9 +157,17 @@
   body[data-lang="ja"] .hero-title { font-size: clamp(24px, 2.6vw, 38px); }
   .hero-title .accent { color: var(--neon); }
   .hero-sub {
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'Noto Sans KR', sans-serif;
     font-size: 11px; letter-spacing: 2.5px; text-transform: uppercase;
     color: rgba(255,255,255,0.35); margin-bottom: 36px;
+  }
+  /* 영어·중국어·일본어: 본문 서체로 전환, 대문자/자간 제거 */
+  body[data-lang="en"] .hero-sub,
+  body[data-lang="zh"] .hero-sub,
+  body[data-lang="ja"] .hero-sub {
+    font-family: 'Noto Sans KR', sans-serif;
+    text-transform: none;
+    letter-spacing: 0;
   }
   .hero-btns { display: flex; gap: 14px; }
   .btn-primary {
