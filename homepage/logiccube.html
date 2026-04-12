@@ -15,7 +15,7 @@
     --gray-mid: #7a8ea8;
   }
   * { margin:0; padding:0; box-sizing:border-box; }
-  html { scroll-behavior: smooth; overflow-x: hidden; }
+  html { scroll-behavior: auto; overflow-x: hidden; }
   body { font-family:'Noto Sans KR',sans-serif; overflow-x:hidden; max-width:100vw; }
 
   /* ══ GNB — 고정 ══ */
@@ -531,7 +531,7 @@
 		<div class="hero-video-container">
 			<video 
 				id="heroVideo"
-				src="public/images/logiccube-hero-move_0.mp4" 
+				src="public/images/logiccube-hero-move.mp4" 
 				autoplay 
 				muted 
 				playsinline
@@ -611,8 +611,8 @@
       <div class="about-feat">
         <div class="feat-dot"></div>
         <div class="feat-text">
-          <h4 data-i18n="about_feat3_title">VISA · Master · JCB · CUP · Amex 글로벌카드 지원</h4>
-          <p data-i18n="about_feat3_desc">주요 글로벌 카드 브랜드와의 완벽한 인터페이스를 제공합니다.</p>
+          <h4 data-i18n="about_feat3_title">주요 글로벌 브랜드 카드사와 Interface 개발</h4>
+          <p data-i18n="about_feat3_desc"> VISA,Master,JCB,CUP,AMEX 글로벌 카드사와 완벽한 인터페이스를 지원합니다.</p>
         </div>
       </div>
     </div>
@@ -849,7 +849,7 @@
       <div class="contact-card" style="cursor:pointer;" onclick="window.open('https://mail.google.com/mail/?view=cm&to=bizinfo@logiccube.co.kr&su=문의하기&body=안녕하세요, 로직큐브(주)에 문의드립니다.', '_blank');">
         <div style="font-size:52px; margin-bottom:12px;">✉️</div>
         <div style="font-size:20px; font-weight:800; letter-spacing:2px; text-transform:uppercase; color:#001428; margin-bottom:8px; font-family:'Montserrat',sans-serif;" data-i18n="contact_email_label">이메일 / 웹</div>
-        <div style="font-size:20px; font-weight:700; color:#001428; line-height:1.7;">bizinfo@logiccube.co.kr<br>www.logiccube.co.kr</div>
+        <div style="font-size:20px; font-weight:700; color:#001428; line-height:1.7;"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="8defe4f7e4e3ebe2cde1e2eae4eeeef8efe8a3eee2a3e6ff">[email&#160;protected]</a><br>www.logiccube.co.kr</div>
       </div>
       <!-- 전화 BOX: 모바일에서만 전화 연결 -->
       <div class="contact-card" id="phone-card">
@@ -1160,7 +1160,7 @@
   }
 </style>
 
-<script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
   // ══════════════════════════════════════════
   //  i18n 번역 데이터
   // ══════════════════════════════════════════
@@ -1187,8 +1187,8 @@
       about_feat1_desc:  '비동기 Message Queuing 기반 고성능 처리 엔진으로 금융 트랜잭션의 실시간 처리를 보장합니다.',
       about_feat2_title: 'Fail-Over / Fail-Back 자동 전환',
       about_feat2_desc:  'SAF 장애 복구 메커니즘으로 24/365 무중단 서비스를 실현합니다.',
-      about_feat3_title: 'VISA · Master · JCB · CUP · Amex 글로벌카드 지원',
-      about_feat3_desc:  '주요 글로벌 카드 브랜드와의 완벽한 인터페이스를 제공합니다.',
+      about_feat3_title: '주요 글로벌 브랜드 카드사와 Interface 개발',
+      about_feat3_desc:  'VISA, Master, JCB, CUP, AMEX 글로벌 카드사와 완벽한 인터페이스를 지원합니다.',
       // Solutions
       sol_title:    '금융 IT를 위한 검증된 핵심 솔루션',
       sol1_sub:     '대외계 솔루션',
@@ -1253,8 +1253,8 @@
       about_feat1_desc:  'Our high-performance processing engine based on asynchronous Message Queuing guarantees real-time processing of financial transactions.',
       about_feat2_title: 'Automatic Fail-Over / Fail-Back Switching',
       about_feat2_desc:  'SAF failure recovery mechanism delivers 24/365 uninterrupted service.',
-      about_feat3_title: 'Global Card Support: VISA · Master · JCB · CUP · Amex',
-      about_feat3_desc:  'We provide seamless interfaces with all major global card brands.',
+      about_feat3_title: 'Interface Development with Global Card Brands',
+      about_feat3_desc:  'We provide seamless interfaces with VISA, Master, JCB, CUP, and AMEX global card networks.',
       // Solutions
       sol_title:    'Proven Core Solutions for Financial IT',
       sol1_sub:     'External Interface Solution',
@@ -1271,8 +1271,9 @@
       exp_stat4:          'Expert Engineers',
       exp_partners_label: 'Key Partners',
       exp_cert1:          'Shinhan Card ICT Excellence Partner Certification (2019)',
-      exp_cert2:          'Venture Company Registration — KIBO Technology Guarantee Fund (2007)',
-      exp_cert3:          'Corporate R&D Center Established — KIAT (2008)',
+      exp_cert2:          'IBK Industrial Bank of Korea POST Next-Generation System (2014)',
+      exp_cert3:          'Shinhan Card Next-Generation System (2012)',
+      exp_cert4:          'NH NongHyup Card Next-Generation System (2010)',
       // Technology
       tech_title:   'Unrivaled Technology',
       tech1_title:  'High-Speed Processing',
@@ -1318,8 +1319,8 @@
       about_feat1_desc:  '基于异步消息队列的高性能处理引擎，保障金融交易的实时处理。',
       about_feat2_title: 'Fail-Over / Fail-Back 自动切换',
       about_feat2_desc:  'SAF故障恢复机制实现24/365不间断服务。',
-      about_feat3_title: '支持VISA · Master · JCB · CUP · Amex全球卡',
-      about_feat3_desc:  '与各大全球卡品牌提供完善的接口对接。',
+      about_feat3_title: '与主要全球品牌卡公司的接口开发',
+      about_feat3_desc:  '与VISA、Master、JCB、CUP、AMEX等全球卡公司提供完善的接口支持。',
       // Solutions
       sol_title:    '经过验证的金融IT核心解决方案',
       sol1_sub:     '对外接口解决方案',
@@ -1336,8 +1337,9 @@
       exp_stat4:          '专业工程师',
       exp_partners_label: '主要合作伙伴',
       exp_cert1:          '新韩卡ICT优秀合作伙伴认证 (2019)',
-      exp_cert2:          '风险企业注册 — KIBO技术保证基金 (2007)',
-      exp_cert3:          '企业附设研究所成立 — 韩国产业技术振兴院 (2008)',
+      exp_cert2:          'IBK企业银行POST新一代系统构建 (2014)',
+      exp_cert3:          '新韩卡新一代系统构建 (2012)',
+      exp_cert4:          'NH农协卡新一代系统构建 (2010)',
       // Technology
       tech_title:   '卓越的技术实力',
       tech1_title:  '高速处理',
@@ -1383,8 +1385,8 @@
       about_feat1_desc:  '非同期メッセージキューイングベースの高性能処理エンジンで、金融トランザクションのリアルタイム処理を保証します。',
       about_feat2_title: 'Fail-Over / Fail-Back 自動切替',
       about_feat2_desc:  'SAF障害復旧メカニズムにより、24/365の無停止サービスを実現します。',
-      about_feat3_title: 'VISA · Master · JCB · CUP · Amex グローバルカード対応',
-      about_feat3_desc:  '主要なグローバルカードブランドとの完全なインターフェースを提供します。',
+      about_feat3_title: '主要グローバルブランドカード会社とのインターフェース開発',
+      about_feat3_desc:  'VISA、Master、JCB、CUP、AMEXグローバルカード会社との完全なインターフェースを提供します。',
       // Solutions
       sol_title:    '金融ITのための実績ある中核ソリューション',
       sol1_sub:     '対外系ソリューション',
@@ -1401,8 +1403,9 @@
       exp_stat4:          '専門エンジニア',
       exp_partners_label: '主要パートナー',
       exp_cert1:          '新韓カード ICT優秀パートナー認定 (2019)',
-      exp_cert2:          'ベンチャー企業登録 — KIBO技術保証基金 (2007)',
-      exp_cert3:          '企業付設研究所設立 — 韓国産業技術振興院 (2008)',
+      exp_cert2:          'IBK企業銀行 POST次世代システム構築 (2014)',
+      exp_cert3:          '新韓カード次世代システム構築 (2012)',
+      exp_cert4:          'NH農協カード次世代システム構築 (2010)',
       // Technology
       tech_title:   '圧倒的な技術力',
       tech1_title:  '高速処理',
@@ -1648,15 +1651,4 @@
     const isMobile = /Android|iPhone|iPad|iPod|Mobile/i.test(navigator.userAgent);
     if (isMobile) {
       const phoneCard = document.getElementById('phone-card');
-      if (phoneCard) {
-        phoneCard.style.cursor = 'pointer';
-        phoneCard.addEventListener('click', function() {
-          window.location.href = 'tel:0262818181';
-        });
-      }
-    }
-  })();
-
-</script>
-</body>
-</html>
+ 
