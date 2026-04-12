@@ -611,7 +611,7 @@
       <div class="about-feat">
         <div class="feat-dot"></div>
         <div class="feat-text">
-          <h4 data-i18n="about_feat3_title">주요 글로벌 브랜드 카드사와 Interface 개발</h4>
+          <h4 data-i18n="about_feat3_title">주요 글로벌 브랜드 카드사와 비지니스 연결</h4>
           <p data-i18n="about_feat3_desc"> VISA,Master,JCB,CUP,AMEX 글로벌 카드사와 완벽한 인터페이스를 지원합니다.</p>
         </div>
       </div>
@@ -849,7 +849,7 @@
       <div class="contact-card" style="cursor:pointer;" onclick="window.open('https://mail.google.com/mail/?view=cm&to=bizinfo@logiccube.co.kr&su=문의하기&body=안녕하세요, 로직큐브(주)에 문의드립니다.', '_blank');">
         <div style="font-size:52px; margin-bottom:12px;">✉️</div>
         <div style="font-size:20px; font-weight:800; letter-spacing:2px; text-transform:uppercase; color:#001428; margin-bottom:8px; font-family:'Montserrat',sans-serif;" data-i18n="contact_email_label">이메일 / 웹</div>
-        <div style="font-size:20px; font-weight:700; color:#001428; line-height:1.7;"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="8defe4f7e4e3ebe2cde1e2eae4eeeef8efe8a3eee2a3e6ff">[email&#160;protected]</a><br>www.logiccube.co.kr</div>
+        <div style="font-size:20px; font-weight:700; color:#001428; line-height:1.7;">bizinfo@logiccube.co.kr<br>www.logiccube.co.kr</div>
       </div>
       <!-- 전화 BOX: 모바일에서만 전화 연결 -->
       <div class="contact-card" id="phone-card">
@@ -1160,7 +1160,7 @@
   }
 </style>
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+<script>
   // ══════════════════════════════════════════
   //  i18n 번역 데이터
   // ══════════════════════════════════════════
@@ -1187,8 +1187,8 @@
       about_feat1_desc:  '비동기 Message Queuing 기반 고성능 처리 엔진으로 금융 트랜잭션의 실시간 처리를 보장합니다.',
       about_feat2_title: 'Fail-Over / Fail-Back 자동 전환',
       about_feat2_desc:  'SAF 장애 복구 메커니즘으로 24/365 무중단 서비스를 실현합니다.',
-      about_feat3_title: '주요 글로벌 브랜드 카드사와 Interface 개발',
-      about_feat3_desc:  'VISA, Master, JCB, CUP, AMEX 글로벌 카드사와 완벽한 인터페이스를 지원합니다.',
+      about_feat3_title: '주요 글로벌 브랜드 카드사와 비지니스 개발',
+      about_feat3_desc:  'VISA,Master,JCB,CUP,AMEX 글로벌 카드사와 완벽한 인터페이스를 지원합니다.',
       // Solutions
       sol_title:    '금융 IT를 위한 검증된 핵심 솔루션',
       sol1_sub:     '대외계 솔루션',
@@ -1651,4 +1651,15 @@
     const isMobile = /Android|iPhone|iPad|iPod|Mobile/i.test(navigator.userAgent);
     if (isMobile) {
       const phoneCard = document.getElementById('phone-card');
- 
+      if (phoneCard) {
+       phoneCard.style.cursor = 'pointer';
+       phoneCard.addEventListener('click', function() {
+         window.location.href = 'tel:0262818181';
+       });
+     }
+    }
+  })();
+
+</script>
+</body>
+</html>
