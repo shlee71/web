@@ -840,21 +840,21 @@
         귀사를 위한 최적화된 솔루션과 데이터의 가치를 실현합니다.<br>
       <span style="color:rgba(255,255,255,0.55); font-weight:600;" data-i18n="contact_sub2">지금 바로 문의하세요.</span></p>
     <!-- 연락처 카드 -->
-    <div style="display:grid; grid-template-columns:repeat(3,1fr); gap:16px; width:100%; max-width:860px; margin-bottom:14px;" class="contact-grid">
+    <div style="display:grid; grid-template-columns:repeat(3,1fr); gap:16px; width:100%; max-width:920px; margin-bottom:14px;" class="contact-grid">
       <div class="contact-card">
-        <div style="font-size:26px; margin-bottom:12px;">✉️</div>
-        <div style="font-size:10px; font-weight:700; letter-spacing:2px; text-transform:uppercase; color:var(--neon); margin-bottom:8px; font-family:'Montserrat',sans-serif;" data-i18n="contact_email_label">이메일 / 웹</div>
-        <div style="font-size:13px; color:rgba(255,255,255,0.7); line-height:1.7;"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="70131f1e04111304301c1f171913130512155e131f5e1b02">[email&#160;protected]</a><br>www.logiccube.co.kr</div>
+        <div style="font-size:52px; margin-bottom:12px;">✉️</div>
+        <div style="font-size:20px; font-weight:800; letter-spacing:2px; text-transform:uppercase; color:#001428; margin-bottom:8px; font-family:'Montserrat',sans-serif;" data-i18n="contact_email_label">이메일 / 웹</div>
+        <div style="font-size:20px; font-weight:700; color:#001428; line-height:1.7;"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="70131f1e04111304301c1f171913130512155e131f5e1b02">[email&#160;protected]</a><br>www.logiccube.co.kr</div>
       </div>	
-      <div class="contact-card">
-        <div style="font-size:26px; margin-bottom:12px;">📞</div>
-        <div style="font-size:10px; font-weight:700; letter-spacing:2px; text-transform:uppercase; color:var(--neon); margin-bottom:8px; font-family:'Montserrat',sans-serif;" data-i18n="contact_phone_label">전화 / 팩스</div>
-        <div style="font-size:13px; color:rgba(255,255,255,0.7); line-height:1.7;">T. 02) 6281-8181~2<br>F. 02) 6281-8183</div>
+      <div class="contact-card" id="phone-card">
+        <div style="font-size:52px; margin-bottom:12px;">📞</div>
+        <div style="font-size:20px; font-weight:800; letter-spacing:2px; text-transform:uppercase; color:#001428; margin-bottom:8px; font-family:'Montserrat',sans-serif;" data-i18n="contact_phone_label">전화 / 팩스</div>
+        <div style="font-size:20px; font-weight:700; color:#001428; line-height:1.7;" id="phone-number">T. 02) 6281-8181~2<br>F. 02) 6281-8183</div>
       </div>
       <div class="contact-card">
-        <div style="font-size:26px; margin-bottom:12px;">📍</div>
-        <div style="font-size:10px; font-weight:700; letter-spacing:2px; text-transform:uppercase; color:var(--neon); margin-bottom:8px; font-family:'Montserrat',sans-serif;" data-i18n="contact_addr_label">주소</div>
-        <div style="font-size:13px; color:rgba(255,255,255,0.7); line-height:1.7;" data-i18n="contact_addr">서울시 송파구 법원로 11길 25<br>에이치비지니스파크 A동 1212호</div>
+        <div style="font-size:52px; margin-bottom:12px;">📍</div>
+        <div style="font-size:20px; font-weight:800; letter-spacing:2px; text-transform:uppercase; color:#001428; margin-bottom:8px; font-family:'Montserrat',sans-serif;" data-i18n="contact_addr_label">주소</div>
+        <div style="font-size:18px; font-weight:700; color:#001428; line-height:1.7;" data-i18n="contact_addr">서울시 송파구 법원로 11길 25<br>에이치비지니스파크 A동 1212호</div>
       </div>	  
     </div>
 
@@ -945,7 +945,9 @@
 
   /* ══ Contact ══ */
   .contact-card {
-    padding: 28px 20px; border-radius: 14px; border: 1px solid rgba(0,191,255,0.15); text-align: center; }
+    padding: 24px 18px; border-radius: 14px; border: 1px solid rgba(0,191,255,0.4); text-align: center;
+    background: var(--neon);
+  }
 
   /* ══════════════════════════════════════════
      📱 반응형 — 태블릿 (768px 이하)
@@ -1632,6 +1634,20 @@
 
     activateLangUI(detectLang());
   });
+  // 모바일 기기에서만 전화 BOX 클릭 시 전화 연결
+  (function() {
+    const isMobile = /Android|iPhone|iPad|iPod|Mobile/i.test(navigator.userAgent);
+    if (isMobile) {
+      const phoneCard = document.getElementById('phone-card');
+      if (phoneCard) {
+        phoneCard.style.cursor = 'pointer';
+        phoneCard.addEventListener('click', function() {
+          window.location.href = 'tel:0262818181';
+        });
+      }
+    }
+  })();
+
 </script>
 </body>
 </html>
