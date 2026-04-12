@@ -846,10 +846,11 @@
     <!-- 연락처 카드 -->
     <div style="display:grid; grid-template-columns:repeat(3,1fr); gap:16px; width:100%; max-width:920px; margin-bottom:14px;" class="contact-grid">
       <!-- 이메일 BOX: Gmail 웹으로 열기 -->
-      <div class="contact-card" style="cursor:pointer;" onclick="window.open('https://mail.google.com/mail/?view=cm&to=bizinfo@logiccube.co.kr&su=문의하기&body=안녕하세요, 로직큐브(주)에 문의드립니다.', '_blank');">
+      <div class="contact-card" style="cursor:pointer;" onclick="(function(){var u='bizinfo',d='logiccube.co.kr';window.open('https://mail.google.com/mail/?view=cm&to='+u+'@'+d+'&su=문의하기&body=안녕하세요, 로직큐브(주)에 문의드립니다.','_blank');})();">
         <div style="font-size:52px; margin-bottom:12px;">✉️</div>
         <div style="font-size:20px; font-weight:800; letter-spacing:2px; text-transform:uppercase; color:#001428; margin-bottom:8px; font-family:'Montserrat',sans-serif;" data-i18n="contact_email_label">이메일 / 웹</div>
-        <div style="font-size:20px; font-weight:700; color:#001428; line-height:1.7;"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="4a28233023242c250a26252d2329293f282f642925642138">[email&#160;protected]</a><br>www.logiccube.co.kr</div>
+        <div style="font-size:20px; font-weight:700; color:#001428; line-height:1.7;"><span id="email-display"></span><br>www.logiccube.co.kr</div>
+        <div style="font-size:12px; color:#0055aa; margin-top:10px; font-weight:600;">📧 Gmail로 메일 보내기</div>
       </div>
       <!-- 전화 BOX: 모바일에서만 전화 연결 -->
       <div class="contact-card" id="phone-card">
