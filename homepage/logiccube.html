@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>로직큐브 - 금융 시스템의 가치를 실현하는 기업</title>
+<title>로직큐브 - 금융 데이터의 가치를 실현하는 기업</title>
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
 <style>
   :root {
@@ -15,7 +15,7 @@
     --gray-mid: #7a8ea8;
   }
   * { margin:0; padding:0; box-sizing:border-box; }
-  html { scroll-behavior: auto; overflow-x: hidden; }
+  html { scroll-behavior: smooth; overflow-x: hidden; }
   body { font-family:'Noto Sans KR',sans-serif; overflow-x:hidden; max-width:100vw; }
 
   /* ══ GNB — 고정 ══ */
@@ -531,7 +531,7 @@
 		<div class="hero-video-container">
 			<video 
 				id="heroVideo"
-				src="public/images/logiccube-hero-move.mp4" 
+				src="public/images/logiccube-hero-move_0.mp4" 
 				autoplay 
 				muted 
 				playsinline
@@ -561,7 +561,7 @@
           <img src="public/images/core_precision.jpg" alt="Precision">
         </div>
         <div class="val-name">Precision</div>
-        <div class="val-desc" data-i18n="val_precision">20년 이상 축적된 기술 노하우로<br>최적의 시스템을 구축합니다</div>
+        <div class="val-desc" data-i18n="val_precision">오랜기간 축적된 기술적 완성도로<br>최적의 시스템을 구축합니다</div>
       </div>
       <div class="val-card">
         <div class="val-img">
@@ -611,8 +611,8 @@
       <div class="about-feat">
         <div class="feat-dot"></div>
         <div class="feat-text">
-          <h4 data-i18n="about_feat3_title">주요 글로벌 브랜드 카드사와 시스템 연결</h4>
-          <p data-i18n="about_feat3_desc"> VISA, Master, JCB, CUP, AMEX 카드사와 완벽한 인터페이스를 지원합니다.</p>
+          <h4 data-i18n="about_feat3_title">VISA · Master · JCB · CUP · Amex 글로벌카드 지원</h4>
+          <p data-i18n="about_feat3_desc">주요 글로벌 카드 브랜드와의 완벽한 인터페이스를 제공합니다.</p>
         </div>
       </div>
     </div>
@@ -846,11 +846,10 @@
     <!-- 연락처 카드 -->
     <div style="display:grid; grid-template-columns:repeat(3,1fr); gap:16px; width:100%; max-width:920px; margin-bottom:14px;" class="contact-grid">
       <!-- 이메일 BOX: Gmail 웹으로 열기 -->
-      <div class="contact-card" style="cursor:pointer;" onclick="(function(){var u='bizinfo',d='logiccube.co.kr';window.open('https://mail.google.com/mail/?view=cm&to='+u+'@'+d+'&su=문의하기&body=안녕하세요, 로직큐브(주)에 문의드립니다.','_blank');})();">
+      <div class="contact-card" style="cursor:pointer;" onclick="window.open('https://mail.google.com/mail/?view=cm&to=bizinfo@logiccube.co.kr&su=문의하기&body=안녕하세요, 로직큐브(주)에 문의드립니다.', '_blank');">
         <div style="font-size:52px; margin-bottom:12px;">✉️</div>
         <div style="font-size:20px; font-weight:800; letter-spacing:2px; text-transform:uppercase; color:#001428; margin-bottom:8px; font-family:'Montserrat',sans-serif;" data-i18n="contact_email_label">이메일 / 웹</div>
-        <div style="font-size:20px; font-weight:700; color:#001428; line-height:1.7;"><span id="email-display"></span><br>www.logiccube.co.kr</div>
-        <div style="font-size:12px; color:#0055aa; margin-top:10px; font-weight:600;">📧 Gmail로 메일 보내기</div>
+        <div style="font-size:20px; font-weight:700; color:#001428; line-height:1.7;"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="b8dad1c2d1d6ded7f8d4d7dfd1dbdbcddadd96dbd796d3ca">[email&#160;protected]</a><br>www.logiccube.co.kr</div>
       </div>
       <!-- 전화 BOX: 모바일에서만 전화 연결 -->
       <div class="contact-card" id="phone-card">
@@ -862,17 +861,17 @@
       <div class="contact-card" style="cursor:pointer;" onclick="window.open('https://map.kakao.com/?sName=&eName=H비즈니스파크+A동&eX=525705&eY=1107095', '_blank');">
         <div style="font-size:52px; margin-bottom:12px;">📍</div>
         <div style="font-size:20px; font-weight:800; letter-spacing:2px; text-transform:uppercase; color:#001428; margin-bottom:8px; font-family:'Montserrat',sans-serif;" data-i18n="contact_addr_label">주소</div>
-        <div style="font-size:18px; font-weight:700; color:#001428; line-height:1.7;" data-i18n="contact_addr">서울시 송파구 법원로11길 25<br>에이치비지니스파크 A동 1212호</div>
+        <div style="font-size:18px; font-weight:700; color:#001428; line-height:1.7;" data-i18n="contact_addr">서울시 송파구 법원로 11길 25<br>에이치비지니스파크 A동 1212호</div>
         <div style="font-size:12px; color:#0066cc; margin-top:10px; font-weight:600;">🗺 카카오맵으로 길찾기</div>
       </div>
     </div>
 
     <!-- CTA 버튼 -->
     <div style="display:flex; gap:12px; margin-top:4px;">
-      <a href="#" onclick="(function(){var u='bizinfo',d='logiccube.co.kr';window.open('https://mail.google.com/mail/?view=cm&to='+u+'@'+d+'&su=문의하기&body=안녕하세요, 로직큐브(주)에 문의드립니다.','_blank');return false;})()" class="btn-primary" style="font-size:14px; padding:13px 32px;" data-i18n="contact_cta1">문의하기</a>
-      <a href="#" onclick="(function(){var u='bizinfo',d='logiccube.co.kr';window.open('https://mail.google.com/mail/?view=cm&to='+u+'@'+d+'&su=제안서 요청&body=안녕하세요, 로직큐브(주)에 제안서 요청드립니다.','_blank');return false;})()" class="btn-ghost" style="font-size:14px; padding:13px 28px;" data-i18n="contact_cta2">제안서 요청 →</a>
+      <a href="https://mail.google.com/mail/?view=cm&to=bizinfo@logiccube.co.kr&su=문의하기&body=안녕하세요, 로직큐브(주)에 문의드립니다." target="_blank" class="btn-primary" style="font-size:14px; padding:13px 32px;" data-i18n="contact_cta1">문의하기</a>
+      <a href="https://mail.google.com/mail/?view=cm&to=bizinfo@logiccube.co.kr&su=제안서 요청&body=안녕하세요, 로직큐브(주)에 제안서 요청드립니다." target="_blank" class="btn-ghost" style="font-size:14px; padding:13px 28px;" data-i18n="contact_cta2">제안서 요청 →</a>
     </div>
-    <div style="margin-top:24px; text-align:center; line-height:2.2;">
+    <div style="margin-top:24px; text-align:center; line-height:2.2; padding-bottom:20px;">
       <div style="font-size:12px; font-weight:600; color:rgba(255,255,255,0.5); font-family:'Montserrat',sans-serif;">© 2026 LogicCube Inc. All rights reserved.</div>
     </div>
   </div>
@@ -1161,7 +1160,7 @@
   }
 </style>
 
-<script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
   // ══════════════════════════════════════════
   //  i18n 번역 데이터
   // ══════════════════════════════════════════
@@ -1178,7 +1177,7 @@
       hero_sub2:         '실시간 승인부터 정교한 정산까지, 금융 인터페이스의 무결성을 설계합니다.',
       // Values
       values_title:      '로직큐브가 추구하는 세 가지 핵심 가치',
-      val_precision:     '20년 이상 축적된 기술 노하우로<br>최적의 시스템을 구축합니다',
+      val_precision:     '타협하지 않는 기술적 완성도로<br>최적의 시스템을 구축합니다',
       val_reliability:   '어떤 환경에서도 중단 없는<br>안정적인 데이터 연결을 보장합니다',
       val_innovation:    '차세대 네트워크 환경을 선도하는<br>지능형 로직을 개발합니다',
       // About
@@ -1188,8 +1187,8 @@
       about_feat1_desc:  '비동기 Message Queuing 기반 고성능 처리 엔진으로 금융 트랜잭션의 실시간 처리를 보장합니다.',
       about_feat2_title: 'Fail-Over / Fail-Back 자동 전환',
       about_feat2_desc:  'SAF 장애 복구 메커니즘으로 24/365 무중단 서비스를 실현합니다.',
-      about_feat3_title: '주요 글로벌 브랜드 카드사와 시스템 연결',
-      about_feat3_desc:  'VISA, Master, JCB, CUP, AMEX 글로벌 카드사와 완벽한 인터페이스를 지원합니다.',
+      about_feat3_title: 'VISA · Master · JCB · CUP · Amex 글로벌카드 지원',
+      about_feat3_desc:  '주요 글로벌 카드 브랜드와의 완벽한 인터페이스를 제공합니다.',
       // Solutions
       sol_title:    '금융 IT를 위한 검증된 핵심 솔루션',
       sol1_sub:     '대외계 솔루션',
@@ -1244,7 +1243,7 @@
       hero_sub2:         'We architect the integrity of financial interfaces — from real-time authorization to precise settlement.',
       // Values
       values_title:      'Three Core Values That Define LogicCube',
-      val_precision:     'Building the optimal system<br>with 20+ years of accumulated expertise',
+      val_precision:     'Building the optimal system<br>with uncompromising technical excellence',
       val_reliability:   'Guaranteeing stable, uninterrupted<br>data connectivity in any environment',
       val_innovation:    'Developing intelligent logic<br>that leads next-generation networks',
       // About
@@ -1254,8 +1253,8 @@
       about_feat1_desc:  'Our high-performance processing engine based on asynchronous Message Queuing guarantees real-time processing of financial transactions.',
       about_feat2_title: 'Automatic Fail-Over / Fail-Back Switching',
       about_feat2_desc:  'SAF failure recovery mechanism delivers 24/365 uninterrupted service.',
-      about_feat3_title: 'Interface Development with Global Card Brands',
-      about_feat3_desc:  'We provide seamless interfaces with VISA, Master, JCB, CUP, and AMEX global card networks.',
+      about_feat3_title: 'Global Card Support: VISA · Master · JCB · CUP · Amex',
+      about_feat3_desc:  'We provide seamless interfaces with all major global card brands.',
       // Solutions
       sol_title:    'Proven Core Solutions for Financial IT',
       sol1_sub:     'External Interface Solution',
@@ -1272,9 +1271,8 @@
       exp_stat4:          'Expert Engineers',
       exp_partners_label: 'Key Partners',
       exp_cert1:          'Shinhan Card ICT Excellence Partner Certification (2019)',
-      exp_cert2:          'IBK Industrial Bank of Korea POST Next-Generation System (2014)',
-      exp_cert3:          'Shinhan Card Next-Generation System (2012)',
-      exp_cert4:          'NH NongHyup Card Next-Generation System (2010)',
+      exp_cert2:          'Venture Company Registration — KIBO Technology Guarantee Fund (2007)',
+      exp_cert3:          'Corporate R&D Center Established — KIAT (2008)',
       // Technology
       tech_title:   'Unrivaled Technology',
       tech1_title:  'High-Speed Processing',
@@ -1310,7 +1308,7 @@
       hero_sub2:         '从实时授权到精准清算，我们为金融接口的完整性而设计。',
       // Values
       values_title:      'LogicCube追求的三大核心价值',
-      val_precision:     '凭借20年以上积累的技术诀窍<br>构建最优化的系统',
+      val_precision:     '以毫不妥协的技术完成度<br>构建最优化的系统',
       val_reliability:   '在任何环境下保障<br>稳定、不间断的数据连接',
       val_innovation:    '开发引领下一代网络环境<br>的智能逻辑',
       // About
@@ -1320,8 +1318,8 @@
       about_feat1_desc:  '基于异步消息队列的高性能处理引擎，保障金融交易的实时处理。',
       about_feat2_title: 'Fail-Over / Fail-Back 自动切换',
       about_feat2_desc:  'SAF故障恢复机制实现24/365不间断服务。',
-      about_feat3_title: '与主要全球品牌卡公司的接口开发',
-      about_feat3_desc:  '与VISA、Master、JCB、CUP、AMEX等全球卡公司提供完善的接口支持。',
+      about_feat3_title: '支持VISA · Master · JCB · CUP · Amex全球卡',
+      about_feat3_desc:  '与各大全球卡品牌提供完善的接口对接。',
       // Solutions
       sol_title:    '经过验证的金融IT核心解决方案',
       sol1_sub:     '对外接口解决方案',
@@ -1338,9 +1336,8 @@
       exp_stat4:          '专业工程师',
       exp_partners_label: '主要合作伙伴',
       exp_cert1:          '新韩卡ICT优秀合作伙伴认证 (2019)',
-      exp_cert2:          'IBK企业银行POST新一代系统构建 (2014)',
-      exp_cert3:          '新韩卡新一代系统构建 (2012)',
-      exp_cert4:          'NH农协卡新一代系统构建 (2010)',
+      exp_cert2:          '风险企业注册 — KIBO技术保证基金 (2007)',
+      exp_cert3:          '企业附设研究所成立 — 韩国产业技术振兴院 (2008)',
       // Technology
       tech_title:   '卓越的技术实力',
       tech1_title:  '高速处理',
@@ -1376,7 +1373,7 @@
       hero_sub2:         'リアルタイム承認から精緻な決済まで、金融インターフェースの無欠性を設計します。',
       // Values
       values_title:      'LogicCubeが追求する3つのコアバリュー',
-      val_precision:     '20年以上培われた技術ノウハウで<br>最適なシステムを構築します',
+      val_precision:     '妥協しない技術的完成度で<br>最適なシステムを構築します',
       val_reliability:   'いかなる環境でも途切れない<br>安定したデータ接続を保証します',
       val_innovation:    '次世代ネットワーク環境をリードする<br>インテリジェントなロジックを開発します',
       // About
@@ -1386,8 +1383,8 @@
       about_feat1_desc:  '非同期メッセージキューイングベースの高性能処理エンジンで、金融トランザクションのリアルタイム処理を保証します。',
       about_feat2_title: 'Fail-Over / Fail-Back 自動切替',
       about_feat2_desc:  'SAF障害復旧メカニズムにより、24/365の無停止サービスを実現します。',
-      about_feat3_title: '主要グローバルブランドカード会社とのインターフェース開発',
-      about_feat3_desc:  'VISA、Master、JCB、CUP、AMEXグローバルカード会社との完全なインターフェースを提供します。',
+      about_feat3_title: 'VISA · Master · JCB · CUP · Amex グローバルカード対応',
+      about_feat3_desc:  '主要なグローバルカードブランドとの完全なインターフェースを提供します。',
       // Solutions
       sol_title:    '金融ITのための実績ある中核ソリューション',
       sol1_sub:     '対外系ソリューション',
@@ -1404,9 +1401,8 @@
       exp_stat4:          '専門エンジニア',
       exp_partners_label: '主要パートナー',
       exp_cert1:          '新韓カード ICT優秀パートナー認定 (2019)',
-      exp_cert2:          'IBK企業銀行 POST次世代システム構築 (2014)',
-      exp_cert3:          '新韓カード次世代システム構築 (2012)',
-      exp_cert4:          'NH農協カード次世代システム構築 (2010)',
+      exp_cert2:          'ベンチャー企業登録 — KIBO技術保証基金 (2007)',
+      exp_cert3:          '企業付設研究所設立 — 韓国産業技術振興院 (2008)',
       // Technology
       tech_title:   '圧倒的な技術力',
       tech1_title:  '高速処理',
@@ -1464,11 +1460,15 @@
   function navJump(id) {
     const el = document.getElementById(id);
     if (!el) return;
-    document.documentElement.style.scrollBehavior = 'auto';
-    el.scrollIntoView();
-    requestAnimationFrame(() => {
-      document.documentElement.style.scrollBehavior = '';
-    });
+    const styleEl = document.createElement('style');
+    styleEl.id = '__noSmooth';
+    styleEl.textContent = '* { scroll-behavior: auto !important; }';
+    document.head.appendChild(styleEl);
+    window.scrollTo(0, el.getBoundingClientRect().top + window.pageYOffset);
+    setTimeout(() => {
+      const s = document.getElementById('__noSmooth');
+      if (s) s.remove();
+    }, 100);
   }
 
   // ══════════════════════════════════════════
@@ -1647,34 +1647,9 @@
 
     activateLangUI(detectLang());
   });
-  // 이메일 주소 조합 표시 (Cloudflare 난독화 방지)
-  (function() {
-    var u = 'bizinfo', d = 'logiccube.co.kr';
-    function setEmail() {
-      var el = document.getElementById('email-display');
-      if (el) el.textContent = u + '@' + d;
-    }
-    if (document.readyState === 'loading') {
-      document.addEventListener('DOMContentLoaded', setEmail);
-    } else {
-      setEmail();
-    }
-  })();
-
   // 모바일 기기에서만 전화 BOX 클릭 시 전화 연결
   (function() {
     const isMobile = /Android|iPhone|iPad|iPod|Mobile/i.test(navigator.userAgent);
     if (isMobile) {
       const phoneCard = document.getElementById('phone-card');
-      if (phoneCard) {
-        phoneCard.style.cursor = 'pointer';
-        phoneCard.addEventListener('click', function() {
-          window.location.href = 'tel:0262818181';
-        });
-      }
-    }
-  })();
-
-</script>
-</body>
-</html>
+ 
