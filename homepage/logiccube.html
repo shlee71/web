@@ -16,7 +16,8 @@
   }
   * { margin:0; padding:0; box-sizing:border-box; }
   html { scroll-behavior: auto; overflow-x: hidden; }
-  body { font-family:'Noto Sans KR',sans-serif; overflow-x:hidden; max-width:100vw; }
+  body { font-family:'Noto Sans KR',sans-serif; overflow-x:hidden; max-width:100vw; -webkit-overflow-scrolling:touch; }
+  * { -webkit-tap-highlight-color: transparent; box-sizing: border-box; }
 
   /* ══ GNB — 고정 ══ */
   header {
@@ -698,7 +699,7 @@
 
 
 <!-- ══ 화면 5: Experience ══ -->
-<section id="experience" class="section exp-section" style="background:var(--deep-blue); height:auto; min-height:100vh; overflow:visible; position:relative; padding-bottom:70px;">
+<section id="experience" class="section exp-section" style="background:var(--deep-blue); height:auto; min-height:100vh; overflow:hidden; position:relative; padding-bottom:70px;">
   <div style="width:100%; padding:28px 60px; display:flex; flex-direction:column; justify-content:center;">
     <div class="section-tag" style="color:var(--neon);">Track Record</div>
     <h2 class="section-title" style="color:white; margin-bottom:24px;" data-i18n="exp_title">20년의 경험,<br>금융 IT의 표준이 되다</h2>
@@ -767,7 +768,7 @@
 </section>
 
 <!-- ══ 화면 6: Technology ══ -->
-<section id="technology" class="section" style="background:var(--gray-light); height:100vh; min-height:100vh; overflow:visible; position:relative;">
+<section id="technology" class="section" style="background:var(--gray-light); height:100vh; min-height:100vh; overflow:hidden; position:relative;">
   <div style="width:100%; height:calc(100% - 64px); padding:0 60px; display:flex; flex-direction:column; justify-content:center; margin-top:-24px;">
     <div class="section-tag">Technology</div>
     <h2 class="section-title" style="margin-bottom:20px;" data-i18n="tech_title">독보적인 기술력</h2>
@@ -1248,7 +1249,7 @@
   const i18n = {
     ko: {
       // Hero
-      hero_title_1:      '금융 데이터의 가치를<br>극대화하는<br>',
+      hero_title_1:      '금융 시스템의 가치를<br>극대화하는<br>',
       hero_title_accent:  '논리적 설계를 완성합니다',
       hero_sub:          '로직큐브는 고도화된 기술력과 금융 도메인 지식을 결합하여 국내 및 글로벌 시장을 선도하는 최적의 금융 IT 솔루션을 제공합니다.',
       hero_btn1:         '솔루션 상담하기',
@@ -1317,8 +1318,8 @@
     },
     en: {
       // Hero
-      hero_title_1:      'Maximizing the Value of<br>Financial System with<br>',
-      hero_title_accent:  'Logical Design Perfected.',
+      hero_title_1:      'Engineered for Financial Excellence.<br>',
+      hero_title_accent:  'Designed with Logic.',
       hero_sub:          'LogicCube combines advanced technology with deep financial domain expertise to deliver optimal financial IT solutions that lead both domestic and global markets.',
       hero_btn1:         'Get a Consultation',
       hero_btn2:         'Proposal →',
@@ -1386,14 +1387,14 @@
     },
     zh: {
       // Hero
-      hero_title_1:      '最大化金融数据价值，<br>以卓越逻辑设计<br>',
-      hero_title_accent:  '成就完美解决方案。',
+      hero_title_1:      '以逻辑之力，<br>',
+      hero_title_accent:  '成就卓越金融。',
       hero_sub:          'LogicCube将先进技术与深厚的金融领域知识相结合，为国内外市场提供最优质的金融IT解决方案。',
       hero_btn1:         '咨询解决方案',
       hero_btn2:         '申请提案 →',
-      hero_title2_1:     '从实时授权<br>到精准清算，<br>',
-      hero_title2_accent:'金融接口的完整性设计。',
-      hero_sub2:         '从实时授权到精准清算，我们为金融接口的完整性而设计。',
+      hero_title2_1:     '从授权到清算，<br>',
+      hero_title2_accent:'精准无误。',
+      hero_sub2:         '从授权到清算，LogicCube以精准无误的技术，保障每一笔金融交易的完整性。',
       // Values
       values_title:      'LogicCube追求的三大核心价值',
       val_precision:     '凭借攻克无数难题所证明的卓越技术力<br>精准构建复杂的业务逻辑',
@@ -1455,14 +1456,14 @@
     },
     ja: {
       // Hero
-      hero_title_1:      '金融データの価値を<br>最大化する<br>',
-      hero_title_accent:  '論理設計の完成形。',
+      hero_title_1:      '金融の力を、<br>',
+      hero_title_accent:  '論理で設計する。',
       hero_sub:          'LogicCubeは高度な技術力と金融ドメインの知見を組み合わせ、国内外の市場をリードする最適な金融ITソリューションを提供します。',
       hero_btn1:         'ソリューション相談',
       hero_btn2:         '提案書を申請 →',
-      hero_title2_1:     'リアルタイム承認から<br>精緻な決済まで、<br>',
-      hero_title2_accent:'金融インターフェースの無欠性。',
-      hero_sub2:         'リアルタイム承認から精緻な決済まで、金融インターフェースの無欠性を設計します',
+      hero_title2_1:     'リアルタイム承認から<br>正確な決済まで、<br>',
+      hero_title2_accent:'揺るぎない金融品質。',
+      hero_sub2:         'リアルタイム承認から正確な決済まで、揺るぎない品質で金融システムを支えます。',
       // Values
       values_title:      'LogicCubeが追求する3つのコアバリュー',
       val_precision:     '数々の難題を解決し<br>証明してきた独歩的な技術力で<br>複雑なビジネスロジックを精密に構築いたします',
