@@ -853,7 +853,7 @@
           <span class="contact-card-title" data-i18n="contact_email_label">이메일 / 웹</span>
         </div>
         <div class="contact-card-row">
-          <span class="tag">@</span>
+          <span class="tag">EMAIL</span>
           <span id="email-display"></span>
         </div>
         <div class="contact-card-row">
@@ -1137,6 +1137,11 @@
       margin-left: auto !important;
       margin-right: auto !important;
     }
+    body[data-lang="en"] .contact-grid,
+    body[data-lang="zh"] .contact-grid,
+    body[data-lang="ja"] .contact-grid {
+      width: 90% !important;
+    }
     #contact [style*="padding:40px 60px"] { padding: 16px 20px 0 !important; }
     #contact [style*="padding:0 60px"] { padding: 0 20px !important; }
     #contact .section-title { font-size: clamp(22px, 6vw, 32px) !important; margin-bottom: 6px !important; }
@@ -1242,8 +1247,16 @@
 
     .contact-grid {
       grid-template-columns: repeat(3,1fr) !important;
+      width: 100% !important;
     }
     #contact [style*="padding:0 60px"] { padding: 0 20px !important; }
+    /* 가로모드 contact 폰트 축소 — 줄바꿈 방지 */
+    .contact-card { padding: 10px 12px !important; }
+    .contact-card-icon { font-size: 18px !important; }
+    .contact-card-title { font-size: 12px !important; }
+    .contact-card-row { font-size: 11px !important; gap: 6px !important; }
+    .contact-card-row .tag { font-size: 10px !important; min-width: 30px !important; }
+    .contact-card-hint { font-size: 10px !important; }
 
     .scroll-indicator { bottom: 10px; }
   }
