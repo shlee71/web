@@ -153,9 +153,7 @@
     font-weight: 700; color: white; line-height: 1.25;
     margin-bottom: 14px; word-break: break-word; overflow-wrap: break-word;
   }
-  /* 영어/일본어 선택 시 hero-title 폰트 축소 — 긴 문장 겹침 방지 */
-  body[data-lang="en"] .hero-title { font-size: clamp(24px, 2.6vw, 38px); }
-  body[data-lang="ja"] .hero-title { font-size: clamp(24px, 2.6vw, 38px); }
+  /* 영어/일본어 hero-title 폰트 — 한국어와 동일 크기 유지 */
   .hero-title .accent { color: var(--neon); }
   .hero-sub {
     font-family: 'Noto Sans KR', sans-serif;
@@ -859,7 +857,7 @@
           <span id="email-display"></span>
         </div>
         <div class="contact-card-row">
-          <span class="tag">🌐</span>
+          <span class="tag" style="color:#1a1a1a;">🌐</span>
           <span>www.logiccube.co.kr</span>
         </div>
         <div class="contact-card-hint" data-i18n="contact_email_hint">→ Gmail로 바로 보내기</div>
@@ -889,7 +887,7 @@
           <span class="contact-card-icon">📍</span>
           <span class="contact-card-title" data-i18n="contact_addr_label">주소</span>
         </div>
-        <div class="contact-card-row" style="flex-direction:column; align-items:center; gap:2px; text-align:center;">
+        <div class="contact-card-row" style="flex-direction:column; align-items:flex-start; gap:2px; text-align:left;">
           <span data-i18n="contact_addr">서울시 송파구 법원로11길 25<br>에이치비지니스파크 A동 1212호</span>
         </div>
         <div class="contact-card-hint" data-i18n="contact_addr_hint">→ 카카오맵으로 길찾기</div>
@@ -1145,9 +1143,11 @@
     .contact-card-header { gap: 7px !important; margin-bottom: 10px !important; padding-bottom: 8px !important; }
     .contact-card-icon { font-size: 27px !important; }
     .contact-card-title { font-size: 17px !important; letter-spacing: 1px !important; }
-    .contact-card-row { font-size: 13px !important; gap: 8px !important; }
-    .contact-card-row .tag { font-size: 13px !important; min-width: 22px !important; }
-    .contact-card-hint { font-size: 11px !important; margin-top: 6px !important; }
+    .contact-card-row { font-size: 16px !important; gap: 10px !important; justify-content: flex-start !important; }
+    .contact-card-row .tag { font-size: 14px !important; min-width: 32px !important; text-align: left !important; }
+    .contact-card-hint { font-size: 12px !important; margin-top: 6px !important; text-align: left !important; }
+    .contact-card { text-align: left !important; }
+    .contact-card-header { justify-content: flex-start !important; }
     #contact [style*="margin-top:48px"] { margin-top: 16px !important; line-height: 1.4 !important; }
 
     /* Footer */
