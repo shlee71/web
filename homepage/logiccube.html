@@ -743,19 +743,19 @@
     <div style="margin-top:24px; display:flex; gap:16px; flex-wrap:wrap;">
       <div style="display:flex; align-items:center; gap:8px; padding:10px 16px; background:rgba(0,191,255,0.06); border:1px solid rgba(0,191,255,0.2); border-radius:8px;">
         <span style="color:var(--neon); font-size:14px;">🏆</span>
-        <span style="font-size:12px; color:rgba(255,255,255,0.7);" data-i18n="exp_cert1">신한카드 ICT 우수 협력사 인증 (2019)</span>
+        <span style="font-size:12px; color:rgba(255,255,255,0.7);" data-i18n="exp_cert1">신한카드 우수협력사 (2019)</span>
       </div>
       <div style="display:flex; align-items:center; gap:8px; padding:10px 16px; background:rgba(0,191,255,0.06); border:1px solid rgba(0,191,255,0.2); border-radius:8px;">
         <span style="color:var(--neon); font-size:14px;">🏆</span>
-        <span style="font-size:12px; color:rgba(255,255,255,0.7);" data-i18n="exp_cert2">IBK기업은행 POST 차세대 시스템 구축 (2014)</span>
+        <span style="font-size:12px; color:rgba(255,255,255,0.7);" data-i18n="exp_cert2">IBK기업은행 차세대 (2014)</span>
       </div>
       <div style="display:flex; align-items:center; gap:8px; padding:10px 16px; background:rgba(0,191,255,0.06); border:1px solid rgba(0,191,255,0.2); border-radius:8px;">
         <span style="color:var(--neon); font-size:14px;">🏆</span>
-        <span style="font-size:12px; color:rgba(255,255,255,0.7);" data-i18n="exp_cert3">신한카드 차세대 시스템 구축 (2012)</span>
+        <span style="font-size:12px; color:rgba(255,255,255,0.7);" data-i18n="exp_cert3">신한카드 차세대 (2012)</span>
       </div>
       <div style="display:flex; align-items:center; gap:8px; padding:10px 16px; background:rgba(0,191,255,0.06); border:1px solid rgba(0,191,255,0.2); border-radius:8px;">
         <span style="color:var(--neon); font-size:14px;">🏆</span>
-        <span style="font-size:12px; color:rgba(255,255,255,0.7);" data-i18n="exp_cert4">NH농협카드 차세대 시스템 구축 (2010)</span>
+        <span style="font-size:12px; color:rgba(255,255,255,0.7);" data-i18n="exp_cert4">NH농협카드 차세대 (2010)</span>
       </div>	  
     </div>
   </div>
@@ -1072,14 +1072,17 @@
     #hero .hero-right img { max-height: 100%; }
 
     /* 2페이지 핵심가치 */
-    .values-inner { padding: 0 20px; height: auto; }
-    .values-grid { grid-template-columns: 1fr; gap: 16px; }
-    .val-card { padding: 28px 20px; }
-    .val-img { width: 80px; height: 80px; }
-    .val-name { font-size: 15px !important; }
-    .val-desc { font-size: 16px !important; }
+    #values { padding-top: 40px !important; }
+    .values-inner { padding: 0 16px; height: auto; }
+    .values-grid { grid-template-columns: 1fr; gap: 8px; }
+    .val-card { padding: 14px 16px; flex-direction: column; align-items: center; gap: 8px; text-align: center; }
+    .val-img { width: 56px; height: 56px; }
+    .val-name { font-size: 13px !important; letter-spacing: 2px !important; margin-bottom: 2px; }
+    .val-desc { font-size: 12px !important; line-height: 1.5; }
+    .section-title { font-size: clamp(17px, 5vw, 24px); margin-bottom: 10px !important; }
 
     /* 3페이지 About */
+    #about { padding-top: 40px !important; }
     #about {
       display: flex !important;
       flex-direction: column !important;
@@ -1087,46 +1090,74 @@
     }
     #about .about-left {
       width: 100%;
-      padding: 24px 20px !important;
-      order: 1;
+      padding: 10px 20px 6px !important;
+      order: 0;
     }
     #about .about-right {
       width: 100%;
       height: 220px;
-      order: 0;
+      order: 1;
+      flex-shrink: 0;
     }
     #about .about-right::after {
       background: linear-gradient(180deg, transparent 40%, var(--deep-blue) 100%);
     }
-    .about-features { gap: 10px; }
-    .about-feat { padding: 12px 14px; }
+    #about .section-title { margin-bottom: 10px !important; }
+    .about-desc { font-size: 12px !important; margin-bottom: 10px !important; line-height: 1.5; }
+    .about-features { gap: 6px; }
+    .about-feat { padding: 8px 12px; }
+    .feat-text h4 { font-size: 12px !important; }
+    .feat-text p { font-size: 11px !important; line-height: 1.4; }
 
     /* 4페이지 Solutions */
-    #solutions { padding-bottom: 70px !important; }
-    .solutions-inner { padding: 24px 20px !important; }
-    .sol-grid { grid-template-columns: 1fr; gap: 18px; }
-    .sol-head { padding: 20px 18px; }
-    .sol-body { padding: 18px; }
+    #solutions { padding-top: 40px !important; padding-bottom: 16px !important; }
+    .solutions-inner { padding: 10px 16px !important; }
+    #solutions .section-title { margin-bottom: 10px !important; font-size: clamp(17px, 5vw, 24px) !important; }
+    .sol-grid { grid-template-columns: 1fr; gap: 8px; }
+    .sol-head { padding: 10px 14px; }
+    .sol-body { padding: 10px 14px; font-size: 11px !important; line-height: 1.4; }
+    .sol-desc { margin-bottom: 8px !important; }
+    .sol-name { font-size: 15px !important; margin-bottom: 2px !important; }
+    .sol-tags { display: grid !important; grid-template-columns: repeat(4, 1fr) !important; gap: 4px !important; }
+    .sol-tag { font-size: 9px !important; padding: 3px 4px !important; text-align: center; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 
     /* 5페이지 Experience */
+    #experience { padding-top: 40px !important; }
     #experience .values-inner,
-    #experience > div { padding: 24px 20px !important; }
+    #experience > div { padding: 10px 16px !important; }
+    #experience .section-title { margin-bottom: 8px !important; }
     .exp-stats-grid {
       grid-template-columns: repeat(2, 1fr) !important;
-      gap: 12px !important;
-      margin-bottom: 28px !important;
+      gap: 6px !important;
+      margin-bottom: 8px !important;
     }
-    .exp-stats-grid [style*="font-size:42px"] { font-size: 28px !important; }
+    .exp-stats-grid [style*="font-size:42px"] { font-size: 22px !important; }
+    .partner-logo-grid { grid-template-columns: repeat(4, 1fr) !important; gap: 5px !important; }
+    .partner-chip { min-height: 36px !important; padding: 5px !important; }
+    .partner-chip img { max-height: 20px !important; }
+    /* 수상이력 2열 grid */
+    #experience [style*="margin-top:24px"] { display: grid !important; grid-template-columns: repeat(2, 1fr) !important; gap: 6px !important; margin-top: 8px !important; }
+    #experience [style*="margin-top:24px"] > div { padding: 7px 10px !important; font-size: 10px !important; }
+    #experience [style*="margin-top:24px"] > div span:last-child { font-size: 10px !important; }
 
     /* 6페이지 Technology */
-    #technology > div { padding: 16px 20px 0 20px !important; margin-top: 0 !important; }
+    #technology { padding-top: 40px !important; }
+    #technology > div { padding: 10px 16px 0 16px !important; margin-top: 0 !important; }
+    #technology .section-title { margin-bottom: 8px !important; font-size: clamp(17px, 5vw, 24px) !important; }
     .tech-grid {
       grid-template-columns: 1fr !important;
-      gap: 12px !important;
+      gap: 6px !important;
     }
-    .tech-card { padding: 20px 16px; }
+    .tech-card { padding: 10px 14px; }
+    .tech-icon { font-size: 18px !important; margin-bottom: 2px !important; }
+    .tech-name { font-size: 9px !important; }
+    .tech-title { font-size: 13px !important; margin-bottom: 3px !important; }
+    .tech-desc { font-size: 11px !important; line-height: 1.4; margin-bottom: 0 !important; }
+    /* Throughput/Availability/Latency 바 숨김 */
+    .tech-bar-wrap { display: none !important; }
     #technology [style*="flow-box"],
-    .flow-box { font-size: 11px; padding: 8px 10px; }
+    .flow-box { font-size: 10px; padding: 6px 8px; }
+    #technology [style*="border-radius:16px"] { padding: 8px 14px !important; margin-bottom: 8px !important; }
 
     /* 7페이지 Contact */
     #contact { padding-top: 20px !important; }
@@ -1306,10 +1337,10 @@
       exp_stat3:          '글로벌 진출 국가',
       exp_stat4:          '전문 엔지니어',
       exp_partners_label: '주요 파트너사',
-      exp_cert1:          '신한카드 ICT 우수 협력사 인증 (2019)',
-      exp_cert2:          'IBK기업은행 POST 차세대 시스템 구축 (2014)',
-      exp_cert3:          '신한카드 차세대 시스템 구축 (2012)',
-	  exp_cert4:          'NH농협카드 차세대 시스템 구축 (2010)',
+      exp_cert1:          '신한카드 우수협력사 (2019)',
+      exp_cert2:          'IBK기업은행 차세대 (2014)',
+      exp_cert3:          '신한카드 차세대 (2012)',
+	  exp_cert4:          'NH농협카드 차세대 (2010)',
       // Technology
       tech_title:   '독보적인 기술력',
       tech1_title:  '고속 처리',
