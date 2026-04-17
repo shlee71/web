@@ -1234,27 +1234,30 @@
      📱 세로 모드 전용 (portrait)
   ══════════════════════════════════════════ */
   @media (max-width: 768px) and (orientation: portrait) {
-    /* Hero 세로모드 전용 */
-    #hero { min-height: 100svh; height: 100svh; overflow: hidden; }
-    /* PhaseB를 absolute→relative로 전환, PhaseA와 동일 시작점 */
-    #heroPhaseB {
-      position: relative !important;
-      top: auto !important;
-      left: auto !important;
-      right: auto !important;
-    }
-    /* hero-left: 세로 전체를 flex로 균등 배분 */
+    /* Hero 세로모드: 정확히 한 화면 */
+    #hero { min-height: 100svh; height: 100svh; overflow: hidden; display: flex; flex-direction: column; }
+    /* hero-left: badge + 텍스트 영역 */
     #hero .hero-left {
-      height: 100% !important;
-      padding: 68px 20px 16px 20px !important;
-      justify-content: space-between !important;
+      flex: 1 !important;
+      height: auto !important;
+      padding: 68px 20px 0 20px !important;
+      justify-content: flex-start !important;
+      display: flex !important;
+      flex-direction: column !important;
     }
-    /* hero-sub 줄간격/여백 축소 */
-    #hero .hero-sub { margin-bottom: 12px !important; line-height: 1.5 !important; }
-    /* hero-right 높이 제한 */
-    #hero .hero-right { height: 200px !important; flex-shrink: 0; }
-    /* 버튼 margin 축소 */
-    #hero .hero-btns { margin-top: 8px !important; }
+    /* PhaseB: PhaseA와 동일 위치 (absolute, top = hero-left padding-top) */
+    #heroPhaseB {
+      position: absolute !important;
+      top: 68px !important;
+      left: 20px !important;
+      right: 20px !important;
+    }
+    /* hero-sub 여백 축소 */
+    #hero .hero-sub { margin-bottom: 10px !important; line-height: 1.5 !important; font-size: 13px !important; }
+    /* 버튼: 텍스트 아래 자연스럽게 */
+    #hero .hero-btns { position: relative !important; bottom: auto !important; left: auto !important; margin-top: 12px !important; }
+    /* hero-right 높이 고정 */
+    #hero .hero-right { height: 220px !important; flex-shrink: 0 !important; }
   }
 
   /* ══════════════════════════════════════════
