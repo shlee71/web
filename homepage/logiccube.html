@@ -1229,6 +1229,16 @@
     .flow-arrow { font-size: 14px; }
   }
 
+
+  /* ══════════════════════════════════════════
+     📱 세로 모드 전용 (portrait)
+  ══════════════════════════════════════════ */
+  @media (max-width: 768px) and (orientation: portrait) {
+    /* Hero 세로모드 전용 */
+    #hero { min-height: 100svh; }
+    #heroPhaseB { position: relative !important; top: auto !important; }
+  }
+
   /* ══════════════════════════════════════════
      📱 가로 모드 (landscape, 높이 500px 이하)
   ══════════════════════════════════════════ */
