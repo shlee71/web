@@ -1058,9 +1058,13 @@
       justify-content: flex-start;
       overflow: hidden;
     }
+    /* PC의 badge absolute 위치 모바일 오버라이드 */
+    .hero-badge { position: relative !important; top: auto !important; left: auto !important; margin-bottom: 16px !important; }
+    #heroPhaseB { top: auto !important; }
+    /* PC의 hero-btns absolute 모바일 오버라이드 */
+    .hero-btns { position: relative !important; bottom: auto !important; left: auto !important; flex-wrap: wrap; gap: 10px; margin-top: 16px !important; }
     .hero-title { font-size: clamp(26px, 7vw, 40px) !important; word-break: break-word !important; }
     .hero-sub { font-size: 10px; }
-    .hero-btns { flex-wrap: wrap; gap: 10px; }
     .btn-primary, .btn-ghost { padding: 11px 20px; font-size: 13px; }
     /* Contact CTA 버튼 인라인 스타일 오버라이드 */
     #contact .btn-primary { font-size: 12px !important; padding: 10px 18px !important; }
@@ -1312,7 +1316,7 @@
       hero_sub2:         '실시간 승인부터 정교한 정산까지, 금융 인터페이스의 무결성을 설계합니다.',
       // Values
       values_title:      '로직큐브가 추구하는 세 가지 핵심 가치',
-      val_precision:     '수많은 난제를 해결하며 증명해온 독보적인 기술력으로 복잡한 비즈니스 로직을 정밀하게 구축합니다',
+      val_precision:     '수많은 난제를 해결하며 증명해온 독보적인 기술력으로<br>복잡한 비즈니스 로직을 정밀하게 구축합니다',
       val_reliability:   '어떤 환경에서도 중단 없는<br>안정적인 데이터 연결을 보장합니다',
       val_innovation:    '차세대 네트워크 환경을 선도하는<br>지능형 로직을 개발합니다',
       // About
@@ -1511,7 +1515,7 @@
       // Hero
       hero_title_1:      '金融の力を、<br>',
       hero_title_accent:  '論理で設計する。',
-      hero_sub:          'LogicCubeは高度な技術力と金融ドメインの知見を組み合わせ、<br>国内外の市場をリードする最適な金融ITソリューションを提供します。',
+      hero_sub:          'LogicCubeは高度な技術力と金融ドメインの知見を組み合わせ、国内外の市場をリードする最適な金融ITソリューションを提供します。',
       hero_btn1:         'ソリューション相談',
       hero_btn2:         '提案書を申請 →',
       hero_title2_1:     'リアルタイム承認から<br>正確な決済まで、<br>',
