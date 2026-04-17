@@ -134,18 +134,19 @@
     width: 52%;
     max-width: 52%;
     height: 100%;
-    display: flex; flex-direction: column; justify-content: center;
-    padding: 0 40px 0 60px;   /* ← 우측 패딩 추가: 동영상 영역 침범 방지 */
+    display: flex; flex-direction: column; justify-content: flex-start;
+    padding: 160px 40px 0 60px;
     overflow: hidden;
 	background: transparent;
   }
   .hero-badge {
     display: inline-flex; align-items: center; gap: 8px;
-    width: fit-content;           /* ← 추가: 텍스트 크기에 맞게 */
+    width: fit-content;
     background: rgba(0,191,255,0.1); border: 1px solid rgba(0,191,255,0.32);
     color: var(--neon); font-size: 10px; font-weight: 700;
     letter-spacing: 2px; text-transform: uppercase;
-    padding: 5px 14px; border-radius: 20px; margin-bottom: 24px;
+    padding: 5px 14px; border-radius: 20px;
+    position: absolute; top: 114px; left: 60px; z-index: 10;
   }
   .badge-dot { width:5px; height:5px; border-radius:50%; background:var(--neon); flex-shrink:0; }
   .hero-title {
@@ -168,7 +169,7 @@
     text-transform: none;
     letter-spacing: 0;
   }
-  .hero-btns { display: flex; gap: 14px; }
+  .hero-btns { display: flex; gap: 14px; position: absolute; bottom: 80px; left: 60px; }
   .btn-primary {
     background: var(--cobalt); color: white;
     padding: 13px 30px; border-radius: 8px;
@@ -493,7 +494,7 @@
 <!-- ══ 화면 1: HERO ══ -->
 <section id="hero" class="section" style="padding-top:0;">
   <div class="hero-bg"></div>
-  <div class="hero-left" style="padding: 0 0 0 60px; display:flex; flex-direction:column; justify-content:center; z-index:2; position:relative;">
+  <div class="hero-left" style="">
     <div class="hero-badge">
       <span class="badge-dot"></span>
       20+ Years of Financial IT Excellence
@@ -510,7 +511,7 @@
     </div>
 
     <!-- ── 문구 슬롯 B (4~8초, 종료 후 유지): 금융 시스템 ── -->
-    <div class="hero-phrase" id="heroPhaseB" style="position:absolute; left:60px; right:40px; opacity:0; pointer-events:none;">
+    <div class="hero-phrase" id="heroPhaseB" style="position:absolute; top:160px; left:60px; right:40px; opacity:0; pointer-events:none;">
       <h1 class="hero-title">
         <span data-i18n="hero_title_1">금융 시스템의 가치를<br>극대화하는<br></span><span class="accent" data-i18n="hero_title_accent">논리적 설계를 완성합니다</span>
       </h1>
@@ -1043,7 +1044,8 @@
     #heroPhaseB { left: 20px !important; right: 20px !important; }
 
     /* 공통 섹션 */
-    .section { height: auto; min-height: 100svh; padding-top: 56px; }
+    .section { height: auto; min-height: unset; padding-top: 56px; }
+    #values, #about, #solutions, #experience, #technology { min-height: 100svh; }
     .section-title { font-size: clamp(22px, 6vw, 32px); margin-bottom: 28px !important; }
     .section-tag { font-size: 10px; }
 
@@ -1072,8 +1074,8 @@
     #hero .hero-right img { max-height: 100%; }
 
     /* 2페이지 핵심가치 */
-    #values { padding-top: 40px !important; }
-    .values-inner { padding: 0 16px; height: auto; }
+    #values { padding-top: 56px !important; padding-bottom: 16px !important; }
+    .values-inner { padding: 8px 16px 0; height: auto; }
     .values-grid { grid-template-columns: 1fr; gap: 8px; }
     .val-card { padding: 14px 16px; flex-direction: column; align-items: center; gap: 8px; text-align: center; }
     .val-img { width: 56px; height: 56px; }
@@ -1082,7 +1084,7 @@
     .section-title { font-size: clamp(17px, 5vw, 24px); margin-bottom: 10px !important; }
 
     /* 3페이지 About */
-    #about { padding-top: 40px !important; }
+    #about { padding-top: 56px !important; padding-bottom: 16px !important; }
     #about {
       display: flex !important;
       flex-direction: column !important;
@@ -1090,7 +1092,7 @@
     }
     #about .about-left {
       width: 100%;
-      padding: 10px 20px 6px !important;
+      padding: 4px 20px 6px !important;
       order: 0;
     }
     #about .about-right {
@@ -1110,8 +1112,8 @@
     .feat-text p { font-size: 11px !important; line-height: 1.4; }
 
     /* 4페이지 Solutions */
-    #solutions { padding-top: 40px !important; padding-bottom: 16px !important; }
-    .solutions-inner { padding: 10px 16px !important; }
+    #solutions { padding-top: 56px !important; padding-bottom: 16px !important; }
+    .solutions-inner { padding: 8px 16px 0 !important; }
     #solutions .section-title { margin-bottom: 10px !important; font-size: clamp(17px, 5vw, 24px) !important; }
     .sol-grid { grid-template-columns: 1fr; gap: 8px; }
     .sol-head { padding: 10px 14px; }
@@ -1122,9 +1124,9 @@
     .sol-tag { font-size: 9px !important; padding: 3px 4px !important; text-align: center; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 
     /* 5페이지 Experience */
-    #experience { padding-top: 40px !important; }
+    #experience { padding-top: 56px !important; padding-bottom: 16px !important; }
     #experience .values-inner,
-    #experience > div { padding: 10px 16px !important; }
+    #experience > div { padding: 4px 16px !important; }
     #experience .section-title { margin-bottom: 8px !important; }
     .exp-stats-grid {
       grid-template-columns: repeat(2, 1fr) !important;
@@ -1141,8 +1143,8 @@
     #experience [style*="margin-top:24px"] > div span:last-child { font-size: 10px !important; }
 
     /* 6페이지 Technology */
-    #technology { padding-top: 40px !important; }
-    #technology > div { padding: 10px 16px 0 16px !important; margin-top: 0 !important; }
+    #technology { padding-top: 56px !important; padding-bottom: 16px !important; }
+    #technology > div { padding: 4px 16px 0 16px !important; margin-top: 0 !important; }
     #technology .section-title { margin-bottom: 8px !important; font-size: clamp(17px, 5vw, 24px) !important; }
     .tech-grid {
       grid-template-columns: 1fr !important;
@@ -1310,7 +1312,7 @@
       hero_sub2:         '실시간 승인부터 정교한 정산까지, 금융 인터페이스의 무결성을 설계합니다.',
       // Values
       values_title:      '로직큐브가 추구하는 세 가지 핵심 가치',
-      val_precision:     '수많은 난제를 해결하며 증명해온 독보적인 기술력으로<br>복잡한 비즈니스 로직을 정밀하게 구축합니다',
+      val_precision:     '수많은 난제를 해결하며 증명해온 독보적인 기술력으로 복잡한 비즈니스 로직을 정밀하게 구축합니다',
       val_reliability:   '어떤 환경에서도 중단 없는<br>안정적인 데이터 연결을 보장합니다',
       val_innovation:    '차세대 네트워크 환경을 선도하는<br>지능형 로직을 개발합니다',
       // About
@@ -1509,7 +1511,7 @@
       // Hero
       hero_title_1:      '金融の力を、<br>',
       hero_title_accent:  '論理で設計する。',
-      hero_sub:          'LogicCubeは高度な技術力と金融ドメインの知見を組み合わせ、国内外の市場をリードする最適な金融ITソリューションを提供します。',
+      hero_sub:          'LogicCubeは高度な技術力と金融ドメインの知見を組み合わせ、<br>国内外の市場をリードする最適な金融ITソリューションを提供します。',
       hero_btn1:         'ソリューション相談',
       hero_btn2:         '提案書を申請 →',
       hero_title2_1:     'リアルタイム承認から<br>正確な決済まで、<br>',
