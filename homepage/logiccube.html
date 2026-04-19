@@ -619,7 +619,7 @@
   </div>
 
   <div class="about-right" style="grid-column:2; grid-row:1; 
-    display:flex; align-items:center; justify-content:center; overflow:hidden; padding:20px 0;">
+    display:flex; align-items:center; justify-content:center; overflow:hidden; padding:60px 0 20px;">
     <img src="public/images/system_flow.png" alt="System Flow"
          style="width:100%; object-fit:contain; max-height:90vh; image-orientation:none;">
   </div>
@@ -740,8 +740,9 @@
       <div class="partner-chip"><img src="public/images/logo_SPC.png" alt="SPC"></div>
     </div>
 
-    <!-- 인증 -->
-    <div style="margin-top:24px; display:flex; gap:16px; flex-wrap:wrap;">
+    <!-- 수상이력 -->
+    <div style="font-size:13px; font-weight:700; letter-spacing:2px; text-transform:uppercase; color:rgba(255,255,255,0.7); margin-bottom:10px; margin-top:28px; font-family:'Montserrat',sans-serif;" data-i18n="exp_awards_label">수상이력</div>
+    <div style="margin-top:0; display:flex; gap:16px; flex-wrap:wrap;">
       <div style="display:flex; align-items:center; gap:8px; padding:10px 16px; background:rgba(0,191,255,0.06); border:1px solid rgba(0,191,255,0.2); border-radius:8px;">
         <span style="color:var(--neon); font-size:14px;">🏆</span>
         <span style="font-size:12px; color:rgba(255,255,255,0.7);" data-i18n="exp_cert1">신한카드 우수협력사 (2019)</span>
@@ -1000,7 +1001,7 @@
     display: flex; align-items: center; justify-content: center;
     gap: 10px; margin-bottom: 16px;
     padding-bottom: 12px;
-    border-bottom: 1px solid rgba(0,20,60,0.15);
+    border-bottom: 1px solid rgba(0,20,60,0.35);
   }
   .contact-card-icon { font-size: 26px; line-height: 1; }
   .contact-card-title {
@@ -1148,7 +1149,7 @@
     .sol-tag { font-size: 9px !important; padding: 3px 4px !important; text-align: center; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 
     /* 5페이지 Experience */
-    #experience { padding-top: 20px !important; padding-bottom: 8px !important; }
+    #experience { padding-top: 20px !important; padding-bottom: 8px !important; justify-content: flex-start !important; }
     #experience .values-inner,
     #experience > div { padding: 2px 16px !important; }
     #experience .section-title { margin-bottom: 6px !important; font-size: clamp(26px, 8vw, 40px) !important; }
@@ -1397,6 +1398,7 @@
       exp_stat3:          '글로벌 진출 국가',
       exp_stat4:          '전문 엔지니어',
       exp_partners_label: '주요 파트너사',
+      exp_awards_label:   '수상이력',
       exp_cert1:          '신한카드 우수협력사 (2019)',
       exp_cert2:          'IBK기업은행 차세대 (2014)',
       exp_cert3:          '신한카드 차세대 (2012)',
@@ -1438,7 +1440,7 @@
       hero_title2_accent:'Integrity by Design.',
       hero_sub2:         'We build trusted financial interfaces through rapid approval processes and precise settlement data.',
       // Values
-      values_title:      'Core Values That Define LogicCube',
+      values_title:      'Our Core Values',
       val_precision:     'Integrating two decades of proven insight to deliver high-precision logic for complex environment.',
       val_reliability:   'Guaranteeing stable, uninterrupted data connectivity in any environment',
       val_innovation:    'Developing intelligent logic that leads next-generation networks',
@@ -1466,6 +1468,7 @@
       exp_stat3:          'Countries Reached',
       exp_stat4:          'Expert Engineers',
       exp_partners_label: 'Key Partners',
+      exp_awards_label:   'Awards & Recognition',
       exp_cert1:          'Shinhan Card ICT Excellence Partner Certification (2019)',
       exp_cert2:          'IBK Industrial Bank of Korea POST Next-Generation System (2014)',
       exp_cert3:          'Shinhan Card Next-Generation System (2012)',
@@ -1507,7 +1510,7 @@
       hero_title2_accent:'精准无误。',
       hero_sub2:         '通过迅速的审批流程和精准的清算数据，构建值得信赖的金融接口。',
       // Values
-      values_title:      'LogicCube追求的核心价值',
+      values_title:      '我们的核心价值观',
       val_precision:     '凭借攻克无数难题所证明的卓越技术力<br>精准构建复杂的业务逻辑',
       val_reliability:   '在任何环境下保障<br>稳定、不间断的数据连接',
       val_innovation:    '开发引领下一代网络环境<br>的智能逻辑',
@@ -1535,6 +1538,7 @@
       exp_stat3:          '全球拓展国家',
       exp_stat4:          '专业工程师',
       exp_partners_label: '主要合作伙伴',
+      exp_awards_label:   '获奖经历',
       exp_cert1:          '新韩卡ICT优秀合作伙伴认证 (2019)',
       exp_cert2:          'IBK企业银行POST新一代系统构建 (2014)',
       exp_cert3:          '新韩卡新一代系统构建 (2012)',
@@ -1576,7 +1580,7 @@
       hero_title2_accent:'揺るぎない金融品質。',
       hero_sub2:         '迅速な承認プロセスと精緻な決済データで、信頼される金融インターフェースを構築します。',
       // Values
-      values_title:      'LogicCubeが大切にするコアバリュー',
+      values_title:      '私たちのコアバリュー',
       val_precision:     '数々の難題を解決し<br>証明してきた独歩的な技術力で<br>複雑なビジネスロジックを精密に構築いたします',
       val_reliability:   'いかなる環境でも途切れない<br>安定したデータ接続を保証します',
       val_innovation:    '次世代ネットワーク環境を<br>リードするインテリジェントな<br>ロジックを開発します',
@@ -1604,6 +1608,7 @@
       exp_stat3:          'グローバル展開国数',
       exp_stat4:          '専門エンジニア',
       exp_partners_label: '主要パートナー',
+      exp_awards_label:   '受賞歴',
       exp_cert1:          '新韓カード ICT優秀パートナー認定 (2019)',
       exp_cert2:          'IBK企業銀行 POST次世代システム構築 (2014)',
       exp_cert3:          '新韓カード次世代システム構築 (2012)',
