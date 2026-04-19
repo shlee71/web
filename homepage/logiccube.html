@@ -245,13 +245,13 @@
     margin-bottom: 12px;
   }
   .section-title {
-    font-size: clamp(26px, 3vw, 42px); font-weight: 700;
+    font-size: clamp(26px, 3vw, 36px); font-weight: 700;
     color: var(--deep-blue); line-height: 1.3;
     margin-bottom: 56px; word-break: keep-all;
   }
   /* About 섹션 제목 — 영문/일문 3줄 방지: 폰트 상한을 낮춤 */
   #about .section-title {
-    font-size: clamp(18px, 1.8vw, 28px);
+    font-size: clamp(18px, 1.8vw, 36px);
     word-break: normal;
   }
   .values-grid {
@@ -701,7 +701,7 @@
 <section id="experience" class="section exp-section" style="background:var(--deep-blue); height:auto; min-height:100vh; overflow:hidden; position:relative; padding-bottom:70px;">
   <div style="width:100%; padding:28px 60px; display:flex; flex-direction:column; justify-content:center;">
     <div class="section-tag" style="color:var(--neon);">Track Record</div>
-    <h2 class="section-title" style="color:white; margin-bottom:24px;" data-i18n="exp_title">고객사와 함께한 {YEARS}년,<br>로직큐브의 현재이며 미래입니다</h2>
+    <h2 class="section-title" style="color:white; margin-bottom:24px;" data-i18n="exp_title">고객사와 함께한 소중한 시간이<br>로직큐브의 현재이며 미래입니다</h2>
 
     <!-- 통계 -->
     <div class="exp-stats-grid" style="display:grid; grid-template-columns:repeat(4,1fr); gap:12px; margin-bottom:24px;">
@@ -1045,7 +1045,7 @@
     /* 공통 섹션 */
     .section { height: auto; min-height: unset; padding-top: 56px; }
     #values, #about, #solutions, #experience, #technology { min-height: 100svh; }
-    .section-title { font-size: clamp(22px, 6vw, 32px); margin-bottom: 28px !important; }
+    .section-title { font-size: clamp(22px, 6vw, 36px); margin-bottom: 28px !important; }
     .section-tag { font-size: 10px; }
 
     /* 1페이지 HERO */
@@ -1105,7 +1105,7 @@
     .val-name { font-size: 15px !important; letter-spacing: 2px !important; margin-bottom: 2px; }
     .val-desc { font-size: 14px !important; line-height: 1.5; }
     .section-title { font-size: clamp(20px, 5.5vw, 28px); margin-bottom: 8px !important; }
-    #values .section-title { font-size: clamp(40px, 11vw, 40px) !important; }
+    #values .section-title { font-size: clamp(40px, 11vw, 42px) !important; }
 
     /* 3페이지 About */
     #about { padding-top: 20px !important; padding-bottom: 8px !important; }
@@ -1136,9 +1136,9 @@
     .feat-text p { font-size: 12px !important; line-height: 1.4; }
 
     /* 4페이지 Solutions */
-    #solutions { padding-top: 56px !important; padding-bottom: 8px !important; }
+    #solutions { padding-top: 20px !important; padding-bottom: 8px !important; }
     .solutions-inner { padding: 4px 16px 0 !important; }
-    #solutions .section-title { margin-bottom: 8px !important; font-size: clamp(20px, 5.5vw, 28px) !important; }
+    #solutions .section-title { margin-bottom: 8px !important; font-size: clamp(20px, 5.5vw, 42px) !important; }
     .sol-grid { grid-template-columns: 1fr; gap: 6px; }
     .sol-head { padding: 10px 14px; }
     .sol-body { padding: 10px 14px; font-size: 13px !important; line-height: 1.4; }
@@ -1148,10 +1148,10 @@
     .sol-tag { font-size: 9px !important; padding: 3px 4px !important; text-align: center; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 
     /* 5페이지 Experience */
-    #experience { padding-top: 56px !important; padding-bottom: 8px !important; }
+    #experience { padding-top: 20px !important; padding-bottom: 8px !important; }
     #experience .values-inner,
     #experience > div { padding: 2px 16px !important; }
-    #experience .section-title { margin-bottom: 6px !important; font-size: clamp(20px, 5.5vw, 28px) !important; }
+    #experience .section-title { margin-bottom: 6px !important; font-size: clamp(20px, 5.5vw, 42px) !important; }
     .exp-stats-grid {
       grid-template-columns: repeat(2, 1fr) !important;
       gap: 6px !important;
@@ -1167,9 +1167,9 @@
     #experience [style*="margin-top:24px"] > div span:last-child { font-size: 10px !important; }
 
     /* 6페이지 Technology */
-    #technology { padding-top: 56px !important; padding-bottom: 8px !important; }
+    #technology { padding-top: 20px !important; padding-bottom: 8px !important; }
     #technology > div { padding: 2px 16px 0 16px !important; margin-top: 0 !important; }
-    #technology .section-title { margin-bottom: 6px !important; font-size: clamp(20px, 5.5vw, 28px) !important; }
+    #technology .section-title { margin-bottom: 6px !important; font-size: clamp(20px, 5.5vw, 42px) !important; }
     .tech-grid {
       grid-template-columns: 1fr !important;
       gap: 6px !important;
@@ -1201,7 +1201,7 @@
     }
     #contact [style*="padding:40px 60px"] { padding: 16px 20px 0 !important; }
     #contact [style*="padding:0 60px"] { padding: 0 20px !important; }
-    #contact .section-title { font-size: clamp(22px, 6vw, 32px) !important; margin-bottom: 6px !important; }
+    #contact .section-title { font-size: clamp(22px, 6vw, 42px) !important; margin-bottom: 6px !important; }
     #contact p[style*="margin-bottom:16px"] { margin-bottom: 8px !important; line-height: 1.5 !important; }
     /* 모바일 카드 크기 조정 */
     .contact-card { padding: 14px 16px !important; }
@@ -1254,6 +1254,9 @@
      📱 세로 모드 전용 (portrait)
   ══════════════════════════════════════════ */
   @media (max-width: 768px) and (orientation: portrait) {
+    /* 5페이지 주요 파트너사 위 빈공간 */
+    [data-i18n="exp_partners_label"] { margin-top: 1em !important; }
+
     /* Hero 세로모드: 정확히 한 화면 */
     #hero { min-height: 100svh; height: 100svh; overflow: hidden; display: flex; flex-direction: column; }
     /* hero-left: badge + 텍스트 영역 */
@@ -1388,7 +1391,7 @@
       sol3_sub:     '메시지 큐잉 엔진',
       sol3_desc:    '비동기 메시지 큐잉 기반 고성능 대외 연계 플랫폼. Config/Rule-Based 동적 라우팅 제어로 카드사·은행·VAN사 간 완벽한 연결을 지원합니다.',
       // Experience
-      exp_title:          '고객사와 함께한 {YEARS}년,<br>로직큐브의 현재이며 미래입니다',
+      exp_title:          '고객사와 함께한 소중한 시간이<br>로직큐브의 현재이며 미래입니다',
       exp_stat1:          '년 금융 IT 경험',
       exp_stat2:          '완료 프로젝트',
       exp_stat3:          '글로벌 진출 국가',
@@ -1457,7 +1460,7 @@
       sol3_sub:     'Message Queuing Engine',
       sol3_desc:    'High-performance external connectivity platform based on asynchronous message queuing. Config/Rule-Based dynamic routing control supports seamless connections between card companies, banks, and VAN providers.',
       // Experience
-      exp_title:          '{YEARS} Years with Our Clients,<br>Our Present and Future',
+      exp_title:          'Precious Moments with Our Clients<br>Define Our Present and Future',
       exp_stat1:          'Years of Financial IT',
       exp_stat2:          'Projects Completed',
       exp_stat3:          'Countries Reached',
@@ -1526,7 +1529,7 @@
       sol3_sub:     '消息队列引擎',
       sol3_desc:    '基于异步消息队列的高性能对外连接平台。通过Config/Rule-Based动态路由控制，支持卡公司、银行与VAN商之间的无缝连接。',
       // Experience
-      exp_title:          '与客户携手走过{YEARS}年，<br>是罗辑魔方的现在与未来',
+      exp_title:          '与客户携手共度的珍贵时光<br>塑造着罗辑魔方的现在与未来',
       exp_stat1:          '年金融IT经验',
       exp_stat2:          '完成项目',
       exp_stat3:          '全球拓展国家',
@@ -1595,7 +1598,7 @@
       sol3_sub:     'メッセージキューイングエンジン',
       sol3_desc:    '非同期メッセージキューイングベースの高性能対外連携プラットフォーム。Config/Rule-Basedダイナミックルーティング制御で、カード会社・銀行・VAN事業者間の完全な接続を支援します',
       // Experience
-      exp_title:          'お客様とともに歩んだ{YEARS}年、<br>ロジックキューブの現在であり未来です',
+      exp_title:          'お客様とともに紡いできた大切な時間が<br>ロジックキューブの現在であり未来です',
       exp_stat1:          '年の金融IT経験',
       exp_stat2:          '完了プロジェクト',
       exp_stat3:          'グローバル展開国数',
