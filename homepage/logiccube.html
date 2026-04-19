@@ -163,8 +163,8 @@
   }
   /* 영어·중국어·일본어: 본문 서체로 전환, 대문자/자간 제거 */
   body[data-lang="en"] .hero-sub,
-  body[data-lang="zh"] .hero-sub,
-  body[data-lang="ja"] .hero-sub {
+  body[data-lang="cn"] .hero-sub,
+  body[data-lang="jp"] .hero-sub {
     font-family: 'Noto Sans KR', sans-serif;
     text-transform: none;
     letter-spacing: 0;
@@ -470,18 +470,25 @@
 			<span>English</span>
 		  </a>
 		  <a href="#" class="lang-item"
-			 data-lang="zh"
+			 data-lang="cn"
 			 data-label="中文"
 			 data-img="public/images/flag_cn.png">
 			<img src="public/images/flag_cn.png" alt="CN" class="lang-flag-img">
 			<span>中文</span>
 		  </a>
 		  <a href="#" class="lang-item"
-			 data-lang="ja"
+			 data-lang="jp"
 			 data-label="日本語"
 			 data-img="public/images/flag_jp.png">
 			<img src="public/images/flag_jp.png" alt="JP" class="lang-flag-img">
 			<span>日本語</span>
+		  </a>
+		  <a href="#" class="lang-item"
+			 data-lang="vn"
+			 data-label="Tiếng Việt"
+			 data-img="public/images/flag_vn.png">
+			<img src="public/images/flag_vn.png" alt="VN" class="lang-flag-img">
+			<span style="white-space:nowrap; font-size:11px;">Tiếng Việt</span>
 		  </a>
 		</div>
 	  </div>
@@ -1196,8 +1203,8 @@
       margin-right: auto !important;
     }
     body[data-lang="en"] .contact-grid,
-    body[data-lang="zh"] .contact-grid,
-    body[data-lang="ja"] .contact-grid {
+    body[data-lang="cn"] .contact-grid,
+    body[data-lang="jp"] .contact-grid {
       width: 90% !important;
     }
     #contact [style*="padding:40px 60px"] { padding: 16px 20px 0 !important; }
@@ -1469,10 +1476,10 @@
       exp_stat4:          'Expert Engineers',
       exp_partners_label: 'Key Partners',
       exp_awards_label:   'Awards & Recognition',
-      exp_cert1:          'Shinhan Card ICT Excellence Partner Certification (2019)',
-      exp_cert2:          'IBK Industrial Bank of Korea POST Next-Generation System (2014)',
+      exp_cert1:          'Shinhan Card Excellence Partner (2019)',
+      exp_cert2:          'Industrial Bank of Korea POST Next-Generation System (2014)',
       exp_cert3:          'Shinhan Card Next-Generation System (2012)',
-      exp_cert4:          'NH NongHyup Card Next-Generation System (2010)',
+      exp_cert4:          'NH Card Next-Generation System (2010)',
       // Technology
       tech_title:   'Unrivaled Technology',
       tech1_title:  'High-Speed Processing',
@@ -1499,7 +1506,7 @@
       contact_cta1:        'Contact Us',
       contact_cta2:        'Request a Proposal →',
     },
-    zh: {
+    cn: {
       // Hero
       hero_title_1:      '以逻辑之力，<br>',
       hero_title_accent:  '成就卓越金融。',
@@ -1569,7 +1576,7 @@
       contact_cta1:        '立即咨询',
       contact_cta2:        '申请提案 →',
     },
-    ja: {
+    jp: {
       // Hero
       hero_title_1:      '金融の力を <br>',
       hero_title_accent:  '論理で設計する',
@@ -1638,13 +1645,83 @@
       contact_addr_hint:   '→ KakaoMapで確認',
       contact_cta1:        'お問い合わせ',
       contact_cta2:        '提案書を申請 →',
+    },
+    vn: {
+      // Hero
+      hero_title_1:      'Tối ưu hóa giá trị<br>tài chính<br>',
+      hero_title_accent:  'Bằng thiết kế logic hoàn hảo.',
+      hero_sub:          'LogicCube kết hợp công nghệ tiên tiến với chuyên môn sâu trong lĩnh vực tài chính, mang đến giải pháp IT tài chính tối ưu dẫn đầu thị trường trong nước và quốc tế.',
+      hero_btn1:         'Tư vấn giải pháp',
+      hero_btn2:         'Yêu cầu đề xuất →',
+      hero_title2_1:     'Phê duyệt tức thì,<br>thanh toán chính xác,<br>',
+      hero_title2_accent:'Kết nối toàn vẹn.',
+      hero_sub2:         'Xây dựng giao diện tài chính đáng tin cậy thông qua quy trình phê duyệt nhanh chóng và dữ liệu quyết toán chính xác.',
+      // Values
+      values_title:      'Giá trị cốt lõi LogicCube theo đuổi',
+      val_precision:     'Xây dựng logic nghiệp vụ phức tạp một cách chính xác, dựa trên năng lực công nghệ được chứng minh qua hàng loạt thách thức thực tế',
+      val_reliability:   'Đảm bảo kết nối dữ liệu ổn định,<br>không gián đoạn trong mọi môi trường',
+      val_innovation:    'Phát triển logic thông minh<br>dẫn đầu hạ tầng mạng thế hệ tiếp theo',
+      // About
+      about_title:       'Doanh nghiệp tiên phong<br>trong thiết kế logic và xử lý dữ liệu',
+      about_desc:        'Với hơn 20 năm kinh nghiệm IT tài chính cùng chuyên môn sâu về nghiệp vụ thẻ tín dụng, giao diện đối ngoại ngân hàng và thẻ thông minh, chúng tôi không ngừng tối ưu hóa hiệu suất hệ thống và giá trị doanh nghiệp.',
+      about_feat1_title: 'Thuật toán xử lý gói tin tốc độ cao',
+      about_feat1_desc:  'Engine xử lý hiệu năng cao dựa trên Message Queue bất đồng bộ, đảm bảo xử lý giao dịch tài chính theo thời gian thực.',
+      about_feat2_title: 'Chuyển đổi tự động Fail-Over / Fail-Back',
+      about_feat2_desc:  'Cơ chế phục hồi sự cố SAF đảm bảo dịch vụ không gián đoạn 24/365.',
+      about_feat3_title: 'Kết nối với các thương hiệu thẻ toàn cầu',
+      about_feat3_desc:  'Hỗ trợ giao diện hoàn chỉnh với các tổ chức thẻ quốc tế VISA, Master, JCB, CUP, AMEX.',
+      // Solutions
+      sol_title:    'Giải pháp cốt lõi đã được kiểm chứng cho IT tài chính',
+      sol1_sub:     'Giải pháp giao diện đối ngoại',
+      sol1_desc:    'Tiêu chuẩn kết nối không độ trễ và phân phối lưu lượng thông minh. Tối đa hóa tính sẵn sàng của mạng bằng cân bằng tải động thời gian thực, đảm bảo dịch vụ liên tục 24/365.',
+      sol2_sub:     'Giải pháp kiểm thử tích hợp',
+      sol2_desc:    'Giải pháp kiểm thử tích hợp thông minh cho các dự án thế hệ tiếp theo trong ngành tài chính. Xác minh toàn diện tính ổn định hệ thống trước triển khai bằng kiểm thử kịch bản và kiểm thử tải.',
+      sol3_sub:     'Engine hàng đợi tin nhắn',
+      sol3_desc:    'Nền tảng kết nối đối ngoại hiệu năng cao dựa trên Message Queue bất đồng bộ. Điều khiển định tuyến động Config/Rule-Based hỗ trợ kết nối liền mạch giữa công ty thẻ, ngân hàng và nhà cung cấp VAN.',
+      // Experience
+      exp_title:          'Những năm tháng đồng hành cùng khách hàng<br>là hiện tại và tương lai của LogicCube',
+      exp_stat1:          'Năm kinh nghiệm IT tài chính',
+      exp_stat2:          'Dự án hoàn thành',
+      exp_stat3:          'Quốc gia triển khai',
+      exp_stat4:          'Kỹ sư chuyên môn',
+      exp_partners_label: 'Đối tác chính',
+      exp_awards_label:   'Thành tích & Giải thưởng',
+      exp_cert1:          'Shinhan Card Excellence Partner (2019)',
+      exp_cert2:          'Industrial Bank of Korea POST Next-Generation System (2014)',
+      exp_cert3:          'Shinhan Card Next-Generation System (2012)',
+      exp_cert4:          'NH Card Next-Generation System (2010)',
+      // Technology
+      tech_title:   'Công nghệ vượt trội',
+      tech1_title:  'Xử lý tốc độ cao',
+      tech1_desc:   'Xử lý gói tin siêu nhanh trên nền MOM bất đồng bộ. Định tuyến giao dịch tài chính thời gian thực, giảm thiểu tối đa độ trễ.',
+      tech2_title:  'Khả năng mở rộng',
+      tech2_desc:   'Dự phòng Active-Active đảm bảo không gián đoạn ngay cả trong môi trường tải cao. Xử lý logic nghiệp vụ độc lập theo từng kênh.',
+      tech3_title:  'Tối ưu hóa',
+      tech3_desc:   'Phân bổ bộ nhớ thời gian thực và tăng tốc tiến trình. Điều khiển định tuyến động theo Config/Rule-Based.',
+      flow_biz:     'Hệ thống nghiệp vụ',
+      flow_fep_sub: 'Giao diện đối ngoại',
+      flow_van:     'Nhà cung cấp VAN',
+      flow_related: 'Cơ quan liên quan',
+      // Contact
+      contact_title:       'Bắt đầu kết nối mới',
+      contact_sub:         'Chúng tôi hiện thực hóa giá trị dữ liệu với giải pháp tối ưu dành riêng cho doanh nghiệp của bạn.',
+      contact_sub2:        'Hãy liên hệ với chúng tôi ngay hôm nay.',
+      contact_email_label: 'Email / Web',
+      contact_phone_label: 'Điện thoại / Fax',
+      contact_addr_label:  'Địa chỉ',
+      contact_addr:        '25, Beopwon-ro 11-gil, Songpa-gu, Seoul<br>HB Business Park, Bldg A, #1212',
+      contact_email_hint:  '→ Gửi qua Gmail',
+      contact_phone_hint:  '→ Nhấn để gọi điện',
+      contact_addr_hint:   '→ Xem trên KakaoMap',
+      contact_cta1:        'Liên hệ ngay',
+      contact_cta2:        'Yêu cầu đề xuất →',
     }
   };
 
   // ══════════════════════════════════════════
   //  언어 적용 함수
   // ══════════════════════════════════════════
-  const SUPPORTED_LANGS = ['ko', 'en', 'zh', 'ja'];
+  const SUPPORTED_LANGS = ['ko', 'en', 'cn', 'jp', 'vn'];
 
   function applyLang(lang, userSelected = false) {
     const dict = i18n[lang] || i18n['ko'];
