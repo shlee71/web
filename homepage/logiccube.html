@@ -1313,8 +1313,8 @@
     }
     .hero-title { font-size: clamp(18px, 4vw, 28px) !important; margin-bottom: 8px; }
     .hero-sub { margin-bottom: 12px; }
-    /* PhaseB: landscape에서 hero-left padding-top(10px)과 동일 위치 */
-    #heroPhaseB { position: absolute !important; top: 10px !important; left: 20px !important; right: 16px !important; }
+    /* PhaseB: top은 JS(syncPhaseBTop)로 동적 설정 */
+    #heroPhaseB { position: absolute !important; left: 20px !important; right: 16px !important; }
     .hero-btns { gap: 8px; }
     .btn-primary, .btn-ghost { padding: 8px 14px; font-size: 12px; }
 
@@ -1788,9 +1788,16 @@
       }, 800);
     }
 
+    function syncPhaseBTop() {
+      phaseB.style.top = phaseA.offsetTop + 'px';
+    }
+    syncPhaseBTop();
+    window.addEventListener('resize', syncPhaseBTop);
+
     function startPhraseLoop(duration) {
       const half = (duration / 2) * 1000;
       clearTimeout(phraseTimer);
+      syncPhaseBTop();
       // 초기: A 즉시 표시 (transition 없이)
       phaseA.style.transition = 'none';
       phaseB.style.transition = 'none';
