@@ -424,6 +424,74 @@
   .hero-title  { animation: fadeUp 0.5s 0.22s both; }
   .hero-sub    { animation: fadeUp 0.5s 0.34s both; }
   .hero-btns   { animation: fadeUp 0.5s 0.44s both; }
+
+  /* ══ Global Map Popup ══ */
+  .global-stat-card {
+    cursor: pointer !important;
+    transition: background 0.2s, border-color 0.2s !important;
+  }
+  .global-stat-card:hover {
+    background: rgba(255,255,255,0.14) !important;
+    border-color: rgba(0,191,255,0.6) !important;
+  }
+  .global-hint {
+    font-size: 11px; font-weight: 700; letter-spacing: 1px;
+    color: rgba(0,191,255,0.65); margin-top: 5px;
+    font-family: 'Montserrat', sans-serif; text-transform: uppercase;
+  }
+  #globalMapPopup {
+    position: fixed;
+    width: fit-content;
+    min-width: 0;
+    background: rgba(0,10,30,0.97);
+    border: 1px solid rgba(0,191,255,0.3);
+    border-radius: 14px;
+    overflow: hidden;
+    pointer-events: none;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.22s ease, visibility 0.22s ease;
+    z-index: 9999;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.75), 0 0 40px rgba(0,100,200,0.1);
+  }
+  #globalMapPopup.visible { opacity: 1; visibility: visible; }
+  .gmp-header {
+    padding: 8px 8px 7px;
+    border-bottom: 1px solid rgba(0,191,255,0.15);
+    display: flex; align-items: center; gap: 6px;
+    width: fit-content;
+  }
+  .gmp-title {
+    font-size: 9px; font-weight: 700; letter-spacing: 1.5px;
+    text-transform: uppercase; color: rgba(0,191,255,0.85);
+    font-family: 'Montserrat', sans-serif;
+    white-space: nowrap;
+  }
+  .gmp-sub {
+    font-size: 9px; color: rgba(255,255,255,0.38);
+    font-family: 'Montserrat', sans-serif;
+    white-space: nowrap;
+  }
+  .gmp-list {
+    padding: 7px 10px 10px;
+    display: flex; flex-direction: column; gap: 5px;
+    align-items: stretch;
+  }
+  .gmp-item {
+    display: flex; align-items: center; gap: 10px;
+    padding: 6px 6px 6px 8px;
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(0,191,255,0.12);
+    border-radius: 7px;
+    transition: background 0.15s, border-color 0.15s;
+  }
+  .gmp-item:hover { background: rgba(0,191,255,0.08); border-color: rgba(0,191,255,0.32); }
+  .gmp-flag { flex-shrink: 0; border-radius: 2px; display: block; width: 28px; height: 20px; object-fit: cover; }
+  .gmp-name {
+    font-size: 13px; font-weight: 600; color: white;
+    font-family: 'Montserrat', sans-serif; flex: 1;
+  }
+
 </style>
 </head>
 <body>
@@ -720,9 +788,10 @@
         <div style="font-family:'Montserrat',sans-serif; font-size:34px; font-weight:800; color:var(--neon); line-height:1;">80+</div>
         <div style="font-size:12px; color:rgba(255,255,255,0.65); margin-top:6px;" data-i18n="exp_stat2">완료 프로젝트</div>
       </div>
-      <div style="text-align:center; padding:14px 12px; background:rgba(255,255,255,0.08); border:1px solid rgba(0,191,255,0.2); border-radius:12px;">
+      <div id="globalStatCard" class="global-stat-card" style="text-align:center; padding:14px 12px; background:rgba(255,255,255,0.08); border:1px solid rgba(0,191,255,0.2); border-radius:12px;">
         <div style="font-family:'Montserrat',sans-serif; font-size:34px; font-weight:800; color:var(--neon); line-height:1;">5</div>
         <div style="font-size:12px; color:rgba(255,255,255,0.65); margin-top:6px;" data-i18n="exp_stat3">글로벌 진출 국가</div>
+        <div class="global-hint" data-i18n="global_hint">🌏 국가 보기</div>
       </div>
       <div style="text-align:center; padding:14px 12px; background:rgba(255,255,255,0.08); border:1px solid rgba(0,191,255,0.2); border-radius:12px;">
         <div style="font-family:'Montserrat',sans-serif; font-size:34px; font-weight:800; color:var(--neon); line-height:1;">52</div>
@@ -765,8 +834,9 @@
       <div style="display:flex; align-items:center; gap:8px; padding:10px 16px; background:rgba(0,191,255,0.06); border:1px solid rgba(0,191,255,0.2); border-radius:8px;">
         <span style="color:var(--neon); font-size:14px;">🏆</span>
         <span style="font-size:12px; color:rgba(255,255,255,0.7);" data-i18n="exp_cert4">NH농협카드 차세대 (2010)</span>
-      </div>	  
+      </div>
     </div>
+
   </div>
   <div class="scroll-indicator" onclick="document.getElementById('technology').scrollIntoView({behavior:'smooth'})">
     <span>Scroll</span>
@@ -1173,7 +1243,6 @@
     .award-grid { display: grid !important; grid-template-columns: repeat(2, 1fr) !important; gap: 6px !important; margin-top: 8px !important; }
     .award-grid > div { padding: 7px 10px !important; font-size: 10px !important; }
     .award-grid > div span:last-child { font-size: 10px !important; }
-
     /* 6페이지 Technology */
     #technology { padding-top: 20px !important; padding-bottom: 8px !important; }
     #technology > div { padding: 2px 16px 0 16px !important; margin-top: 0 !important; }
@@ -1413,6 +1482,7 @@
       exp_cert2:          'IBK기업은행 차세대 (2014)',
       exp_cert3:          '신한카드 차세대 (2012)',
 	  exp_cert4:          'NH농협카드 차세대 (2010)',
+      global_hint:        '🌏 국가 보기',
       // Technology
       tech_title:   '독보적인 기술력',
       tech1_title:  '고속 처리',
@@ -1483,6 +1553,7 @@
       exp_cert2:          'Industrial Bank of Korea POST Next-Generation System (2014)',
       exp_cert3:          'Shinhan Card Next-Generation System (2012)',
       exp_cert4:          'NH Card Next-Generation System (2010)',
+      global_hint:        '🌏 Countries',
       // Technology
       tech_title:   'Unrivaled Technology',
       tech1_title:  'High-Speed Processing',
@@ -1553,6 +1624,7 @@
       exp_cert2:          'IBK企业银行POST新一代系统构建 (2014)',
       exp_cert3:          '新韩卡新一代系统构建 (2012)',
       exp_cert4:          'NH农协卡新一代系统构建 (2010)',
+      global_hint:        '🌏 查看国家',
       // Technology
       tech_title:   '卓越的技术实力',
       tech1_title:  '高速处理',
@@ -1623,6 +1695,7 @@
       exp_cert2:          'IBK企業銀行 POST次世代システム構築 (2014)',
       exp_cert3:          '新韓カード次世代システム構築 (2012)',
       exp_cert4:          'NH農協カード次世代システム構築 (2010)',
+      global_hint:        '🌏 国を見る',
       // Technology
       tech_title:   '圧倒的な技術力',
       tech1_title:  '高速処理',
@@ -1693,6 +1766,7 @@
       exp_cert2:          'Industrial Bank of Korea POST Next-Generation System (2014)',
       exp_cert3:          'Shinhan Card Next-Generation System (2012)',
       exp_cert4:          'NH Card Next-Generation System (2010)',
+      global_hint:        '🌏 Xem Quốc Gia',
       // Technology
       tech_title:   'Công nghệ vượt trội',
       tech1_title:  'Xử lý tốc độ cao',
@@ -1992,6 +2066,47 @@
       setPhoneByLang(e.detail);
     });
 
+    // ── Global Map Popup ──────────────────────────
+    (function() {
+      function initGlobalPopup() {
+        var card   = document.getElementById('globalStatCard');
+        var popup  = document.getElementById('globalMapPopup');
+        if (!card || !popup) return;
+        var mapOpen = false;
+
+        function showMap() {
+          var r  = card.getBoundingClientRect();
+          var pw = popup.offsetWidth || 240;
+          var ph = popup.offsetHeight || 280;
+          var left = r.left + r.width / 2 - pw / 2;
+          var top  = r.top - ph - 12;
+          if (left < 10) left = 10;
+          if (left + pw > window.innerWidth - 10) left = window.innerWidth - pw - 10;
+          if (top < 10) top = r.bottom + 12;
+          popup.style.left = left + 'px';
+          popup.style.top  = top  + 'px';
+          popup.classList.add('visible');
+        }
+        function hideMap() {
+          popup.classList.remove('visible');
+          mapOpen = false;
+        }
+
+        card.addEventListener('mouseenter', showMap);
+        card.addEventListener('mouseleave', hideMap);
+        card.addEventListener('touchstart', function(e) {
+          e.preventDefault();
+          if (mapOpen) { hideMap(); } else { showMap(); mapOpen = true; }
+        }, { passive: false });
+        window.addEventListener('scroll', hideMap, { passive: true });
+      }
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', initGlobalPopup);
+      } else {
+        initGlobalPopup();
+      }
+    })();
+
     // 모바일 클릭 시 전화 연결
     var isMobile = /Android|iPhone|iPad|iPod|Mobile/i.test(navigator.userAgent);
     if (isMobile) {
@@ -2006,5 +2121,145 @@
   })();
 
 </script>
+
+<!-- ══ Global Map Popup ══ -->
+<div id="globalMapPopup">
+  <div class="gmp-header">
+    <span class="gmp-title">Global Presence</span>
+    <span class="gmp-sub">5 Countries</span>
+  </div>
+  <div class="gmp-list">
+    <div class="gmp-item"><img class="gmp-flag" src="https://flagcdn.com/28x21/vn.png" alt="" style="background:linear-gradient(#DA251D 50%,#DA251D 50%)"><span class="gmp-name" data-i18n="country_vn">Vietnam</span></div>
+    <div class="gmp-item"><img class="gmp-flag" src="https://flagcdn.com/28x21/id.png" alt="" style="background:linear-gradient(#CE1126 50%,#ffffff 50%)"><span class="gmp-name" data-i18n="country_id">Indonesia</span></div>
+    <div class="gmp-item"><img class="gmp-flag" src="https://flagcdn.com/28x21/kh.png" alt="" style="background:linear-gradient(#032EA1 33%,#E00025 33%,#E00025 67%,#032EA1 67%)"><span class="gmp-name" data-i18n="country_kh">Cambodia</span></div>
+    <div class="gmp-item"><img class="gmp-flag" src="https://flagcdn.com/28x21/th.png" alt="" style="background:linear-gradient(#A51931 20%,#F4F5F8 20%,#F4F5F8 40%,#2D2A4A 40%,#2D2A4A 60%,#F4F5F8 60%,#F4F5F8 80%,#A51931 80%)"><span class="gmp-name" data-i18n="country_th">Thailand</span></div>
+    <div class="gmp-item"><img class="gmp-flag" src="https://flagcdn.com/28x21/kz.png" alt="" style="background:#00AFCA"><span class="gmp-name" data-i18n="country_kz">Kazakhstan</span></div>
+  </div>
+  <svg viewBox="0 0 500 262" xmlns="http://www.w3.org/2000/svg" style="display:none;">
+    <defs>
+      <filter id="mglow" x="-60%" y="-60%" width="220%" height="220%">
+        <feGaussianBlur stdDeviation="3" result="b"/>
+        <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+      </filter>
+      <filter id="sglow" x="-60%" y="-60%" width="220%" height="220%">
+        <feGaussianBlur stdDeviation="1.8" result="b"/>
+        <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+      </filter>
+      <marker id="marr" markerWidth="5" markerHeight="5" refX="4.5" refY="2.5" orient="auto">
+        <path d="M0,0.5 L4.5,2.5 L0,4.5 Z" fill="rgba(0,191,255,0.8)"/>
+      </marker>
+    </defs>
+
+    <!-- 배경 격자 -->
+    <line x1="0" y1="65" x2="476" y2="65" stroke="rgba(0,191,255,0.04)" stroke-width="1"/>
+    <line x1="0" y1="130" x2="476" y2="130" stroke="rgba(0,191,255,0.04)" stroke-width="1"/>
+    <line x1="0" y1="195" x2="476" y2="195" stroke="rgba(0,191,255,0.04)" stroke-width="1"/>
+    <line x1="119" y1="0" x2="119" y2="262" stroke="rgba(0,191,255,0.04)" stroke-width="1"/>
+    <line x1="238" y1="0" x2="238" y2="262" stroke="rgba(0,191,255,0.04)" stroke-width="1"/>
+    <line x1="357" y1="0" x2="357" y2="262" stroke="rgba(0,191,255,0.04)" stroke-width="1"/>
+
+    <!-- 아시아 대륙 (단순화) -->
+    <path d="M 22,138 C 20,90 50,52 108,32 C 166,12 258,5 344,12 C 404,17 450,40 474,76 C 488,100 487,132 475,156 C 464,178 444,188 425,194 C 406,200 390,200 372,198 C 354,196 336,202 320,213 C 304,224 296,238 290,252 L 284,262 L 280,252 C 284,238 294,222 310,210 C 326,198 344,193 362,190 C 344,194 320,197 296,200 C 270,203 244,204 218,201 C 178,196 140,184 106,174 C 66,162 28,150 22,140 Z"
+      fill="rgba(35,75,125,0.38)" stroke="rgba(80,145,215,0.38)" stroke-width="1"/>
+    <!-- 인도차이나 반도 -->
+    <path d="M 300,210 C 313,224 316,240 309,255 C 303,268 292,265 287,252 C 282,238 288,220 300,210 Z"
+      fill="rgba(35,75,125,0.38)" stroke="rgba(80,145,215,0.32)" stroke-width="0.8"/>
+    <!-- 인도네시아 (수마트라/자바/보르네오) -->
+    <ellipse cx="270" cy="248" rx="20" ry="7" transform="rotate(-18,270,248)" fill="rgba(35,75,125,0.38)" stroke="rgba(80,145,215,0.3)" stroke-width="0.8"/>
+    <ellipse cx="294" cy="246" rx="17" ry="6" fill="rgba(35,75,125,0.38)" stroke="rgba(80,145,215,0.3)" stroke-width="0.8"/>
+    <ellipse cx="314" cy="240" rx="14" ry="6" transform="rotate(8,314,240)" fill="rgba(35,75,125,0.38)" stroke="rgba(80,145,215,0.3)" stroke-width="0.8"/>
+    <!-- 한반도 -->
+    <path d="M 371,97 C 375,108 372,122 363,128 C 354,134 348,124 352,113 C 356,102 367,95 371,97 Z"
+      fill="rgba(35,80,130,0.5)" stroke="rgba(80,145,215,0.5)" stroke-width="0.8"/>
+    <!-- 일본 -->
+    <path d="M 448,67 C 453,74 451,85 444,88 C 437,91 434,83 438,75 Z"
+      fill="rgba(35,75,125,0.32)" stroke="rgba(80,145,215,0.32)" stroke-width="0.8"/>
+
+    <!-- 연결선: 한국 → 5개국 (애니메이션 화살표) -->
+    <line x1="368" y1="94" x2="158" y2="76" stroke="rgba(0,191,255,0.65)" stroke-width="1.5" stroke-dasharray="6,3" marker-end="url(#marr)">
+      <animate attributeName="stroke-dashoffset" values="180;0" dur="2.0s" repeatCount="indefinite"/>
+    </line>
+    <line x1="368" y1="94" x2="252" y2="166" stroke="rgba(0,191,255,0.6)" stroke-width="1.5" stroke-dasharray="6,3" marker-end="url(#marr)">
+      <animate attributeName="stroke-dashoffset" values="180;0" dur="1.7s" repeatCount="indefinite"/>
+    </line>
+    <line x1="368" y1="94" x2="270" y2="178" stroke="rgba(0,191,255,0.6)" stroke-width="1.5" stroke-dasharray="6,3" marker-end="url(#marr)">
+      <animate attributeName="stroke-dashoffset" values="180;0" dur="1.9s" repeatCount="indefinite"/>
+    </line>
+    <line x1="368" y1="94" x2="286" y2="158" stroke="rgba(0,191,255,0.6)" stroke-width="1.5" stroke-dasharray="6,3" marker-end="url(#marr)">
+      <animate attributeName="stroke-dashoffset" values="180;0" dur="1.5s" repeatCount="indefinite"/>
+    </line>
+    <line x1="368" y1="94" x2="283" y2="230" stroke="rgba(0,191,255,0.5)" stroke-width="1.5" stroke-dasharray="6,3" marker-end="url(#marr)">
+      <animate attributeName="stroke-dashoffset" values="180;0" dur="2.3s" repeatCount="indefinite"/>
+    </line>
+
+    <!-- 한국 (펄스 + 국기) -->
+    <circle cx="368" cy="94" r="18" fill="none" stroke="rgba(0,210,120,0.35)" stroke-width="1.2">
+      <animate attributeName="r" values="14;22;14" dur="2s" repeatCount="indefinite"/>
+      <animate attributeName="opacity" values="0.5;0;0.5" dur="2s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="368" cy="94" r="13" fill="rgba(0,60,30,0.92)" stroke="rgba(0,210,120,0.95)" stroke-width="1.8" filter="url(#mglow)"/>
+    <text x="368" y="100" text-anchor="middle" font-size="17">🇰🇷</text>
+    <rect x="354" y="109" width="28" height="12" rx="3" fill="rgba(0,80,40,0.75)"/>
+    <text x="368" y="119" text-anchor="middle" fill="rgba(0,230,130,0.95)" font-size="8" font-family="Montserrat,sans-serif" font-weight="700" letter-spacing="0.8">KR</text>
+
+    <!-- 카자흐스탄 -->
+    <circle cx="158" cy="76" r="16" fill="none" stroke="rgba(240,180,0,0.3)" stroke-width="1">
+      <animate attributeName="r" values="11;18;11" dur="2.2s" repeatCount="indefinite" begin="0.4s"/>
+      <animate attributeName="opacity" values="0.45;0;0.45" dur="2.2s" repeatCount="indefinite" begin="0.4s"/>
+    </circle>
+    <circle cx="158" cy="76" r="12" fill="rgba(80,60,0,0.9)" stroke="rgba(240,185,0,0.92)" stroke-width="1.6" filter="url(#sglow)"/>
+    <text x="158" y="82" text-anchor="middle" font-size="16">🇰🇿</text>
+    <rect x="142" y="90" width="32" height="12" rx="3" fill="rgba(0,10,30,0.75)"/>
+    <text x="158" y="100" text-anchor="middle" fill="rgba(0,191,255,0.95)" font-size="8" font-family="Montserrat,sans-serif" font-weight="700" letter-spacing="0.8">KZ</text>
+
+    <!-- 태국 -->
+    <circle cx="252" cy="166" r="16" fill="none" stroke="rgba(240,180,0,0.3)" stroke-width="1">
+      <animate attributeName="r" values="11;18;11" dur="2.0s" repeatCount="indefinite" begin="0.7s"/>
+      <animate attributeName="opacity" values="0.45;0;0.45" dur="2.0s" repeatCount="indefinite" begin="0.7s"/>
+    </circle>
+    <circle cx="252" cy="166" r="12" fill="rgba(80,60,0,0.9)" stroke="rgba(240,185,0,0.92)" stroke-width="1.6" filter="url(#sglow)"/>
+    <text x="252" y="172" text-anchor="middle" font-size="16">🇹🇭</text>
+    <rect x="234" y="180" width="36" height="12" rx="3" fill="rgba(0,10,30,0.75)"/>
+    <text x="252" y="190" text-anchor="middle" fill="rgba(0,191,255,0.95)" font-size="8" font-family="Montserrat,sans-serif" font-weight="700" letter-spacing="0.8">TH</text>
+
+    <!-- 캄보디아 -->
+    <circle cx="270" cy="178" r="16" fill="none" stroke="rgba(240,180,0,0.3)" stroke-width="1">
+      <animate attributeName="r" values="11;18;11" dur="2.4s" repeatCount="indefinite" begin="1.0s"/>
+      <animate attributeName="opacity" values="0.45;0;0.45" dur="2.4s" repeatCount="indefinite" begin="1.0s"/>
+    </circle>
+    <circle cx="270" cy="178" r="12" fill="rgba(80,60,0,0.9)" stroke="rgba(240,185,0,0.92)" stroke-width="1.6" filter="url(#sglow)"/>
+    <text x="270" y="184" text-anchor="middle" font-size="16">🇰🇭</text>
+    <rect x="248" y="192" width="44" height="12" rx="3" fill="rgba(0,10,30,0.75)"/>
+    <text x="270" y="202" text-anchor="middle" fill="rgba(0,191,255,0.95)" font-size="8" font-family="Montserrat,sans-serif" font-weight="700" letter-spacing="0.8">KH</text>
+
+    <!-- 베트남 -->
+    <circle cx="286" cy="158" r="16" fill="none" stroke="rgba(240,180,0,0.3)" stroke-width="1">
+      <animate attributeName="r" values="11;18;11" dur="1.8s" repeatCount="indefinite" begin="1.3s"/>
+      <animate attributeName="opacity" values="0.45;0;0.45" dur="1.8s" repeatCount="indefinite" begin="1.3s"/>
+    </circle>
+    <circle cx="286" cy="158" r="12" fill="rgba(80,60,0,0.9)" stroke="rgba(240,185,0,0.92)" stroke-width="1.6" filter="url(#sglow)"/>
+    <text x="286" y="164" text-anchor="middle" font-size="16">🇻🇳</text>
+    <rect x="268" y="143" width="36" height="12" rx="3" fill="rgba(0,10,30,0.75)"/>
+    <text x="286" y="153" text-anchor="middle" fill="rgba(0,191,255,0.95)" font-size="8" font-family="Montserrat,sans-serif" font-weight="700" letter-spacing="0.8">VN</text>
+
+    <!-- 인도네시아 -->
+    <circle cx="283" cy="230" r="16" fill="none" stroke="rgba(240,180,0,0.3)" stroke-width="1">
+      <animate attributeName="r" values="11;18;11" dur="2.6s" repeatCount="indefinite" begin="0.6s"/>
+      <animate attributeName="opacity" values="0.45;0;0.45" dur="2.6s" repeatCount="indefinite" begin="0.6s"/>
+    </circle>
+    <circle cx="283" cy="230" r="12" fill="rgba(80,60,0,0.9)" stroke="rgba(240,185,0,0.92)" stroke-width="1.6" filter="url(#sglow)"/>
+    <text x="283" y="236" text-anchor="middle" font-size="16">🇮🇩</text>
+    <rect x="259" y="244" width="48" height="12" rx="3" fill="rgba(0,10,30,0.75)"/>
+    <text x="283" y="254" text-anchor="middle" fill="rgba(0,191,255,0.95)" font-size="8" font-family="Montserrat,sans-serif" font-weight="700" letter-spacing="0.8">ID</text>
+
+    <!-- 범례 -->
+    <circle cx="14" cy="255" r="6" fill="rgba(0,60,30,0.9)" stroke="rgba(0,210,120,0.9)" stroke-width="1.4"/>
+    <text x="14" y="258" text-anchor="middle" font-size="8">🇰🇷</text>
+    <text x="24" y="259" fill="rgba(255,255,255,0.45)" font-size="7.5" font-family="Noto Sans KR,sans-serif">한국 (출발지)</text>
+    <circle cx="100" cy="255" r="6" fill="rgba(80,60,0,0.9)" stroke="rgba(240,185,0,0.9)" stroke-width="1.4"/>
+    <text x="112" y="259" fill="rgba(255,255,255,0.45)" font-size="7.5" font-family="Noto Sans KR,sans-serif">진출국가</text>
+  </svg>
+</div>
+
 </body>
 </html>
