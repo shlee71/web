@@ -1789,7 +1789,7 @@
     }
 
     function syncPhaseBTop() {
-      phaseB.style.top = phaseA.offsetTop + 'px';
+      phaseB.style.setProperty('top', phaseA.offsetTop + 'px', 'important');
     }
     syncPhaseBTop();
     window.addEventListener('resize', syncPhaseBTop);
