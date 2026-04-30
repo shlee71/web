@@ -1191,13 +1191,12 @@
     /* Contact CTA 버튼 인라인 스타일 오버라이드 */
     #contact .btn-primary { font-size: 12px !important; padding: 10px 18px !important; }
     #contact .btn-ghost   { font-size: 12px !important; padding: 10px 16px !important; }
-    /* hero-right: 남은 공간을 채우되 고정 높이로 안정적 유지 */
+    /* hero-right: 텍스트 바로 아래 고정 높이로 자연스럽게 배치 */
     #hero .hero-right {
-      flex: 1 1 0 !important;
+      flex: 0 0 auto !important;
       position: relative !important;
       width: 100% !important;
-      min-height: 0 !important;
-      max-height: 300px !important;
+      height: 240px !important;
       padding: 0 20px !important;
       margin-top: 8px !important;
       overflow: hidden !important;
@@ -1372,9 +1371,9 @@
 
     /* Hero 세로모드: 정확히 한 화면 (100lvh로 주소창 변동 무관) */
     #hero { min-height: 100vh; height: 100vh; min-height: 100lvh; height: 100lvh; overflow: hidden; display: flex; flex-direction: column; }
-    /* hero-left: badge + 텍스트 영역 */
+    /* hero-left: 콘텐츠 크기만큼만 차지 (flex:1 제거 - 텍스트와 영상 사이 빈 공간 방지) */
     #hero .hero-left {
-      flex: 1 !important;
+      flex: 0 0 auto !important;
       height: auto !important;
       padding: 68px 20px 0 20px !important;
       justify-content: flex-start !important;
@@ -1392,8 +1391,8 @@
     #hero .hero-sub { margin-bottom: 20px !important; line-height: 1.5 !important; font-size: 13px !important; }
     /* 버튼: 텍스트 아래 자연스럽게 */
     #hero .hero-btns { position: relative !important; bottom: auto !important; left: auto !important; margin-top: 24px !important; }
-    /* hero-right 높이 고정 */
-    #hero .hero-right { height: 220px !important; flex-shrink: 0 !important; padding-top: 4px !important; margin-top: -20px !important; }
+    /* hero-right 높이 고정 (텍스트 바로 아래 자연스럽게 배치) */
+    #hero .hero-right { height: 240px !important; flex-shrink: 0 !important; padding-top: 4px !important; margin-top: 8px !important; }
   }
 
   /* ══════════════════════════════════════════
