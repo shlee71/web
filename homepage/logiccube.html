@@ -4,6 +4,28 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>로직큐브 - 금융 시스템의 가치를 실현하는 기업</title>
+
+<!-- SEO description -->
+<meta name="description" content="LogicCube — 카드결제 인프라 전문기업. Cube*FEP, Cube*ITS, Cube*MOM 등 금융 시스템 솔루션을 제공합니다.">
+
+<!-- Open Graph (KakaoTalk, Facebook, LinkedIn 미리보기) -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="LogicCube">
+<meta property="og:locale" content="ko_KR">
+<meta property="og:title" content="로직큐브 - 금융 시스템의 가치를 실현하는 기업">
+<meta property="og:description" content="금융 시스템의 가치를 극대화하는 논리적 설계를 완성합니다.">
+<meta property="og:url" content="https://shlee71.github.io/web/homepage/logiccube.html">
+<meta property="og:image" content="https://shlee71.github.io/web/homepage/public/images/og_image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="LogicCube - 금융 시스템의 가치를 실현하는 기업">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="로직큐브 - 금융 시스템의 가치를 실현하는 기업">
+<meta name="twitter:description" content="금융 시스템의 가치를 극대화하는 논리적 설계를 완성합니다.">
+<meta name="twitter:image" content="https://shlee71.github.io/web/homepage/public/images/og_image.png">
+
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
 <style>
   :root {
@@ -960,7 +982,7 @@
 
       <!-- 주소 BOX -->
       <div class="contact-card" style="cursor:pointer;"
-           onclick="window.open('https://map.kakao.com/?sName=&eName=H비즈니스파크+A동&eX=525705&eY=1107095', '_blank');">
+           onclick="window.open('https://map.naver.com/p/directions/-/3znsTG,2AICX4,H비즈니스파크A동,624564343,PLACE_POI/-/transit', '_blank');">
         <div class="contact-card-header">
           <span class="contact-card-icon">📍</span>
           <span class="contact-card-title" data-i18n="contact_addr_label">주소</span>
@@ -968,7 +990,7 @@
         <div class="contact-card-row" style="flex-direction:column; align-items:flex-start; gap:2px; text-align:left;">
           <span data-i18n="contact_addr">서울시 송파구 법원로11길 25<br>에이치비지니스파크 A동 1212호</span>
         </div>
-        <div class="contact-card-hint" data-i18n="contact_addr_hint">→ 카카오맵으로 길찾기</div>
+        <div class="contact-card-hint" data-i18n="contact_addr_hint">→ 네이버 지도로 길찾기</div>
       </div>
 
     </div>
@@ -1120,17 +1142,21 @@
     /* Hero 문구 B — 모바일 padding 맞춤 */
     #heroPhaseB { left: 20px !important; right: 20px !important; }
 
-    /* 공통 섹션 */
+    /* 공통 섹션 — 모바일에서 viewport 높이 고정 (주소창 변동에 의한 리사이즈 방지) */
     .section { height: auto; min-height: unset; padding-top: 56px; }
-    #values, #about, #solutions, #experience, #technology { min-height: 100svh; }
+    #values, #about, #solutions, #experience, #technology {
+      min-height: var(--app-vh, 100svh);
+      height: var(--app-vh, 100svh);
+      justify-content: flex-start !important;
+    }
     .section-title { font-size: clamp(22px, 6vw, 36px); margin-bottom: 28px !important; }
     .section-tag { font-size: 10px; }
 
     /* 1페이지 HERO */
-    /* Hero 모바일: 정확히 한 화면, 빈공간 없음 */
+    /* Hero 모바일: 정확히 한 화면, 빈공간 없음 (주소창 변동에 의한 리사이즈 방지) */
     #hero {
       display: flex; flex-direction: column;
-      min-height: 100svh; height: 100svh;
+      min-height: var(--app-vh, 100svh); height: var(--app-vh, 100svh);
       overflow: hidden;
     }
     #hero .hero-left {
@@ -1334,8 +1360,8 @@
     /* 5페이지 주요 파트너사 위 빈공간 */
     [data-i18n="exp_partners_label"] { margin-top: 1em !important; }
 
-    /* Hero 세로모드: 정확히 한 화면 */
-    #hero { min-height: 100svh; height: 100svh; overflow: hidden; display: flex; flex-direction: column; }
+    /* Hero 세로모드: 정확히 한 화면 (주소창 변동에 의한 리사이즈 방지) */
+    #hero { min-height: var(--app-vh, 100svh); height: var(--app-vh, 100svh); overflow: hidden; display: flex; flex-direction: column; }
     /* hero-left: badge + 텍스트 영역 */
     #hero .hero-left {
       flex: 1 !important;
@@ -1505,7 +1531,7 @@
       contact_addr:        '서울시 송파구 법원로 11길 25<br>에이치비지니스파크 A동 1212호',
       contact_email_hint:  '→ Gmail로 바로 보내기',
       contact_phone_hint:  '→ 탭하면 전화 연결',
-      contact_addr_hint:   '→ 카카오맵으로 길찾기',
+      contact_addr_hint:   '→ 네이버 지도로 길찾기',
       contact_cta1:        '문의하기',
       contact_cta2:        '제안서 요청 →',
     },
@@ -1576,7 +1602,7 @@
       contact_addr:        '25, Beopwon-ro 11-gil, Songpa-gu, Seoul<br>HB Business Park, Bldg A, #1212',
       contact_email_hint:  '→ Send via Gmail',
       contact_phone_hint:  '→ Tap to call',
-      contact_addr_hint:   '→ Open in KakaoMap',
+      contact_addr_hint:   '→ Open in Naver Map',
       contact_cta1:        'Contact Us',
       contact_cta2:        'Request a Proposal →',
     },
@@ -1647,7 +1673,7 @@
       contact_addr:        '25, Beopwon-ro 11-gil, Songpa-gu, Seoul<br>HB Business Park, Bldg A, #1212',
       contact_email_hint:  '→ 通过Gmail发送',
       contact_phone_hint:  '→ 点击拨打',
-      contact_addr_hint:   '→ 在KakaoMap中查看',
+      contact_addr_hint:   '→ 在Naver地图中查看',
       contact_cta1:        '立即咨询',
       contact_cta2:        '申请提案 →',
     },
@@ -1718,7 +1744,7 @@
       contact_addr:        '25, Beopwon-ro 11-gil, Songpa-gu, Seoul<br>HB Business Park, Bldg A, #1212',
       contact_email_hint:  '→ Gmailで送信',
       contact_phone_hint:  '→ タップして電話',
-      contact_addr_hint:   '→ KakaoMapで確認',
+      contact_addr_hint:   '→ Naverマップで確認',
       contact_cta1:        'お問い合わせ',
       contact_cta2:        '提案書を申請 →',
     },
@@ -1789,7 +1815,7 @@
       contact_addr:        '25, Beopwon-ro 11-gil, Songpa-gu, Seoul<br>HB Business Park, Bldg A, #1212',
       contact_email_hint:  '→ Gửi qua Gmail',
       contact_phone_hint:  '→ Nhấn để gọi điện',
-      contact_addr_hint:   '→ Xem trên KakaoMap',
+      contact_addr_hint:   '→ Xem trên Naver Map',
       contact_cta1:        'Liên hệ ngay',
       contact_cta2:        'Yêu cầu đề xuất →',
     }
@@ -1825,6 +1851,23 @@
       } catch(e) {}
     }
   }
+
+  // ══════════════════════════════════════════
+  //  모바일 viewport 높이 고정 (--app-vh)
+  //  - 주소창이 보이거나 숨김에 따라 100vh/100svh가 변동하여
+  //    섹션 높이가 늘었다 줄었다 하는 현상을 방지한다.
+  //  - 초기 1회 측정 후 고정. orientationchange 시에만 재측정.
+  //  - resize 이벤트는 사용하지 않는다 (스크롤 중 발생 방지).
+  // ══════════════════════════════════════════
+  function setAppVh() {
+    const vh = window.innerHeight;
+    document.documentElement.style.setProperty('--app-vh', vh + 'px');
+  }
+  setAppVh();
+  window.addEventListener('orientationchange', () => {
+    // orientationchange 직후에는 innerHeight가 아직 갱신되지 않을 수 있어 약간 지연
+    setTimeout(setAppVh, 200);
+  });
 
   // ══════════════════════════════════════════
   //  메뉴 클릭 시 즉시 이동 (스크롤 애니메이션 없이)
