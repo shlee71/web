@@ -1142,12 +1142,18 @@
     /* Hero 문구 B — 모바일 padding 맞춤 */
     #heroPhaseB { left: 20px !important; right: 20px !important; }
 
-    /* 공통 섹션 — 모바일에서 viewport 높이 고정 (주소창 변동에 의한 리사이즈 방지) */
+    /* 공통 섹션 — 모바일에서 viewport 높이 고정
+       100lvh: 주소창이 숨겨진 상태의 최대 viewport 높이 (변동 없음)
+       이 방식은 주소창 표시 여부와 무관하게 다음 섹션이 노출되는 것을 방지한다.
+       구형 브라우저용 fallback: 100vh */
     .section { height: auto; min-height: unset; padding-top: 56px; }
     #values, #about, #solutions, #experience, #technology {
-      min-height: var(--app-vh, 100svh);
-      height: var(--app-vh, 100svh);
-      max-height: var(--app-vh, 100svh);
+      min-height: 100vh;
+      height: 100vh;
+      max-height: 100vh;
+      min-height: 100lvh;
+      height: 100lvh;
+      max-height: 100lvh;
       justify-content: flex-start !important;
       overflow: hidden !important;
     }
@@ -1155,10 +1161,11 @@
     .section-tag { font-size: 10px; }
 
     /* 1페이지 HERO */
-    /* Hero 모바일: 정확히 한 화면, 빈공간 없음 (주소창 변동에 의한 리사이즈 방지) */
+    /* Hero 모바일: 정확히 한 화면, 빈공간 없음 (100lvh로 주소창 변동 무관) */
     #hero {
       display: flex; flex-direction: column;
-      min-height: var(--app-vh, 100svh); height: var(--app-vh, 100svh);
+      min-height: 100vh; height: 100vh;
+      min-height: 100lvh; height: 100lvh;
       overflow: hidden;
     }
     #hero .hero-left {
@@ -1363,8 +1370,8 @@
     /* 5페이지 주요 파트너사 위 빈공간 */
     [data-i18n="exp_partners_label"] { margin-top: 1em !important; }
 
-    /* Hero 세로모드: 정확히 한 화면 (주소창 변동에 의한 리사이즈 방지) */
-    #hero { min-height: var(--app-vh, 100svh); height: var(--app-vh, 100svh); overflow: hidden; display: flex; flex-direction: column; }
+    /* Hero 세로모드: 정확히 한 화면 (100lvh로 주소창 변동 무관) */
+    #hero { min-height: 100vh; height: 100vh; min-height: 100lvh; height: 100lvh; overflow: hidden; display: flex; flex-direction: column; }
     /* hero-left: badge + 텍스트 영역 */
     #hero .hero-left {
       flex: 1 !important;
@@ -1854,23 +1861,6 @@
       } catch(e) {}
     }
   }
-
-  // ══════════════════════════════════════════
-  //  모바일 viewport 높이 고정 (--app-vh)
-  //  - 주소창이 보이거나 숨김에 따라 100vh/100svh가 변동하여
-  //    섹션 높이가 늘었다 줄었다 하는 현상을 방지한다.
-  //  - 초기 1회 측정 후 고정. orientationchange 시에만 재측정.
-  //  - resize 이벤트는 사용하지 않는다 (스크롤 중 발생 방지).
-  // ══════════════════════════════════════════
-  function setAppVh() {
-    const vh = window.innerHeight;
-    document.documentElement.style.setProperty('--app-vh', vh + 'px');
-  }
-  setAppVh();
-  window.addEventListener('orientationchange', () => {
-    // orientationchange 직후에는 innerHeight가 아직 갱신되지 않을 수 있어 약간 지연
-    setTimeout(setAppVh, 200);
-  });
 
   // ══════════════════════════════════════════
   //  메뉴 클릭 시 즉시 이동 (스크롤 애니메이션 없이)
