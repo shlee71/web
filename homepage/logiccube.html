@@ -1313,11 +1313,9 @@
       margin-top: 10px !important;
       margin-bottom: 6px !important;
     }
-    /* 수상이력 2열 grid: gap만 줄임 (폰트는 13.2px = 기본 12px의 10% 증가) */
+    /* 수상이력 2열 grid: gap만 줄임 (폰트는 12px 그대로) */
     .award-grid { display: grid !important; grid-template-columns: repeat(2, 1fr) !important; gap: 6px !important; margin-top: 0 !important; }
-    .award-grid > div { padding: 8px 12px !important; gap: 8px !important; }
-    .award-grid > div span:first-child { font-size: 15px !important; }   /* 트로피 아이콘 (14px → 15px, 10% 증가) */
-    .award-grid > div span:last-child { font-size: 13.2px !important; }  /* 텍스트 (12px → 13.2px, 10% 증가) */
+    .award-grid > div { padding: 8px 12px !important; }
     /* 6페이지 Technology */
     #technology { padding-top: 20px !important; padding-bottom: 8px !important; }
     #technology > div { padding: 2px 16px 0 16px !important; margin-top: 0 !important; }
@@ -1603,23 +1601,31 @@
 
     /* ══ 카드 내부 행간 20% 축소 (사용자 요청) ══
        폰트는 그대로, 행간/패딩만 줄여 공간 확보 */
-    #contact .contact-card { gap: 3px !important; }                       /* row 간격 4px → 3px */
+    /* 카드 위·아래 padding 50% 축소 (빨간 타원 영역) */
+    #contact .contact-card {
+      padding: 7px 16px !important;                                        /* 위·아래 14px → 7px (50% 축소) */
+      gap: 3px !important;                                                 /* row 간격 4px → 3px */
+    }
     #contact .contact-card-header {
-      margin-bottom: 10px !important;                                      /* 16px → 10px (37% 축소) */
-      padding-bottom: 8px !important;                                      /* 12px → 8px */
+      margin-bottom: 6px !important;                                       /* 10px → 6px (40% 축소) */
+      padding-bottom: 5px !important;                                      /* 8px → 5px */
     }
     #contact .contact-card-row {
-      line-height: 1.4 !important;                                         /* 1.7 → 1.4 (~18% 축소) */
+      line-height: 1.4 !important;                                         /* 1.7 → 1.4 */
     }
     #contact .contact-card-hint {
-      margin-top: 6px !important;                                          /* 10px → 6px (40% 축소) */
+      margin-top: 4px !important;                                          /* 6px → 4px (33% 축소) */
+    }
+    /* CONTACT US 위 빈 공간 50% 축소 */
+    #contact > div {
+      padding: 4px 16px 0 !important;                                      /* 8px → 4px (50% 축소) */
     }
     /* 주소 카드 내부 줄간격 (서울시 / 에이치비... 두 줄 사이) */
     #contact .contact-card-row[style*="flex-direction:column"] {
-      gap: 1px !important;                                                 /* 2px → 1px */
+      gap: 1px !important;
     }
     #contact [data-i18n="contact_addr"] {
-      line-height: 1.4 !important;                                         /* 줄간격 축소 */
+      line-height: 1.4 !important;
     }
   }
 
@@ -2126,6 +2132,14 @@
     }
 
     function syncPhaseBTop() {
+      // 모바일 세로 모드에서는 CSS의 top:110px(!important)을 그대로 사용
+      // 페이지 슬라이드 시스템에서 #hero가 position:fixed가 되면
+      // phaseA.offsetTop 계산이 부정확해져 PhaseB 위치가 어긋나는 문제 방지
+      if (window.matchMedia('(max-width: 768px) and (orientation: portrait)').matches) {
+        // 혹시 이전에 inline으로 설정된 top 값이 있다면 제거하여 CSS 값 복원
+        phaseB.style.removeProperty('top');
+        return;
+      }
       phaseB.style.setProperty('top', phaseA.offsetTop + 'px', 'important');
     }
     syncPhaseBTop();
