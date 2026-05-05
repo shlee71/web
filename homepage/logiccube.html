@@ -1252,10 +1252,10 @@
     }
     #about .about-right {
       width: 100%;
-      height: 200px !important;                  /* 220 → 200 (콘텐츠 밀림 방지) */
+      height: 260px !important;                  /* 200 → 260 (이미지 더 크게, 빈 공간 활용) */
       order: 1;
       flex-shrink: 0;
-      margin-top: 4px !important;                /* 텍스트와 이미지 간격 최소화 */
+      margin-top: 0 !important;                  /* 텍스트 카드와 이미지 사이 빈 공간 제거 */
       background: var(--deep-blue) !important;   /* 이미지 외 영역 흰바탕 방지 */
     }
     #about .about-right img {
@@ -2195,9 +2195,9 @@
         if (indicator) indicator.classList.add('show');
       });
 
-      // 6.5초 시점에 인디케이터 미리 표시 (비디오 종료 1.5초 전)
+      // 5초 시점에 인디케이터 미리 표시 (비디오 종료 3초 전)
       heroVideo.addEventListener('timeupdate', function() {
-        if (this.currentTime >= 6.5) {
+        if (this.currentTime >= 5) {
           var indicator = document.getElementById('heroScrollIndicator');
           if (indicator && !indicator.classList.contains('show')) {
             indicator.classList.add('show');
