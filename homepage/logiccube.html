@@ -387,13 +387,19 @@
   .sol-head {
     background: linear-gradient(135deg, var(--deep-blue), var(--cobalt));
     padding: 28px 26px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    column-gap: 12px;
+    row-gap: 0;
   }
   .sol-num {
     font-family: 'Montserrat', sans-serif; font-size: 10px; font-weight: 700;
     letter-spacing: 2px; color: rgba(0,191,255,0.7); margin-bottom: 10px;
+    flex-basis: 100%;                           /* PRODUCT 01은 단독 줄 */
   }
   .sol-name { font-size: 20px; font-weight: 700; color: white; font-family: 'Montserrat', sans-serif; }
-  .sol-sub { font-size: 12.5px; color: rgba(255,255,255,0.55); margin-top: 5px; }
+  .sol-sub { font-size: 12.5px; color: rgba(255,255,255,0.55); margin-top: 0; }   /* 같은 줄이므로 margin-top 제거 */
   .sol-body { padding: 26px; }
   .sol-desc { font-size: 13.5px; color: #4a5e75; line-height: 1.8; margin-bottom: 18px; word-break: keep-all; }
   .sol-tags { display: flex; flex-wrap: wrap; gap: 7px; }
@@ -426,6 +432,9 @@
     0%, 100% { transform: rotate(45deg) translateY(0); opacity:0.5; }
     50%       { transform: rotate(45deg) translateY(5px); opacity:1; }
   }
+
+  /* 더블 chevron — 기본 숨김 (모바일 세로 모드에서만 표시) */
+  .scroll-indicator .chevron-wrap { display: none; }
 
   .scroll-indicator svg {
     color: rgba(0,191,255,0.6);
@@ -644,6 +653,15 @@
   <div class="scroll-indicator" id="heroScrollIndicator" onclick="navJump('values');return false;">
     <span>Scroll</span>
     <div class="scroll-arrow"></div>
+    <!-- 모바일 세로 모드 전용: 2개의 chevron 화살표 (CSS에서 제어) -->
+    <div class="chevron-wrap" aria-hidden="true">
+      <svg class="chev chev-1" viewBox="0 0 24 24" width="28" height="28">
+        <path d="M6 9 L12 15 L18 9" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+      </svg>
+      <svg class="chev chev-2" viewBox="0 0 24 24" width="28" height="28">
+        <path d="M6 9 L12 15 L18 9" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+      </svg>
+    </div>
   </div>
 </section>
 
@@ -1255,27 +1273,47 @@
     .sol-head { padding: 10px 14px; }
     .sol-body { padding: 10px 14px; font-size: 13px !important; line-height: 1.4; }
     .sol-desc { margin-bottom: 6px !important; }
-    .sol-name { font-size: 16px !important; margin-bottom: 2px !important; }
+    .sol-name { font-size: 16px !important; margin-bottom: 0 !important; }
+    /* sol-sub: 모바일 기존 크기 유지 (사용자 요청) */
     .sol-tags { display: grid !important; grid-template-columns: repeat(4, 1fr) !important; gap: 4px !important; }
     .sol-tag { font-size: 9px !important; padding: 3px 4px !important; text-align: center; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 
     /* 5페이지 Experience */
-    #experience { padding-top: 20px !important; padding-bottom: 8px !important; justify-content: flex-start !important; }
+    #experience { padding-top: 16px !important; padding-bottom: 8px !important; justify-content: flex-start !important; }
     #experience .values-inner,
     #experience > div { padding: 2px 16px !important; }
-    #experience .section-title { margin-bottom: 6px !important; font-size: clamp(26px, 8vw, 40px) !important; }
+    #experience .section-title { margin-bottom: 8px !important; font-size: clamp(20px, 6.5vw, 32px) !important; line-height: 1.25 !important; }
+    /* 통계 카드: 위·아래 padding 축소 */
     .exp-stats-grid {
       grid-template-columns: repeat(2, 1fr) !important;
-      gap: 6px !important;
-      margin-bottom: 6px !important;
+      gap: 5px !important;
+      margin-bottom: 8px !important;
     }
-    .exp-stats-grid [style*="font-size:42px"] { font-size: 26px !important; }
-    .partner-logo-grid { grid-template-columns: repeat(4, 1fr) !important; gap: 5px !important; }
-    .partner-chip { min-height: 36px !important; padding: 5px !important; }
-    .partner-chip img { max-height: 20px !important; }
-    /* 수상이력 2열 grid */
-    .award-grid { display: grid !important; grid-template-columns: repeat(2, 1fr) !important; gap: 6px !important; margin-top: 8px !important; }
-    .award-grid > div { padding: 7px 10px !important; font-size: 10px !important; }
+    .exp-stats-grid > div { padding: 7px 8px !important; }                /* 카드 내부 padding (14px → 7px) */
+    .exp-stats-grid [style*="font-size:42px"],
+    .exp-stats-grid [style*="font-size:34px"] { font-size: 22px !important; }
+    .exp-stats-grid [style*="margin-top:6px"] { margin-top: 2px !important; font-size: 10px !important; }
+    .global-hint { font-size: 9px !important; margin-top: 2px !important; }
+    /* 주요 파트너사 라벨: 위·아래 여백 축소 */
+    [data-i18n="exp_partners_label"] {
+      margin-top: 4px !important;
+      margin-bottom: 4px !important;
+      font-size: 11px !important;
+    }
+    /* 파트너사 로고 그리드: 줄간격 줄임 */
+    .partner-logo-grid { grid-template-columns: repeat(4, 1fr) !important; gap: 4px !important; }
+    .partner-chip { min-height: 30px !important; padding: 4px !important; }
+    .partner-chip img { max-height: 18px !important; }
+    /* 수상이력 라벨: 위 margin-top:28px(inline) 강제 축소 */
+    [data-i18n="exp_awards_label"] {
+      margin-top: 8px !important;
+      margin-bottom: 4px !important;
+      font-size: 11px !important;
+    }
+    /* 수상이력 2열 grid: 줄간격 압축 */
+    .award-grid { display: grid !important; grid-template-columns: repeat(2, 1fr) !important; gap: 4px !important; margin-top: 0 !important; }
+    .award-grid > div { padding: 5px 8px !important; font-size: 10px !important; gap: 4px !important; }
+    .award-grid > div span:first-child { font-size: 11px !important; }
     .award-grid > div span:last-child { font-size: 10px !important; }
     /* 6페이지 Technology */
     #technology { padding-top: 20px !important; padding-bottom: 8px !important; }
@@ -1412,50 +1450,71 @@
     #hero .hero-right { height: 220px !important; flex-shrink: 0 !important; padding-top: 4px !important; margin-top: 8px !important; }
 
     /* ══ 모바일 세로: scroll-indicator 비디오 종료 후 표시 ══
-       기본은 숨김, JS에서 비디오 ended 시점에 .show 클래스 토글
-       원형 버튼으로 비디오 위에 띄워 명확히 보이게 함 */
+       두 개의 chevron이 위→아래로 흘러내리는 애니메이션
+       Hero 배경(deep-blue)에 어울리는 흰색~시안 톤 */
     #hero #heroScrollIndicator {
       opacity: 0 !important;
       pointer-events: none !important;
       transition: opacity 0.5s ease !important;
-      position: fixed !important;            /* fixed로 비디오 영역에 구애받지 않음 */
+      position: fixed !important;
       bottom: 24px !important;
       left: 50% !important;
       transform: translateX(-50%) !important;
-      z-index: 999 !important;               /* 비디오, 텍스트 모두 위에 */
-      width: 56px !important;
-      height: 56px !important;
-      border-radius: 50% !important;
-      background: rgba(0,191,255,0.92) !important;  /* LogicCube 네온 블루 */
-      box-shadow: 0 4px 20px rgba(0,191,255,0.5), 0 0 0 6px rgba(0,191,255,0.15) !important;
+      z-index: 999 !important;
+      /* 원형 버튼 스타일 제거 - 화살표만 표시 */
+      width: 60px !important;
+      height: 50px !important;
+      background: transparent !important;
+      box-shadow: none !important;
+      border-radius: 0 !important;
       display: flex !important;
-      flex-direction: column !important;
       align-items: center !important;
       justify-content: center !important;
-      gap: 0 !important;
       cursor: pointer !important;
-      animation: scrollPulse 1.6s ease-in-out infinite !important;
+      animation: none !important;
+      /* 터치 영역 살짝 키움 (시각 영역은 작게, 터치는 크게) */
+      padding: 8px !important;
     }
     #hero #heroScrollIndicator.show {
       opacity: 1 !important;
       pointer-events: auto !important;
     }
-    /* 텍스트는 모바일에서 숨기고 화살표만 크게 */
-    #hero #heroScrollIndicator span { display: none !important; }
-    #hero #heroScrollIndicator .scroll-arrow {
-      border-right: 3px solid #ffffff !important;
-      border-bottom: 3px solid #ffffff !important;
-      border-top: none !important;
-      border-left: none !important;
-      width: 14px !important;
-      height: 14px !important;
-      margin-top: -4px !important;           /* 시각적 중앙 보정 */
-      animation: none !important;            /* 부모의 pulse만 사용 */
-      transform: rotate(45deg) !important;
+    /* 데스크톱용 텍스트와 단일 화살표는 모바일에서 숨김 */
+    #hero #heroScrollIndicator span,
+    #hero #heroScrollIndicator > .scroll-arrow { display: none !important; }
+
+    /* ══ 더블 chevron 표시 ══ */
+    #hero #heroScrollIndicator .chevron-wrap {
+      display: flex !important;
+      flex-direction: column !important;
+      align-items: center !important;
+      justify-content: center !important;
+      gap: 0 !important;
+      position: relative !important;
+      width: 32px !important;
+      height: 36px !important;
     }
-    @keyframes scrollPulse {
-      0%, 100% { transform: translateX(-50%) translateY(0); }
-      50%       { transform: translateX(-50%) translateY(6px); }
+    #hero #heroScrollIndicator .chev {
+      position: absolute !important;
+      left: 50% !important;
+      color: rgba(255,255,255,0.95) !important;     /* Hero 배경에 어울리는 흰색 */
+      filter: drop-shadow(0 0 4px rgba(0,191,255,0.6)) !important;  /* 시안 글로우 */
+      animation: chevFlow 1.6s ease-in-out infinite !important;
+    }
+    #hero #heroScrollIndicator .chev-1 {
+      transform: translateX(-50%) translateY(-8px);
+      animation-delay: 0s !important;
+    }
+    #hero #heroScrollIndicator .chev-2 {
+      transform: translateX(-50%) translateY(4px);
+      animation-delay: 0.4s !important;
+      opacity: 0.6 !important;
+    }
+    @keyframes chevFlow {
+      0%   { transform: translateX(-50%) translateY(-10px); opacity: 0; }
+      30%  { opacity: 1; }
+      70%  { opacity: 1; }
+      100% { transform: translateX(-50%) translateY(14px); opacity: 0; }
     }
 
     /* ══════════════════════════════════════════
@@ -1514,35 +1573,66 @@
       padding-bottom: 32px !important;
     }
 
-    /* 4페이지 (Solutions): 위쪽으로 끌어올림, 카드 간격 축소 */
-    #solutions { padding-top: 12px !important; padding-bottom: 24px !important; }
-    #solutions .section-tag { margin-top: 4px !important; }
-    #solutions .section-title { margin-bottom: 16px !important; }
+    /* (Solutions, Experience 페이지의 padding/margin은 이미 위쪽에서 정의됨 — 중복 제거) */
 
-    /* 5페이지 (Experience): 위쪽으로 끌어올림, 수상이력 영역 확보 */
-    #experience { padding-top: 12px !important; padding-bottom: 24px !important; }
-    #experience .section-tag { margin-top: 4px !important; }
-    #experience .section-title { margin-bottom: 14px !important; }
-
-    /* 7페이지 (Contact): "CONTACT US"와 "새로운 연결의 시작" 간격 조정 */
-    #contact { padding-top: 12px !important; padding-bottom: 24px !important; }
+    /* 7페이지 (Contact): 위 빈 공간 축소, 카드 내부 줄간격 압축, 흰줄 제거 */
+    #contact {
+      padding-top: 4px !important;            /* 상단 여백 최소화 */
+      padding-bottom: 8px !important;
+      background: var(--deep-blue) !important; /* 배경 강제 (흰줄 노출 방지) */
+    }
     /* contact 내부 컨테이너의 인라인 padding 오버라이드 (모바일은 좁게) */
     #contact > div {
-      padding: 8px 16px 0 !important;
+      padding: 4px 16px 0 !important;          /* 위 padding 8px → 4px */
       height: auto !important;
       min-height: 100% !important;
     }
-    #contact .section-tag { margin-top: 4px !important; margin-bottom: 4px !important; }
-    #contact .section-title { margin-bottom: 8px !important; font-size: clamp(20px, 5.5vw, 30px) !important; }
-    /* contact_sub와 contact_sub2 간격 축소 */
+    #contact .section-tag {
+      margin-top: 0 !important;
+      margin-bottom: 2px !important;
+      font-size: 10px !important;
+    }
+    #contact .section-title {
+      margin-bottom: 4px !important;
+      font-size: clamp(18px, 5vw, 26px) !important;
+      line-height: 1.25 !important;
+    }
+    /* contact_sub와 contact_sub2 간격·폰트 축소 */
     #contact [data-i18n="contact_sub"],
     #contact [data-i18n="contact_sub2"] {
-      margin-bottom: 6px !important;
-      line-height: 1.4 !important;
-      font-size: 13px !important;
+      margin-bottom: 4px !important;
+      line-height: 1.3 !important;
+      font-size: 12px !important;
     }
     /* contact-grid 카드 영역 간격 축소 */
-    #contact .contact-grid { margin-bottom: 8px !important; gap: 10px !important; }
+    #contact .contact-grid { margin-bottom: 6px !important; gap: 6px !important; }
+
+    /* ══ 카드 내부 줄간격 강제 축소 (이메일/전화/주소 카드 공통) ══ */
+    #contact .contact-card { padding: 8px 12px !important; }
+    #contact .contact-card-header {
+      gap: 6px !important;
+      margin-bottom: 4px !important;
+      padding-bottom: 4px !important;
+    }
+    #contact .contact-card-icon { font-size: 18px !important; }
+    #contact .contact-card-title { font-size: 13px !important; letter-spacing: 0.5px !important; }
+    #contact .contact-card-row {
+      font-size: 12px !important;
+      gap: 8px !important;
+      margin-bottom: 2px !important;            /* 카드 내 행간 축소 */
+    }
+    #contact .contact-card-row .tag {
+      font-size: 10px !important;
+      min-width: 40px !important;
+      font-weight: 800 !important;
+    }
+    #contact .contact-card-hint {
+      font-size: 10px !important;
+      margin-top: 3px !important;
+    }
+    /* 주소 카드 — 한국어/영문 주소 행간도 줄임 */
+    #contact .contact-card-row[style*="flex-direction:column"] { gap: 1px !important; }
+    #contact [data-i18n="contact_addr"] { line-height: 1.3 !important; font-size: 11px !important; }
   }
 
   /* ══════════════════════════════════════════
