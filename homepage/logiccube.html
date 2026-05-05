@@ -641,7 +641,7 @@
 		</div>
 	</div>
   </div>
-  <div class="scroll-indicator" onclick="document.getElementById('values').scrollIntoView({behavior:'smooth'})">
+  <div class="scroll-indicator" id="heroScrollIndicator" onclick="navJump('values');return false;">
     <span>Scroll</span>
     <div class="scroll-arrow"></div>
   </div>
@@ -1394,6 +1394,29 @@
     /* hero-right 높이 고정 (텍스트 바로 아래 자연스럽게 배치) */
     #hero .hero-right { height: 240px !important; flex-shrink: 0 !important; padding-top: 4px !important; margin-top: 8px !important; }
 
+    /* ══ 모바일 세로: scroll-indicator 비디오 종료 후 표시 ══
+       기본은 숨김, JS에서 비디오 ended 시점에 .show 클래스 토글 */
+    #hero #heroScrollIndicator {
+      opacity: 0 !important;
+      pointer-events: none !important;
+      transition: opacity 0.6s ease !important;
+      bottom: 16px !important;             /* 하단에 고정 */
+      z-index: 100 !important;             /* 비디오 위에 표시 */
+    }
+    #hero #heroScrollIndicator.show {
+      opacity: 1 !important;
+      pointer-events: auto !important;
+    }
+    /* 텍스트와 화살표 좀 더 잘 보이게 (모바일 컨트라스트 강화) */
+    #hero #heroScrollIndicator span {
+      color: rgba(255,255,255,0.7) !important;
+      font-size: 11px !important;
+    }
+    #hero #heroScrollIndicator .scroll-arrow {
+      border-color: rgba(0,191,255,0.85) !important;
+      width: 18px !important; height: 18px !important;
+    }
+
     /* ══════════════════════════════════════════
        📱 모바일 세로 모드 — 페이지 슬라이드 시스템
        body 스크롤 제거, 한 번에 한 섹션만 표시
@@ -1408,18 +1431,29 @@
     }
     .section {
       position: fixed !important;
-      top: 0 !important;
+      top: 56px !important;                        /* GNB 높이만큼 아래에서 시작 */
       left: 0 !important;
       right: 0 !important;
       width: 100% !important;
-      height: 100vh !important;
-      height: 100lvh !important;
+      height: calc(100vh - 56px) !important;       /* GNB 제외한 전체 높이 */
+      height: calc(100lvh - 56px) !important;
+      max-height: calc(100lvh - 56px) !important;
+      padding-top: 0 !important;                   /* 기본 padding-top:64px 제거 (top:56px이 대신함) */
+      justify-content: flex-start !important;      /* 콘텐츠를 위쪽부터 배치 */
       display: none !important;
+      overflow-y: auto !important;                 /* 콘텐츠가 길면 섹션 내부에서 스크롤 */
+      -webkit-overflow-scrolling: touch !important;
       z-index: 1;
     }
     .section.mobile-active {
       display: flex !important;
       z-index: 10;
+    }
+    /* Hero는 padding-top:0 유지 (전체 화면 비주얼) */
+    #hero.mobile-active {
+      top: 0 !important;
+      height: 100vh !important;
+      height: 100lvh !important;
     }
     /* GNB는 항상 위에 */
     header { z-index: 1000 !important; }
@@ -1977,6 +2011,10 @@
         this.pause();
         clearTimeout(phraseTimer);
         showPhrase(phaseB, phaseA);  // B = 금융 데이터 문구 유지
+
+        // 모바일 세로 모드: 스크롤 인디케이터 표시
+        var indicator = document.getElementById('heroScrollIndicator');
+        if (indicator) indicator.classList.add('show');
       });
 
       // 클릭 시 처음부터 재생 + 문구 루프 재시작
@@ -1984,6 +2022,10 @@
         this.currentTime = 0;
         this.play();
         startPhraseLoop(this.duration || 8);
+
+        // 비디오 재시작 시 인디케이터 숨김 (다시 8초 후에 표시될 것)
+        var indicator = document.getElementById('heroScrollIndicator');
+        if (indicator) indicator.classList.remove('show');
       });
 
       // 이미 재생 중인 경우(autoplay) 대비
@@ -2224,6 +2266,15 @@
           sec.classList.remove('mobile-active');
         }
       });
+
+      // Hero 페이지로 돌아왔을 때, 비디오가 이미 종료된 상태면 인디케이터 표시
+      if (idx === 0) {
+        var hv = document.getElementById('heroVideo');
+        var ind = document.getElementById('heroScrollIndicator');
+        if (hv && ind && hv.ended) {
+          ind.classList.add('show');
+        }
+      }
     }
 
     // 다음/이전 페이지로 이동
