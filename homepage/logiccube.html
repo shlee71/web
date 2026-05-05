@@ -1371,50 +1371,91 @@
 
     /* Hero 세로모드: 정확히 한 화면 (100lvh로 주소창 변동 무관) */
     #hero { min-height: 100vh; height: 100vh; min-height: 100lvh; height: 100lvh; overflow: hidden; display: flex; flex-direction: column; }
-    /* hero-left: 콘텐츠 크기만큼만 차지 (flex:1 제거 - 텍스트와 영상 사이 빈 공간 방지) */
+    /* hero-left: 콘텐츠 크기만큼만 차지, GNB 아래에서 시작 */
     #hero .hero-left {
       flex: 0 0 auto !important;
       height: auto !important;
-      padding: 68px 20px 0 20px !important;
+      padding: 68px 20px 0 20px !important;       /* GNB 56px + 여유 12px = 68px */
       justify-content: flex-start !important;
       display: flex !important;
       flex-direction: column !important;
+      position: relative !important;              /* PhaseB의 absolute 기준점 */
     }
-    /* PhaseB: PhaseA와 동일 위치 (absolute, top = hero-left padding-top) */
+    /* hero-badge: 일반 흐름 유지 (제일 위에 표시) */
+    #hero .hero-badge { position: relative !important; z-index: 2; }
+    /* PhaseA: 일반 흐름 (badge 다음 자연스럽게) */
+    #heroPhaseA {
+      position: relative !important;
+      z-index: 1;
+    }
+    /* PhaseB: PhaseA와 동일 위치에 겹침 (absolute, badge 아래) */
     #heroPhaseB {
       position: absolute !important;
-      top: 114px !important;
+      top: 110px !important;                /* hero-badge 영역(약 42px) + padding(68px) = 110px */
       left: 20px !important;
       right: 20px !important;
+      bottom: auto !important;
+      z-index: 1;
     }
     /* hero-sub 여백 축소 */
-    #hero .hero-sub { margin-bottom: 20px !important; line-height: 1.5 !important; font-size: 13px !important; }
-    /* 버튼: 텍스트 아래 자연스럽게 */
-    #hero .hero-btns { position: relative !important; bottom: auto !important; left: auto !important; margin-top: 24px !important; }
+    #hero .hero-sub { margin-bottom: 16px !important; line-height: 1.5 !important; font-size: 13px !important; }
+    /* hero-btns: 일반 흐름 (PhaseA 다음 자연스럽게) */
+    #hero .hero-btns {
+      position: relative !important;
+      bottom: auto !important;
+      left: auto !important;
+      top: auto !important;
+      right: auto !important;
+      margin-top: 16px !important;
+    }
     /* hero-right 높이 고정 (텍스트 바로 아래 자연스럽게 배치) */
-    #hero .hero-right { height: 240px !important; flex-shrink: 0 !important; padding-top: 4px !important; margin-top: 8px !important; }
+    #hero .hero-right { height: 220px !important; flex-shrink: 0 !important; padding-top: 4px !important; margin-top: 8px !important; }
 
     /* ══ 모바일 세로: scroll-indicator 비디오 종료 후 표시 ══
-       기본은 숨김, JS에서 비디오 ended 시점에 .show 클래스 토글 */
+       기본은 숨김, JS에서 비디오 ended 시점에 .show 클래스 토글
+       원형 버튼으로 비디오 위에 띄워 명확히 보이게 함 */
     #hero #heroScrollIndicator {
       opacity: 0 !important;
       pointer-events: none !important;
-      transition: opacity 0.6s ease !important;
-      bottom: 16px !important;             /* 하단에 고정 */
-      z-index: 100 !important;             /* 비디오 위에 표시 */
+      transition: opacity 0.5s ease !important;
+      position: fixed !important;            /* fixed로 비디오 영역에 구애받지 않음 */
+      bottom: 24px !important;
+      left: 50% !important;
+      transform: translateX(-50%) !important;
+      z-index: 999 !important;               /* 비디오, 텍스트 모두 위에 */
+      width: 56px !important;
+      height: 56px !important;
+      border-radius: 50% !important;
+      background: rgba(0,191,255,0.92) !important;  /* LogicCube 네온 블루 */
+      box-shadow: 0 4px 20px rgba(0,191,255,0.5), 0 0 0 6px rgba(0,191,255,0.15) !important;
+      display: flex !important;
+      flex-direction: column !important;
+      align-items: center !important;
+      justify-content: center !important;
+      gap: 0 !important;
+      cursor: pointer !important;
+      animation: scrollPulse 1.6s ease-in-out infinite !important;
     }
     #hero #heroScrollIndicator.show {
       opacity: 1 !important;
       pointer-events: auto !important;
     }
-    /* 텍스트와 화살표 좀 더 잘 보이게 (모바일 컨트라스트 강화) */
-    #hero #heroScrollIndicator span {
-      color: rgba(255,255,255,0.7) !important;
-      font-size: 11px !important;
-    }
+    /* 텍스트는 모바일에서 숨기고 화살표만 크게 */
+    #hero #heroScrollIndicator span { display: none !important; }
     #hero #heroScrollIndicator .scroll-arrow {
-      border-color: rgba(0,191,255,0.85) !important;
-      width: 18px !important; height: 18px !important;
+      border-right: 3px solid #ffffff !important;
+      border-bottom: 3px solid #ffffff !important;
+      border-top: none !important;
+      border-left: none !important;
+      width: 14px !important;
+      height: 14px !important;
+      margin-top: -4px !important;           /* 시각적 중앙 보정 */
+      animation: none !important;            /* 부모의 pulse만 사용 */
+      transform: rotate(45deg) !important;
+    }
+    @keyframes scrollPulse {
+      0%, 100% { transform: translateX(-50%) translateY(0); }
+      50%       { transform: translateX(-50%) translateY(6px); }
     }
 
     /* ══════════════════════════════════════════
@@ -1431,32 +1472,77 @@
     }
     .section {
       position: fixed !important;
-      top: 56px !important;                        /* GNB 높이만큼 아래에서 시작 */
+      top: 50px !important;                        /* GNB 높이를 살짝 줄임 (콘텐츠 공간 확보) */
       left: 0 !important;
       right: 0 !important;
       width: 100% !important;
-      height: calc(100vh - 56px) !important;       /* GNB 제외한 전체 높이 */
-      height: calc(100lvh - 56px) !important;
-      max-height: calc(100lvh - 56px) !important;
-      padding-top: 0 !important;                   /* 기본 padding-top:64px 제거 (top:56px이 대신함) */
+      height: calc(100vh - 50px) !important;       /* GNB 제외한 전체 높이 */
+      height: calc(100lvh - 50px) !important;
+      max-height: calc(100lvh - 50px) !important;
+      padding-top: 0 !important;                   /* 기본 padding-top:64px 제거 (top:50px이 대신함) */
+      padding-bottom: 16px !important;             /* 하단 여유 (다음 페이지 색상 노출 방지) */
       justify-content: flex-start !important;      /* 콘텐츠를 위쪽부터 배치 */
       display: none !important;
       overflow-y: auto !important;                 /* 콘텐츠가 길면 섹션 내부에서 스크롤 */
       -webkit-overflow-scrolling: touch !important;
       z-index: 1;
+      box-sizing: border-box !important;
     }
     .section.mobile-active {
       display: flex !important;
       z-index: 10;
     }
-    /* Hero는 padding-top:0 유지 (전체 화면 비주얼) */
+    /* Hero는 padding-top:0 유지, padding-bottom:0 (비디오 영역 침범 방지) */
+    #hero {
+      padding-bottom: 0 !important;
+      max-height: 100lvh !important;
+    }
     #hero.mobile-active {
       top: 0 !important;
       height: 100vh !important;
       height: 100lvh !important;
+      padding-bottom: 0 !important;
     }
     /* GNB는 항상 위에 */
     header { z-index: 1000 !important; }
+
+    /* ══ 페이지별 내부 콘텐츠 위치 조정 (잘림 방지) ══ */
+
+    /* 3페이지 (About): 다음 페이지 색상이 노출되지 않도록 배경 강제 */
+    #about {
+      background: var(--deep-blue) !important;
+      padding-bottom: 32px !important;
+    }
+
+    /* 4페이지 (Solutions): 위쪽으로 끌어올림, 카드 간격 축소 */
+    #solutions { padding-top: 12px !important; padding-bottom: 24px !important; }
+    #solutions .section-tag { margin-top: 4px !important; }
+    #solutions .section-title { margin-bottom: 16px !important; }
+
+    /* 5페이지 (Experience): 위쪽으로 끌어올림, 수상이력 영역 확보 */
+    #experience { padding-top: 12px !important; padding-bottom: 24px !important; }
+    #experience .section-tag { margin-top: 4px !important; }
+    #experience .section-title { margin-bottom: 14px !important; }
+
+    /* 7페이지 (Contact): "CONTACT US"와 "새로운 연결의 시작" 간격 조정 */
+    #contact { padding-top: 12px !important; padding-bottom: 24px !important; }
+    /* contact 내부 컨테이너의 인라인 padding 오버라이드 (모바일은 좁게) */
+    #contact > div {
+      padding: 8px 16px 0 !important;
+      height: auto !important;
+      min-height: 100% !important;
+    }
+    #contact .section-tag { margin-top: 4px !important; margin-bottom: 4px !important; }
+    #contact .section-title { margin-bottom: 8px !important; font-size: clamp(20px, 5.5vw, 30px) !important; }
+    /* contact_sub와 contact_sub2 간격 축소 */
+    #contact [data-i18n="contact_sub"],
+    #contact [data-i18n="contact_sub2"] {
+      margin-bottom: 6px !important;
+      line-height: 1.4 !important;
+      font-size: 13px !important;
+    }
+    /* contact-grid 카드 영역 간격 축소 */
+    #contact .contact-grid { margin-bottom: 8px !important; gap: 10px !important; }
   }
 
   /* ══════════════════════════════════════════
@@ -1672,7 +1758,7 @@
       contact_email_label: 'EMAIL / WEB',
       contact_phone_label: 'PHONE / FAX',
       contact_addr_label:  'ADDRESS',
-      contact_addr:        'A-1212, Hbusinesspark, Beobwon-ro 11-gil,<br>Songpa-gu, Seoul, 05836,<br>Rep. of KOREA',
+      contact_addr:        'A-1212, Hbusinesspark, Beobwon-ro 11-gil, Songpa-gu, Seoul, 05836,<br>Rep. of KOREA',
       contact_email_hint:  '→ Send via Gmail',
       contact_phone_hint:  '→ Tap to call',
       contact_addr_hint:   '→ Open in Naver Map',
@@ -1743,7 +1829,7 @@
       contact_email_label: '邮件 / 网站',
       contact_phone_label: '电话 / 传真',
       contact_addr_label:  '地址',
-      contact_addr:        'A-1212, Hbusinesspark, Beobwon-ro 11-gil,<br>Songpa-gu, Seoul, 05836,<br>Rep. of KOREA',
+      contact_addr:        'A-1212, Hbusinesspark, Beobwon-ro 11-gil, Songpa-gu, Seoul, 05836,<br>Rep. of KOREA',
       contact_email_hint:  '→ 通过Gmail发送',
       contact_phone_hint:  '→ 点击拨打',
       contact_addr_hint:   '→ 在Naver地图中查看',
@@ -1814,7 +1900,7 @@
       contact_email_label: 'メール / Web',
       contact_phone_label: '電話 / FAX',
       contact_addr_label:  '住所',
-      contact_addr:        'A-1212, Hbusinesspark, Beobwon-ro 11-gil,<br>Songpa-gu, Seoul, 05836,<br>Rep. of KOREA',
+      contact_addr:        'A-1212, Hbusinesspark, Beobwon-ro 11-gil, Songpa-gu, Seoul, 05836,<br>Rep. of KOREA',
       contact_email_hint:  '→ Gmailで送信',
       contact_phone_hint:  '→ タップして電話',
       contact_addr_hint:   '→ Naverマップで確認',
@@ -1885,7 +1971,7 @@
       contact_email_label: 'Email / Web',
       contact_phone_label: 'Điện thoại / Fax',
       contact_addr_label:  'Địa chỉ',
-      contact_addr:        'A-1212, Hbusinesspark, Beobwon-ro 11-gil,<br>Songpa-gu, Seoul, 05836,<br>Rep. of KOREA',
+      contact_addr:        'A-1212, Hbusinesspark, Beobwon-ro 11-gil, Songpa-gu, Seoul, 05836,<br>Rep. of KOREA',
       contact_email_hint:  '→ Gửi qua Gmail',
       contact_phone_hint:  '→ Nhấn để gọi điện',
       contact_addr_hint:   '→ Xem trên Naver Map',
