@@ -1238,7 +1238,7 @@
     #values .section-title { font-size: clamp(26px, 8vw, 40px) !important; }
 
     /* 3페이지 About */
-    #about { padding-top: 20px !important; padding-bottom: 8px !important; }
+    #about { padding-top: 16px !important; padding-bottom: 0 !important; gap: 0 !important; background: var(--deep-blue) !important; }
     #about {
       display: flex !important;
       flex-direction: column !important;
@@ -1246,23 +1246,31 @@
     }
     #about .about-left {
       width: 100%;
-      padding: 2px 20px 4px !important;
+      padding: 2px 20px 0 !important;            /* 하단 padding 0 */
       order: 0;
+      flex-shrink: 1 !important;                  /* 텍스트가 길어도 이미지 영역 확보 */
     }
     #about .about-right {
       width: 100%;
-      height: 220px;
+      height: 200px !important;                  /* 220 → 200 (콘텐츠 밀림 방지) */
       order: 1;
       flex-shrink: 0;
+      margin-top: 4px !important;                /* 텍스트와 이미지 간격 최소화 */
+      background: var(--deep-blue) !important;   /* 이미지 외 영역 흰바탕 방지 */
+    }
+    #about .about-right img {
+      max-height: 100% !important;
+      width: auto !important;
+      object-fit: contain !important;            /* 잘리지 않게 contain */
     }
     #about .about-right::after {
-      background: linear-gradient(180deg, transparent 40%, var(--deep-blue) 100%);
+      background: linear-gradient(180deg, transparent 30%, var(--deep-blue) 95%) !important;
     }
-    #about .section-title { margin-bottom: 8px !important; font-size: clamp(26px, 8vw, 40px) !important; }
-    .about-desc { font-size: 13px !important; margin-bottom: 8px !important; line-height: 1.5; }
-    .about-features { gap: 5px; }
-    .about-feat { padding: 7px 12px; }
-    .feat-text h4 { font-size: 13px !important; }
+    #about .section-title { margin-bottom: 6px !important; font-size: clamp(22px, 7vw, 36px) !important; line-height: 1.25 !important; }
+    .about-desc { font-size: 13px !important; margin-bottom: 6px !important; line-height: 1.5; }
+    .about-features { gap: 4px; }
+    .about-feat { padding: 6px 12px; }
+    .feat-text h4 { font-size: 13px !important; margin-bottom: 1px !important; }
     .feat-text p { font-size: 12px !important; line-height: 1.4; }
 
     /* 4페이지 Solutions */
@@ -1305,9 +1313,11 @@
       margin-top: 10px !important;
       margin-bottom: 6px !important;
     }
-    /* 수상이력 2열 grid: gap만 줄임 (폰트는 12px 그대로) */
+    /* 수상이력 2열 grid: gap만 줄임 (폰트는 13.2px = 기본 12px의 10% 증가) */
     .award-grid { display: grid !important; grid-template-columns: repeat(2, 1fr) !important; gap: 6px !important; margin-top: 0 !important; }
-    .award-grid > div { padding: 8px 12px !important; }
+    .award-grid > div { padding: 8px 12px !important; gap: 8px !important; }
+    .award-grid > div span:first-child { font-size: 15px !important; }   /* 트로피 아이콘 (14px → 15px, 10% 증가) */
+    .award-grid > div span:last-child { font-size: 13.2px !important; }  /* 텍스트 (12px → 13.2px, 10% 증가) */
     /* 6페이지 Technology */
     #technology { padding-top: 20px !important; padding-bottom: 8px !important; }
     #technology > div { padding: 2px 16px 0 16px !important; margin-top: 0 !important; }
@@ -1521,6 +1531,7 @@
       height: 100lvh !important;
       position: fixed !important;
       width: 100% !important;
+      background: var(--deep-blue) !important;       /* 페이지 외곽 노출 시 흰바탕 방지 */
     }
     .section {
       position: fixed !important;
@@ -1537,6 +1548,7 @@
       display: none !important;
       overflow-y: auto !important;                 /* 콘텐츠가 길면 섹션 내부에서 스크롤 */
       -webkit-overflow-scrolling: touch !important;
+      overscroll-behavior: contain !important;     /* 스크롤 바운스 차단 (흰바탕 노출 방지) */
       z-index: 1;
       box-sizing: border-box !important;
     }
@@ -1560,22 +1572,7 @@
 
     /* ══ 페이지별 내부 콘텐츠 위치 조정 (잘림 방지) ══ */
 
-    /* 3페이지 (About): 다음 페이지 색상이 노출되지 않도록 배경 강제 */
-    #about {
-      background: var(--deep-blue) !important;
-      padding-bottom: 8px !important;
-    }
-    /* about-right (다이어그램) 영역도 배경색 명시 — 이미지 외 영역 노출 방지 */
-    #about .about-right {
-      background: var(--deep-blue) !important;
-    }
-    /* 다이어그램 아래 그라데이션 마스크 강화 */
-    #about .about-right::after {
-      background: linear-gradient(180deg, transparent 30%, var(--deep-blue) 90%) !important;
-      height: 100% !important;
-    }
-
-    /* (Solutions, Experience 페이지의 padding/margin은 이미 위쪽에서 정의됨 — 중복 제거) */
+    /* 3페이지 About 및 Solutions, Experience는 위쪽에서 이미 정의됨 — 중복 제거 */
 
     /* 7페이지 (Contact) — 폰트는 기본 유지, 위 빈 공간과 카드 사이 gap만 줄임 */
     #contact {
@@ -1603,7 +1600,27 @@
       margin-bottom: 8px !important;
       gap: 6px !important;                     /* 카드 사이 줄간격 — 핵심 */
     }
-    /* 카드 내부는 폰트/줄간격 기본 유지 (줄이지 않음) */
+
+    /* ══ 카드 내부 행간 20% 축소 (사용자 요청) ══
+       폰트는 그대로, 행간/패딩만 줄여 공간 확보 */
+    #contact .contact-card { gap: 3px !important; }                       /* row 간격 4px → 3px */
+    #contact .contact-card-header {
+      margin-bottom: 10px !important;                                      /* 16px → 10px (37% 축소) */
+      padding-bottom: 8px !important;                                      /* 12px → 8px */
+    }
+    #contact .contact-card-row {
+      line-height: 1.4 !important;                                         /* 1.7 → 1.4 (~18% 축소) */
+    }
+    #contact .contact-card-hint {
+      margin-top: 6px !important;                                          /* 10px → 6px (40% 축소) */
+    }
+    /* 주소 카드 내부 줄간격 (서울시 / 에이치비... 두 줄 사이) */
+    #contact .contact-card-row[style*="flex-direction:column"] {
+      gap: 1px !important;                                                 /* 2px → 1px */
+    }
+    #contact [data-i18n="contact_addr"] {
+      line-height: 1.4 !important;                                         /* 줄간격 축소 */
+    }
   }
 
   /* ══════════════════════════════════════════
