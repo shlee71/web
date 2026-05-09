@@ -216,15 +216,6 @@
 	mask-image: radial-gradient(ellipse 90% 85% at 50% 50%, black 60%, transparent 100%);
   }  
   
-  #hero .hero-right {
-    position: absolute;
-    right: 0; top: 0; bottom: 0;
-    width: 50%;
-    z-index: 1;          /* ← 2 → 1 로 낮춤 */
-    display: flex; align-items: center; justify-content: center;
-    padding: 40px 40px 40px 0;
-  }
-
   #hero .hero-right video {
     max-height: 88%; max-width: 100%;
     object-fit: contain;
@@ -609,7 +600,7 @@
     <!-- ── 문구 슬롯 A (0~4초): 실시간 승인 ── -->
     <div class="hero-phrase" id="heroPhaseA">
       <h1 class="hero-title">
-        <span data-i18n="hero_title2_1">신속하고 정확한 승인부터<br>완결된 정산까지,<br></span><span class="accent" data-i18n="hero_title2_accent">금융 인터페이스의 무결성</span>
+        <span data-i18n="hero_title2_1">빠르고 정확한 승인부터<br>완결된 정산까지,<br></span><span class="accent" data-i18n="hero_title2_accent">금융 인터페이스의 무결성</span>
       </h1>
       <p class="hero-sub" style="font-size:15px; color:rgba(255,255,255,0.6); margin-bottom:36px; max-width:100%; line-height:1.8; word-break:break-word; overflow-wrap:break-word;" data-i18n="hero_sub2">
         신속한 승인 프로세스와 정확한 정산 데이터로 신뢰받는 금융 인터페이스를 구축합니다.
@@ -633,22 +624,18 @@
     </div>
   </div>
   <div class="hero-right">
-	<div class="flex justify-center lg:justify-end order-1 lg:order-2">
-		<div class="hero-video-container">
-			<video 
-				id="heroVideo"
-				src="public/images/logiccube-hero-move.mp4" 
-				autoplay 
-				muted 
-				playsinline
-				class="relative z-10"
-				style="cursor:pointer; opacity:0; transition:opacity 0.6s ease;"
-			>
-				브라우저가 비디오 태그를 지원하지 않습니다.
-			</video>
-			<div class="absolute inset-0 bg-blue-500/10 blur-[120px] rounded-full"></div>
-		</div>
-	</div>
+    <div class="hero-video-container">
+      <video
+        id="heroVideo"
+        src="public/images/logiccube-hero-move.mp4"
+        autoplay
+        muted
+        playsinline
+        style="cursor:pointer; opacity:0; transition:opacity 0.6s ease;"
+      >
+        브라우저가 비디오 태그를 지원하지 않습니다.
+      </video>
+    </div>
   </div>
   <div class="scroll-indicator" id="heroScrollIndicator" onclick="navJump('values');return false;">
     <span>Scroll</span>
@@ -1714,7 +1701,7 @@
       hero_sub:          '로직큐브는 고도화된 기술력과 금융 도메인 지식을 결합하여 국내 및 글로벌 시장을 선도하는 최적의 금융 IT 솔루션을 제공합니다.',
       hero_btn1:         '솔루션 상담하기',
       hero_btn2:         '제안서 요청 →',
-      hero_title2_1:     '신속하고 정확한 승인부터<br>완결된 정산까지,<br>',
+      hero_title2_1:     '빠르고 정확한 승인부터<br>완결된 정산까지,<br>',
       hero_title2_accent:'금융 인터페이스의 무결성',
       hero_sub2:         '신속한 승인 프로세스와 정확한 정산 데이터로 신뢰받는 금융 인터페이스를 구축합니다.',
       // Values
@@ -1752,6 +1739,11 @@
       exp_cert3:          '신한카드 차세대 (2012)',
 	  exp_cert4:          'NH농협카드 차세대 (2010)',
       global_hint:        '🌏 국가 보기',
+      country_vn:         '베트남',
+      country_id:         '인도네시아',
+      country_kh:         '캄보디아',
+      country_th:         '태국',
+      country_kz:         '카자흐스탄',
       // Technology
       tech_title:   '독보적인 기술력',
       tech1_title:  '고속 처리',
@@ -1823,6 +1815,11 @@
       exp_cert3:          'Shinhan Card Next-Generation System (2012)',
       exp_cert4:          'NH Card Next-Generation System (2010)',
       global_hint:        '🌏 Countries',
+      country_vn:         'Vietnam',
+      country_id:         'Indonesia',
+      country_kh:         'Cambodia',
+      country_th:         'Thailand',
+      country_kz:         'Kazakhstan',
       // Technology
       tech_title:   'Unrivaled Technology',
       tech1_title:  'High-Speed Processing',
@@ -1894,6 +1891,11 @@
       exp_cert3:          '新韩卡新一代系统构建 (2012)',
       exp_cert4:          'NH农协卡新一代系统构建 (2010)',
       global_hint:        '🌏 查看国家',
+      country_vn:         '越南',
+      country_id:         '印度尼西亚',
+      country_kh:         '柬埔寨',
+      country_th:         '泰国',
+      country_kz:         '哈萨克斯坦',
       // Technology
       tech_title:   '卓越的技术实力',
       tech1_title:  '高速处理',
@@ -1965,6 +1967,11 @@
       exp_cert3:          '新韓カード次世代システム構築 (2012)',
       exp_cert4:          'NH農協カード次世代システム構築 (2010)',
       global_hint:        '🌏 国を見る',
+      country_vn:         'ベトナム',
+      country_id:         'インドネシア',
+      country_kh:         'カンボジア',
+      country_th:         'タイ',
+      country_kz:         'カザフスタン',
       // Technology
       tech_title:   '圧倒的な技術力',
       tech1_title:  '高速処理',
@@ -2036,6 +2043,11 @@
       exp_cert3:          'Shinhan Card Next-Generation System (2012)',
       exp_cert4:          'NH Card Next-Generation System (2010)',
       global_hint:        '🌏 Xem Quốc Gia',
+      country_vn:         'Việt Nam',
+      country_id:         'Indonesia',
+      country_kh:         'Campuchia',
+      country_th:         'Thái Lan',
+      country_kz:         'Kazakhstan',
       // Technology
       tech_title:   'Công nghệ vượt trội',
       tech1_title:  'Xử lý tốc độ cao',
