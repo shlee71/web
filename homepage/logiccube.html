@@ -623,6 +623,32 @@
       <a href="#contact" onclick="navJump('contact');return false;" class="btn-ghost" data-i18n="hero_btn2">제안서 요청 →</a>
     </div>
   </div>
+  <!-- ★ 임시 화면크기 표시 (테스트용 — 나중에 삭제) -->
+  <div id="screen-size-debug" style="
+    position: fixed; bottom: 12px; right: 12px; z-index: 9999;
+    background: rgba(0,0,0,0.75); color: #00bfff;
+    font-family: monospace; font-size: 13px; font-weight: bold;
+    padding: 6px 12px; border-radius: 8px;
+    border: 1px solid rgba(0,191,255,0.4);
+    pointer-events: none;
+  ">
+    <span id="debug-size">...</span>
+  </div>
+  <script>
+    (function() {
+      function updateSize() {
+        var w = window.innerWidth;
+        var h = window.innerHeight;
+        var el = document.getElementById('debug-size');
+        if (el) el.textContent = w + ' × ' + h + ' px';
+      }
+      updateSize();
+      window.addEventListener('resize', updateSize);
+      window.addEventListener('orientationchange', function() {
+        setTimeout(updateSize, 300);
+      });
+    })();
+  </script>
   <div class="hero-right">
     <div class="hero-video-container">
       <video
