@@ -1225,7 +1225,8 @@
     #values .section-title { font-size: clamp(26px, 8vw, 40px) !important; }
 
     /* 3페이지 About */
-    #about { padding-top: 16px !important; padding-bottom: 0 !important; gap: 0 !important; background: var(--deep-blue) !important; }
+    #about { padding-top: 16px !important; padding-bottom: 0 !important; gap: 0 !important; background: var(--deep-blue) !important; overflow: hidden !important; clip-path: inset(0) !important; isolation: isolate !important; contain: layout !important; }
+    #about .about-right img { max-height: 100% !important; }
     #about {
       display: flex !important;
       flex-direction: column !important;
@@ -1239,16 +1240,25 @@
     }
     #about .about-right {
       width: 100%;
-      height: 247px !important;                  /* 260px의 95% (이미지 살짝 축소) */
+      height: 247px !important;
       order: 1;
       flex-shrink: 0;
-      margin-top: 2px !important;                /* 텍스트 카드와 이미지 사이 줄간격 (이전 4px의 절반) */
-      background: var(--deep-blue) !important;   /* 이미지 외 영역 흰바탕 방지 */
+      margin-top: 2px !important;
+      background: var(--deep-blue) !important;
+      overflow: hidden !important;
+      position: relative !important;
+      contain: strict !important;                /* 렌더링 완전 격리 */
+      z-index: 0 !important;
     }
     #about .about-right img {
       max-height: 100% !important;
+      max-width: 100% !important;
       width: auto !important;
-      object-fit: contain !important;            /* 잘리지 않게 contain */
+      object-fit: contain !important;
+    }
+    /* about 이미지 완전 격리 */
+    #about .about-right img {
+      clip-path: inset(0) !important;
     }
     #about .about-right::after {
       background: linear-gradient(180deg, transparent 30%, var(--deep-blue) 95%) !important;
@@ -1623,8 +1633,8 @@
      카카오(598px)는 대형으로 기존 스타일 유지
   ══════════════════════════════════════════ */
   @media (max-width: 768px) and (min-height: 600px) and (max-height: 649px) and (orientation: portrait) {
-    /* 2,4,5,6,7페이지 90% 축소 (3페이지 About 제외) */
-    #values, #solutions, #experience, #technology, #contact {
+    /* 2~7페이지 90% 축소 (3페이지 About 포함 — 이미지 침범 방지) */
+    #values, #about, #solutions, #experience, #technology, #contact {
       transform: scale(0.90) !important;
       transform-origin: top center !important;
     }
