@@ -1655,27 +1655,29 @@
   }
 
 
+  
   /* ══════════════════════════════════════════
-     📱 높이 반응형 — 중형 폰 세로모드 (700px ~ 800px)
+     📱 높이 반응형 — 중형 폰 세로모드 (500px ~ 579px)
      Galaxy S23/S24, iPhone 14/15 등
+     S26 Ultra(~598px)는 대형으로 기존 스타일 유지
   ══════════════════════════════════════════ */
-  @media (max-width: 768px) and (min-height: 700px) and (max-height: 800px) and (orientation: portrait) {
+  @media (max-width: 768px) and (min-height: 500px) and (max-height: 579px) and (orientation: portrait) {
 
     /* ── Hero ── */
     .hero-badge { font-size: 9px !important; padding: 4px 10px !important; margin-bottom: 8px !important; }
     #heroPhaseB { top: 100px !important; }
-    .hero-title { font-size: clamp(22px, 7vw, 34px) !important; }
-    #hero .hero-sub { font-size: 12px !important; margin-bottom: 10px !important; }
-    .hero-btns { margin-top: 10px !important; }
+    .hero-title { font-size: clamp(22px, 7vw, 32px) !important; }
+    #hero .hero-sub { font-size: 12px !important; margin-bottom: 8px !important; }
+    .hero-btns { margin-top: 8px !important; }
     .btn-primary, .btn-ghost { padding: 9px 16px !important; font-size: 12px !important; }
-    #hero .hero-right { height: 200px !important; }
+    #hero .hero-right { height: 180px !important; }
 
     /* ── 공통 ── */
     .section-title { font-size: clamp(18px, 5.5vw, 26px) !important; margin-bottom: 6px !important; }
     .section-tag { font-size: 9px !important; }
 
     /* ── 2페이지 Values ── */
-    #values { padding-top: 14px !important; }
+    #values { padding-top: 12px !important; }
     .values-grid { gap: 5px; }
     .val-card { padding: 10px 14px; gap: 5px; }
     .val-img { width: 44px !important; height: 44px !important; }
@@ -1683,8 +1685,8 @@
     .val-desc { font-size: 12px !important; }
 
     /* ── 3페이지 About ── */
-    #about { padding-top: 12px !important; }
-    #about .about-right { height: 280px !important; }
+    #about { padding-top: 10px !important; }
+    #about .about-right { height: 220px !important; }
     #about .section-title { font-size: clamp(18px, 5.5vw, 26px) !important; }
     .about-desc { font-size: 12px !important; margin-bottom: 4px !important; }
     .about-features { gap: 3px; }
@@ -1693,7 +1695,7 @@
     .feat-text p { font-size: 11px !important; }
 
     /* ── 4페이지 Solutions ── */
-    #solutions { padding-top: 14px !important; }
+    #solutions { padding-top: 12px !important; }
     .solutions-inner { padding: 2px 16px 0 !important; }
     #solutions .section-title { font-size: clamp(18px, 5.5vw, 26px) !important; }
     .sol-grid { gap: 5px; }
@@ -1703,7 +1705,7 @@
     .sol-desc { margin-bottom: 4px !important; }
 
     /* ── 5페이지 Experience ── */
-    #experience { padding-top: 12px !important; }
+    #experience { padding-top: 10px !important; }
     #experience > div { padding: 2px 16px !important; }
     #experience .section-title { font-size: clamp(18px, 5.5vw, 26px) !important; }
     .exp-stats-grid { gap: 6px !important; margin-bottom: 8px !important; }
@@ -1715,7 +1717,7 @@
     .award-grid > div { padding: 6px 10px !important; font-size: 10px !important; }
 
     /* ── 6페이지 Technology ── */
-    #technology { padding-top: 14px !important; }
+    #technology { padding-top: 12px !important; }
     #technology .section-title { font-size: clamp(18px, 5.5vw, 26px) !important; }
     .tech-grid { gap: 5px !important; }
     .tech-card { padding: 8px 12px; }
@@ -1724,7 +1726,7 @@
     .tech-desc { font-size: 11px !important; }
 
     /* ── 7페이지 Contact ── */
-    #contact { padding-top: 14px !important; }
+    #contact { padding-top: 12px !important; }
     .contact-card { padding: 10px 14px !important; }
     .contact-card-icon { font-size: 22px !important; }
     .contact-card-title { font-size: 14px !important; }
@@ -1733,84 +1735,84 @@
   }
 
   /* ══════════════════════════════════════════
-     📱 높이 반응형 — 소형 폰 세로모드 (700px 미만)
+     📱 높이 반응형 — 소형 폰 세로모드 (500px 미만)
      iPhone SE, Galaxy A 시리즈 등
   ══════════════════════════════════════════ */
-  @media (max-width: 768px) and (max-height: 699px) and (orientation: portrait) {
+  @media (max-width: 768px) and (max-height: 499px) and (orientation: portrait) {
 
     /* ── Hero ── */
     .hero-badge { font-size: 8px !important; padding: 3px 8px !important; margin-bottom: 6px !important; }
     #heroPhaseB { top: 88px !important; }
-    .hero-title { font-size: clamp(20px, 6.5vw, 30px) !important; }
-    #hero .hero-sub { font-size: 11px !important; margin-bottom: 8px !important; line-height: 1.4 !important; }
-    .hero-btns { margin-top: 8px !important; }
-    .btn-primary, .btn-ghost { padding: 8px 14px !important; font-size: 11px !important; }
-    #hero .hero-right { height: 160px !important; }
+    .hero-title { font-size: clamp(18px, 6vw, 26px) !important; }
+    #hero .hero-sub { font-size: 11px !important; margin-bottom: 6px !important; line-height: 1.4 !important; }
+    .hero-btns { margin-top: 6px !important; }
+    .btn-primary, .btn-ghost { padding: 7px 12px !important; font-size: 11px !important; }
+    #hero .hero-right { height: 140px !important; }
 
     /* ── 공통 ── */
-    .section-title { font-size: clamp(16px, 5vw, 22px) !important; margin-bottom: 4px !important; }
+    .section-title { font-size: clamp(15px, 4.5vw, 20px) !important; margin-bottom: 4px !important; }
     .section-tag { font-size: 8px !important; letter-spacing: 1.5px !important; }
 
     /* ── 2페이지 Values ── */
-    #values { padding-top: 10px !important; }
+    #values { padding-top: 8px !important; }
     .values-grid { gap: 4px; }
-    .val-card { padding: 8px 12px; gap: 4px; }
-    .val-img { width: 36px !important; height: 36px !important; }
+    .val-card { padding: 7px 12px; gap: 4px; }
+    .val-img { width: 34px !important; height: 34px !important; }
     .val-name { font-size: 11px !important; }
-    .val-desc { font-size: 11px !important; line-height: 1.4; }
+    .val-desc { font-size: 10px !important; line-height: 1.4; }
 
     /* ── 3페이지 About ── */
-    #about { padding-top: 8px !important; }
-    #about .about-right { height: 240px !important; }
-    #about .section-title { font-size: clamp(16px, 5vw, 22px) !important; }
-    .about-desc { font-size: 11px !important; margin-bottom: 3px !important; }
+    #about { padding-top: 6px !important; }
+    #about .about-right { height: 180px !important; }
+    #about .section-title { font-size: clamp(15px, 4.5vw, 20px) !important; }
+    .about-desc { font-size: 10px !important; margin-bottom: 3px !important; }
     .about-features { gap: 2px; }
-    .about-feat { padding: 4px 8px; }
-    .feat-text h4 { font-size: 11px !important; }
-    .feat-text p { font-size: 10px !important; }
+    .about-feat { padding: 3px 8px; }
+    .feat-text h4 { font-size: 10px !important; }
+    .feat-text p { font-size: 9px !important; }
 
     /* ── 4페이지 Solutions ── */
-    #solutions { padding-top: 10px !important; }
+    #solutions { padding-top: 8px !important; }
     .solutions-inner { padding: 2px 12px 0 !important; }
-    #solutions .section-title { font-size: clamp(16px, 5vw, 22px) !important; }
+    #solutions .section-title { font-size: clamp(15px, 4.5vw, 20px) !important; }
     .sol-grid { gap: 4px; }
-    .sol-head { padding: 6px 10px; }
-    .sol-body { padding: 6px 10px; font-size: 11px !important; }
+    .sol-head { padding: 5px 10px; }
+    .sol-body { padding: 5px 10px; font-size: 10px !important; }
     .sol-name { font-size: 12px !important; }
-    .sol-desc { margin-bottom: 3px !important; }
-    .sol-tag { font-size: 8px !important; }
+    .sol-desc { margin-bottom: 2px !important; }
+    .sol-tag { font-size: 7px !important; }
 
     /* ── 5페이지 Experience ── */
-    #experience { padding-top: 8px !important; }
+    #experience { padding-top: 6px !important; }
     #experience > div { padding: 2px 12px !important; }
-    #experience .section-title { font-size: clamp(16px, 5vw, 22px) !important; }
+    #experience .section-title { font-size: clamp(15px, 4.5vw, 20px) !important; }
     .exp-stats-grid { gap: 4px !important; margin-bottom: 6px !important; }
-    .exp-stats-grid > div { padding: 6px !important; }
+    .exp-stats-grid > div { padding: 5px !important; }
     [data-i18n="exp_partners_label"] { margin-top: 3px !important; margin-bottom: 3px !important; }
-    .partner-chip { min-height: 26px !important; }
-    .partner-chip img { max-height: 14px !important; }
-    [data-i18n="exp_awards_label"] { margin-top: 4px !important; margin-bottom: 3px !important; }
-    .award-grid { gap: 4px !important; }
-    .award-grid > div { padding: 4px 8px !important; font-size: 9px !important; }
+    .partner-chip { min-height: 24px !important; }
+    .partner-chip img { max-height: 13px !important; }
+    [data-i18n="exp_awards_label"] { margin-top: 3px !important; margin-bottom: 3px !important; }
+    .award-grid { gap: 3px !important; }
+    .award-grid > div { padding: 3px 6px !important; font-size: 8px !important; }
 
     /* ── 6페이지 Technology ── */
-    #technology { padding-top: 10px !important; }
-    #technology .section-title { font-size: clamp(16px, 5vw, 22px) !important; }
-    .tech-grid { gap: 4px !important; }
-    .tech-card { padding: 6px 10px; }
-    .tech-icon { font-size: 16px !important; }
-    .tech-title { font-size: 12px !important; }
-    .tech-desc { font-size: 10px !important; }
-    #technology [style*="border-radius:16px"] { padding: 6px 10px !important; margin-bottom: 6px !important; }
+    #technology { padding-top: 8px !important; }
+    #technology .section-title { font-size: clamp(15px, 4.5vw, 20px) !important; }
+    .tech-grid { gap: 3px !important; }
+    .tech-card { padding: 5px 10px; }
+    .tech-icon { font-size: 14px !important; }
+    .tech-title { font-size: 11px !important; }
+    .tech-desc { font-size: 9px !important; }
+    #technology [style*="border-radius:16px"] { padding: 5px 10px !important; margin-bottom: 4px !important; }
 
     /* ── 7페이지 Contact ── */
-    #contact { padding-top: 10px !important; }
-    .contact-card { padding: 8px 12px !important; }
-    .contact-card-icon { font-size: 18px !important; }
-    .contact-card-title { font-size: 12px !important; }
-    .contact-card-row { font-size: 12px !important; }
-    .contact-card-hint { font-size: 10px !important; }
-    .contact-grid { gap: 8px !important; }
+    #contact { padding-top: 8px !important; }
+    .contact-card { padding: 6px 10px !important; }
+    .contact-card-icon { font-size: 16px !important; }
+    .contact-card-title { font-size: 11px !important; }
+    .contact-card-row { font-size: 11px !important; }
+    .contact-card-hint { font-size: 9px !important; }
+    .contact-grid { gap: 6px !important; }
   }
 
   /* ══════════════════════════════════════════
