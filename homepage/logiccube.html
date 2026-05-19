@@ -623,44 +623,6 @@
       <a href="#contact" onclick="navJump('contact');return false;" class="btn-ghost" data-i18n="hero_btn2">제안서 요청 →</a>
     </div>
   </div>
-  <!-- ★ 임시 화면크기 표시 (테스트용 — 나중에 삭제) -->
-  <div id="screen-size-debug" style="
-    position: fixed; bottom: 12px; right: 12px; z-index: 9999;
-    background: rgba(0,0,0,0.75); color: #00bfff;
-    font-family: monospace; font-size: 13px; font-weight: bold;
-    padding: 6px 12px; border-radius: 8px;
-    border: 1px solid rgba(0,191,255,0.4);
-    pointer-events: none;
-  ">
-    <span id="debug-size">...</span>
-  </div>
-  <script>
-    (function() {
-      function updateSize() {
-        var w = window.innerWidth;
-        var h = window.innerHeight;
-        var dpr = window.devicePixelRatio || 1;
-        // 실제 물리 픽셀 기준 CSS픽셀 계산
-        var screenW = window.screen.width;
-        var screenH = window.screen.height;
-        // 브라우저 줌 레벨 추정 (CSS픽셀 대비 screen 비율)
-        var zoomEst = Math.round((screenW / w) * 100);
-        var el = document.getElementById('debug-size');
-        if (el) {
-          el.innerHTML =
-            '화면: ' + w + ' &times; ' + h + ' px' +
-            '<br>DPR: ' + dpr.toFixed(2) +
-            '<br>Screen: ' + screenW + ' &times; ' + screenH +
-            '<br>Zoom: ~' + zoomEst + '%';
-        }
-      }
-      updateSize();
-      window.addEventListener('resize', updateSize);
-      window.addEventListener('orientationchange', function() {
-        setTimeout(updateSize, 300);
-      });
-    })();
-  </script>
   <div class="hero-right">
     <div class="hero-video-container">
       <video
@@ -1343,7 +1305,7 @@
     .award-grid > div { padding: 8px 12px !important; }
     /* 6페이지 Technology */
     #technology { padding-top: 20px !important; padding-bottom: 8px !important; }
-    #technology > div { padding: 2px 16px 0 16px !important; margin-top: 0 !important; }
+    #technology > div { padding: 2px 16px 0 16px !important; margin-top: 0 !important; justify-content: flex-start !important; }
     #technology .section-title { margin-bottom: 6px !important; font-size: clamp(26px, 8vw, 40px) !important; }
     .tech-grid {
       grid-template-columns: 1fr !important;
@@ -1655,15 +1617,13 @@
   }
 
 
-  
   /* ══════════════════════════════════════════
-     📱 높이 반응형 — 중형 폰 세로모드 (500px ~ 579px)
-     Galaxy S23/S24, iPhone 14/15, 구글브라우저(~647px) 등
-     카카오(598px)/구글(647px) 모두 커버
+     📱 높이 반응형 — 중형 폰 세로모드 (600px ~ 649px)
+     크롬 브라우저 S26 Ultra (~647px)
+     카카오(598px)는 대형으로 기존 스타일 유지
   ══════════════════════════════════════════ */
   @media (max-width: 768px) and (min-height: 600px) and (max-height: 649px) and (orientation: portrait) {
-
-    /* 크롬 브라우저 647px 대응: 2,4,5,6,7페이지 90% 축소 (3페이지 제외) */
+    /* 2,4,5,6,7페이지 90% 축소 (3페이지 About 제외) */
     #values, #solutions, #experience, #technology, #contact {
       transform: scale(0.90) !important;
       transform-origin: top center !important;
@@ -1671,10 +1631,10 @@
   }
 
   /* ══════════════════════════════════════════
-     📱 높이 반응형 — 소형 폰 세로모드 (500px 미만)
+     📱 높이 반응형 — 소형 폰 세로모드 (597px 이하)
      iPhone SE, Galaxy A 시리즈 등
   ══════════════════════════════════════════ */
-  @media (max-width: 768px) and (max-height: 599px) and (orientation: portrait) {
+  @media (max-width: 768px) and (max-height: 597px) and (orientation: portrait) {
 
     /* ── Hero ── */
     .hero-badge { font-size: 8px !important; padding: 3px 8px !important; margin-bottom: 6px !important; }
@@ -1742,7 +1702,7 @@
     #technology [style*="border-radius:16px"] { padding: 5px 10px !important; margin-bottom: 4px !important; }
 
     /* ── 7페이지 Contact ── */
-    #contact { padding-top: 8px !important; }
+    #contact { padding-top: 6px !important; }
     .contact-card { padding: 6px 10px !important; }
     .contact-card-icon { font-size: 16px !important; }
     .contact-card-title { font-size: 11px !important; }
