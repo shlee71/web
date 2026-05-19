@@ -1618,10 +1618,10 @@
 
 
   /* ══════════════════════════════════════════
-     📱 높이 기반 반응형 — 중형 폰 (max-height: 800px, 세로모드)
+     📱 높이 기반 반응형 — 중형 폰 (max-height: 750px, 세로모드)
      Galaxy S23, iPhone 14 등
   ══════════════════════════════════════════ */
-  @media (max-width: 768px) and (max-height: 800px) and (orientation: portrait) {
+  @media (max-width: 768px) and (max-height: 750px) and (orientation: portrait) {
     /* Hero */
     .hero-badge { font-size: 9px !important; padding: 4px 10px !important; margin-bottom: 8px !important; }
     #heroPhaseB { top: 100px !important; }
@@ -1633,6 +1633,7 @@
 
     /* 공통 섹션 */
     .section-title { font-size: clamp(18px, 5vw, 26px) !important; margin-bottom: 6px !important; }
+    #values, #about, #solutions, #experience, #technology, #contact { justify-content: space-between !important; }
 
     /* 2페이지 Values */
     #values { padding-top: 16px !important; }
@@ -1644,7 +1645,7 @@
 
     /* 3페이지 About */
     #about { padding-top: 12px !important; }
-    #about .about-right { height: 200px !important; }
+    #about .about-right { height: 320px !important; }
     .about-desc { font-size: 12px !important; }
     .about-feat { padding: 5px 10px; }
     .feat-text h4 { font-size: 12px !important; }
@@ -1681,10 +1682,10 @@
   }
 
   /* ══════════════════════════════════════════
-     📱 높이 기반 반응형 — 소형 폰 (max-height: 700px, 세로모드)
+     📱 높이 기반 반응형 — 소형 폰 (max-height: 680px, 세로모드)
      iPhone SE, Galaxy A 시리즈 등
   ══════════════════════════════════════════ */
-  @media (max-width: 768px) and (max-height: 700px) and (orientation: portrait) {
+  @media (max-width: 768px) and (max-height: 680px) and (orientation: portrait) {
     /* Hero */
     .hero-badge { font-size: 8px !important; padding: 3px 8px !important; margin-bottom: 6px !important; }
     #heroPhaseB { top: 90px !important; }
@@ -1697,6 +1698,7 @@
     /* 공통 섹션 */
     .section-title { font-size: clamp(16px, 4.5vw, 22px) !important; margin-bottom: 4px !important; }
     .section-tag { font-size: 8px !important; letter-spacing: 1.5px !important; }
+    #values, #about, #solutions, #experience, #technology, #contact { justify-content: space-between !important; }
 
     /* 2페이지 Values */
     #values { padding-top: 12px !important; }
@@ -1708,7 +1710,7 @@
 
     /* 3페이지 About */
     #about { padding-top: 10px !important; }
-    #about .about-right { height: 170px !important; }
+    #about .about-right { height: 300px !important; }
     .about-desc { font-size: 11px !important; margin-bottom: 4px !important; }
     .about-features { gap: 3px; }
     .about-feat { padding: 4px 10px; }
