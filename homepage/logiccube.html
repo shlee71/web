@@ -639,8 +639,20 @@
       function updateSize() {
         var w = window.innerWidth;
         var h = window.innerHeight;
+        var dpr = window.devicePixelRatio || 1;
+        // 실제 물리 픽셀 기준 CSS픽셀 계산
+        var screenW = window.screen.width;
+        var screenH = window.screen.height;
+        // 브라우저 줌 레벨 추정 (CSS픽셀 대비 screen 비율)
+        var zoomEst = Math.round((screenW / w) * 100);
         var el = document.getElementById('debug-size');
-        if (el) el.textContent = w + ' × ' + h + ' px';
+        if (el) {
+          el.innerHTML =
+            '화면: ' + w + ' &times; ' + h + ' px' +
+            '<br>DPR: ' + dpr.toFixed(2) +
+            '<br>Screen: ' + screenW + ' &times; ' + screenH +
+            '<br>Zoom: ~' + zoomEst + '%';
+        }
       }
       updateSize();
       window.addEventListener('resize', updateSize);
