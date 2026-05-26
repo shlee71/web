@@ -1822,6 +1822,37 @@
 </style>
 
 <script>
+  // Samsung Internet Smart Dark Mode 차단
+  // CSS color-scheme을 무시하는 구형 삼성 브라우저를 위해 JS로 직접 스타일 주입
+  (function() {
+    var s = document.createElement('style');
+    s.id = 'force-light-override';
+    s.textContent = [
+      '#values { background-color: #ffffff !important; color-scheme: only light !important; }',
+      '.values-inner { background-color: #ffffff !important; }',
+      '.val-card { background-color: #f0f4f8 !important; border-color: #e2eaf4 !important; color-scheme: only light !important; }',
+      '.val-card:hover { background-color: #ffffff !important; }',
+      '.val-name { color: #0047AB !important; }',
+      '.val-desc { color: #001428 !important; }',
+      '.section-tag { color: #0047AB !important; }',
+      '#values .section-title { color: #001428 !important; }',
+      '.partner-chip { background-color: #ffffff !important; color-scheme: only light !important; }',
+      '.partner-chip img { filter: none !important; -webkit-filter: none !important; }'
+    ].join('\n');
+    document.head.appendChild(s);
+
+    // Smart Dark Mode가 DOM 변형 후 적용될 경우를 대비한 MutationObserver
+    var mo = new MutationObserver(function() {
+      var el = document.getElementById('force-light-override');
+      if (!el) { document.head.appendChild(s); }
+    });
+    document.addEventListener('DOMContentLoaded', function() {
+      mo.observe(document.head, { childList: true, subtree: false });
+    });
+  })();
+</script>
+
+<script>
   // ══════════════════════════════════════════
   //  i18n 번역 데이터
   // ══════════════════════════════════════════
