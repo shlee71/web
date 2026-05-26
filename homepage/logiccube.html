@@ -36,11 +36,13 @@
     --white: #ffffff;
     --gray-light: #f0f4f8;
     --gray-mid: #7a8ea8;
+    color-scheme: only light;
   }
   * { margin:0; padding:0; box-sizing:border-box; }
-  html { scroll-behavior: auto; overflow-x: hidden; color-scheme: light; }
-  body { font-family:'Noto Sans KR',sans-serif; overflow-x:hidden; max-width:100vw; -webkit-overflow-scrolling:touch; }
+  html { scroll-behavior: auto; overflow-x: hidden; color-scheme: only light; }
+  body { font-family:'Noto Sans KR',sans-serif; overflow-x:hidden; max-width:100vw; -webkit-overflow-scrolling:touch; color-scheme: only light; }
   * { -webkit-tap-highlight-color: transparent; box-sizing: border-box; }
+  img { forced-color-adjust: none; -webkit-forced-color-adjust: none; }
 
   /* ══ GNB — 고정 ══ */
   header {
