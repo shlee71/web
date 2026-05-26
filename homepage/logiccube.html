@@ -1049,9 +1049,21 @@
     color-scheme: light;
   }
   @media (prefers-color-scheme: dark) {
-    .partner-chip {
-      background: #ffffff !important;
+    /* Values (2페이지) — 흰 배경 섹션 강제 복원 */
+    #values { background: #ffffff !important; }
+    #values .section-tag { color: #0047AB !important; }
+    #values .section-title { color: #001428 !important; }
+    .val-card {
+      background: #f0f4f8 !important;
+      border-color: #e2eaf4 !important;
     }
+    .val-card:hover { background: #ffffff !important; }
+    .val-img { background: #ddeeff !important; }
+    .val-name { color: #0047AB !important; }
+    .val-desc { color: #001428 !important; }
+    /* Partner chips (5페이지) */
+    .partner-chip { background: #ffffff !important; }
+    .partner-chip img { filter: none !important; }
   }
   .partner-chip:hover img {
     opacity: 0.85;
