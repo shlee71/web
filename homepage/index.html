@@ -5,6 +5,18 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <!-- 라이트 전용 선언 — 삼성인터넷 등 인앱 브라우저의 강제 다크모드 반전 방지 -->
 <meta name="color-scheme" content="light">
+
+<!-- 카카오톡 인앱 브라우저는 글자를 작게 렌더링 → 카카오 한정으로 텍스트 1.3배 보정
+     (삼성·네이버·PC 등 다른 환경은 영향 없음) -->
+<script>
+  (function () {
+    if (/KAKAOTALK/i.test(navigator.userAgent || '')) {
+      var de = document.documentElement;
+      de.style.setProperty('-webkit-text-size-adjust', '130%');
+      de.style.setProperty('text-size-adjust', '130%');
+    }
+  })();
+</script>
 <title>로직큐브 - 금융 시스템의 가치를 실현하는 기업</title>
 
 <!-- SEO description -->
@@ -41,7 +53,7 @@
   * { margin:0; padding:0; box-sizing:border-box; }
   :root { color-scheme: only light; }
   html { scroll-behavior: auto; overflow-x: hidden; -webkit-text-size-adjust: 100%; -moz-text-size-adjust: 100%; text-size-adjust: 100%; }
-  body { font-family:'Noto Sans KR',sans-serif; overflow-x:hidden; max-width:100vw; -webkit-overflow-scrolling:touch; -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
+  body { font-family:'Noto Sans KR',sans-serif; overflow-x:hidden; max-width:100vw; -webkit-overflow-scrolling:touch; }
   * { -webkit-tap-highlight-color: transparent; box-sizing: border-box; }
 
   /* ══ GNB — 고정 ══ */
