@@ -6,52 +6,6 @@
 <!-- 라이트 전용 선언 — 삼성인터넷 등 인앱 브라우저의 강제 다크모드 반전 방지 -->
 <meta name="color-scheme" content="light">
 
-<!-- 카카오톡 인앱 브라우저는 글자를 작게 렌더링 → 카카오 한정으로 텍스트 1.3배 보정
-     (삼성·네이버·PC 등 다른 환경은 영향 없음)
-     text-size-adjust를 카카오가 무시하므로 JS로 실제 font-size를 직접 1.3배 적용 -->
-<script>
-  (function () {
-    var ua = navigator.userAgent || '';
-    window.__lcUA = ua;
-    window.__lcKakao = /KAKAOTALK/i.test(ua);
-    window.__lcScaled = false;
-    if (!window.__lcKakao) return;
-    var TARGET = 1.3; // 카카오에서 보이길 원하는 시각적 배율 (현재 크기 대비)
-
-    // 카카오 webview의 textZoom(축소 배율) 측정: 100px 탐침의 실제 계산값을 읽음
-    function measureTextZoom() {
-      var probe = document.createElement('div');
-      probe.style.cssText = 'position:absolute;left:-9999px;top:-9999px;font-size:100px;line-height:normal;';
-      probe.textContent = 'A';
-      document.body.appendChild(probe);
-      var computed = parseFloat(getComputedStyle(probe).fontSize) || 100;
-      document.body.removeChild(probe);
-      return computed / 100; // tz<1 이면 webview가 글자를 축소 중
-    }
-
-    function scaleText() {
-      var tz = measureTextZoom();
-      // textZoom 상쇄 보정: factor = TARGET / tz  (webview가 다시 ×tz 하므로 순효과 = TARGET)
-      var factor = TARGET / (tz || 1);
-      if (factor > 3) factor = 3;       // 안전 상한
-      if (factor < 1) factor = 1;       // 축소는 하지 않음
-      window.__lcTZ = tz;
-      window.__lcFactor = factor;
-      var els = document.body.getElementsByTagName('*');
-      var n = els.length, sizes = new Array(n), i;
-      // 1) 원본 크기를 먼저 전부 측정 (부모→자식 누적 곱 방지)
-      for (i = 0; i < n; i++) sizes[i] = parseFloat(getComputedStyle(els[i]).fontSize) || 0;
-      // 2) 보정 배율로 일괄 적용
-      for (i = 0; i < n; i++) if (sizes[i]) els[i].style.fontSize = (sizes[i] * factor) + 'px';
-      window.__lcScaled = true;
-    }
-    if (document.readyState === 'loading') {
-      document.addEventListener('DOMContentLoaded', scaleText);
-    } else {
-      scaleText();
-    }
-  })();
-</script>
 <title>로직큐브 - 금융 시스템의 가치를 실현하는 기업</title>
 
 <!-- SEO description -->
@@ -2874,18 +2828,17 @@
 </div>
 
 
-<!-- ★★★ 화면크기 표시 디버그 (비활성화 상태)
-     활성화 방법: 아래 display:none 을 display:block 으로 변경
+<!-- ★★★ 화면크기 표시 디버그 (현재 활성화 — 테스트용)
+     끄려면 아래 display:block 을 display:none 으로 변경
      위치: 우측 하단 고정
 ★★★ -->
 <div id="screen-size-debug" style="
   display: block;
-  position: fixed; bottom: 12px; right: 12px; left: 12px; z-index: 99999;
+  position: fixed; bottom: 12px; right: 12px; z-index: 99999;
   background: rgba(0,0,0,0.80); color: #00bfff;
-  font-family: monospace; font-size: 11px; font-weight: bold;
-  padding: 8px 14px; border-radius: 8px; line-height: 1.6;
+  font-family: monospace; font-size: 12px; font-weight: bold;
+  padding: 8px 14px; border-radius: 8px; line-height: 1.8;
   border: 1px solid rgba(0,191,255,0.4);
-  word-break: break-all; white-space: normal;
   pointer-events: none;
 ">
   <span id="debug-size">...</span>
@@ -2902,19 +2855,13 @@
       var el = document.getElementById('debug-size');
       if (el) {
         el.innerHTML =
-          '[v2] 화면: ' + w + ' &times; ' + h + ' px' +
-          ' / DPR: ' + dpr.toFixed(2) +
-          ' / Screen: ' + screenW + ' &times; ' + screenH +
-          ' / Zoom: ~' + zoomEst + '%' +
-          '<br>Kakao: ' + (window.__lcKakao ? 'YES' : 'no') +
-          ' / scaled: ' + (window.__lcScaled ? 'YES' : 'no') +
-          ' / tz: ' + (window.__lcTZ != null ? window.__lcTZ.toFixed(2) : '-') +
-          ' / factor: ' + (window.__lcFactor != null ? window.__lcFactor.toFixed(2) : '-') +
-          '<br>UA: ' + (window.__lcUA || navigator.userAgent || '');
+          '화면: ' + w + ' &times; ' + h + ' px' +
+          '<br>DPR: ' + dpr.toFixed(2) +
+          '<br>Screen: ' + screenW + ' &times; ' + screenH +
+          '<br>Zoom: ~' + zoomEst + '%';
       }
     }
     updateSize();
-    window.addEventListener('load', updateSize);
     window.addEventListener('resize', updateSize);
     window.addEventListener('orientationchange', function() {
       setTimeout(updateSize, 300);
