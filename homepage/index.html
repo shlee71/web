@@ -1035,7 +1035,9 @@
   .partner-chip img {
     max-width: 100%; max-height: 30px;
     object-fit: contain;
-    mix-blend-mode: multiply;
+    /* multiply 제거: 로고 PNG에 흰 배경이 있으므로, 칩이 다크모드로 검게 변해도
+       로고의 흰 배경이 칩을 덮어 정상 표시됨 (multiply면 흰배경×검정=검정이 되어버림) */
+    mix-blend-mode: normal;
     filter: none;
     transition: opacity 0.25s;
   }
@@ -1386,7 +1388,8 @@
     .lang-label { display: none; }
 
     /* 로고와 Contact 버튼 간격 */
-    nav { margin-left: 1em; }
+    nav { margin-left: 1em; gap: 6px; }   /* CONTACT↔언어설정 간격 12px → 6px (50%) */
+    nav ul { gap: 6px; }                  /* 메뉴 항목 간격도 축소해 언어 버튼 잘림 방지 */
   }
 
   /* ───────────── MOBILE 세로 (portrait · 360×594 기준 단일 튜닝) ─────────────
@@ -1703,11 +1706,11 @@
 
     /* ═══════════ 사용자 요청 미세조정 (카카오/모바일 세로 기준) ═══════════ */
 
-    /* 2페이지 Values: 제목↔박스 간격 2배(4→8px), 박스 내 이미지·글자 1.5배 */
-    #values .section-title { margin-bottom: 8px !important; }
-    .val-img  { width: 51px !important; height: 51px !important; }   /* 34 → 51 */
-    .val-name { font-size: 16.5px !important; }                      /* 11 → 16.5 */
-    .val-desc { font-size: 15px !important; }                        /* 10 → 15 */
+    /* 2페이지 Values: 제목↔박스 간격 2배(4→8px), 박스 이미지 1.5배(유지), 글자는 1.5×의 95% */
+    #values .section-title { margin-bottom: 8px !important; font-size: clamp(19px, 5.7vw, 28.5px) !important; }  /* ×0.95 */
+    .val-img  { width: 51px !important; height: 51px !important; }   /* 34 → 51 (유지) */
+    .val-name { font-size: 15.68px !important; }                     /* 16.5 × 0.95 */
+    .val-desc { font-size: 14.25px !important; }                     /* 15 × 0.95 */
 
     /* 3페이지 About: 제목·본문·이미지 1.2배 */
     #about .section-title { font-size: clamp(18px, 5.4vw, 24px) !important; }  /* ×1.2 */
@@ -1718,7 +1721,7 @@
 
     /* 4페이지 Solutions: 제목 1.5배, 박스 내 본문 줄간격 약 절반(1.8→1.4) */
     #solutions .section-title { font-size: clamp(22.5px, 6.75vw, 30px) !important; }  /* ×1.5 */
-    .sol-desc { line-height: 1.4 !important; }
+    .sol-desc { line-height: 1.2 !important; }   /* 1.8 → 1.2 (줄간격 더 좁힘) */
 
     /* 5페이지 Experience: 제목 1.2배, 수상이력 라벨 위 간격 2배(3→6px), 수상 4개 글자 0.7배 */
     #experience .section-title { font-size: clamp(18px, 5.4vw, 24px) !important; }  /* ×1.2 */
