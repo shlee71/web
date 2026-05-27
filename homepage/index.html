@@ -1697,6 +1697,36 @@
     .contact-card-row { font-size: 11px !important; }
     .contact-card-hint { font-size: 9px !important; }
     .contact-grid { gap: 6px !important; }
+
+    /* ═══════════ 사용자 요청 미세조정 (카카오/모바일 세로 기준) ═══════════ */
+
+    /* 2페이지 Values: 제목↔박스 간격 2배(4→8px), 박스 내 이미지·글자 1.5배 */
+    #values .section-title { margin-bottom: 8px !important; }
+    .val-img  { width: 51px !important; height: 51px !important; }   /* 34 → 51 */
+    .val-name { font-size: 16.5px !important; }                      /* 11 → 16.5 */
+    .val-desc { font-size: 15px !important; }                        /* 10 → 15 */
+
+    /* 3페이지 About: 제목·본문·이미지 1.2배 */
+    #about .section-title { font-size: clamp(18px, 5.4vw, 24px) !important; }  /* ×1.2 */
+    .about-desc   { font-size: 12px !important; }    /* 10 → 12 */
+    .feat-text h4 { font-size: 12px !important; }    /* 10 → 12 */
+    .feat-text p  { font-size: 10.8px !important; }  /* 9 → 10.8 */
+    #about .about-right { height: 216px !important; } /* 180 → 216 (×1.2) */
+
+    /* 4페이지 Solutions: 제목 1.5배, 박스 내 본문 줄간격 약 절반(1.8→1.4) */
+    #solutions .section-title { font-size: clamp(22.5px, 6.75vw, 30px) !important; }  /* ×1.5 */
+    .sol-desc { line-height: 1.4 !important; }
+
+    /* 5페이지 Experience: 제목 1.2배, 수상이력 라벨 위 간격 2배(3→6px), 수상 4개 글자 0.7배 */
+    #experience .section-title { font-size: clamp(18px, 5.4vw, 24px) !important; }  /* ×1.2 */
+    [data-i18n="exp_awards_label"] { margin-top: 6px !important; }
+    .award-grid span[data-i18n] { font-size: 8.4px !important; }   /* 12 → 8.4 (×0.7) */
+
+    /* 6페이지 Technology: 제목 1.5배 */
+    #technology .section-title { font-size: clamp(22.5px, 6.75vw, 30px) !important; }  /* ×1.5 */
+
+    /* 7페이지 Contact: 부제 0.8배 */
+    #contact [data-i18n="contact_sub"] { font-size: 12px !important; }  /* 15 → 12 */
   }
 
   /* ───────────── MOBILE 가로 (landscape · 높이 500px 이하) ─────────────
