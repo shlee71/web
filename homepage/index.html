@@ -1019,12 +1019,15 @@
   .partner-chip {
     display: flex; align-items: center; justify-content: center;
     padding: 10px 8px; border-radius: 10px;
-    background: rgba(255,255,255,0.92); border: 1px solid rgba(255,255,255,0.15);
+    background-color: #ffffff;
+    /* 배경을 그라데이션(이미지)로 줘서 삼성인터넷 등 강제 다크모드의 반전을 회피 → 흰색 유지 */
+    background-image: linear-gradient(#ffffff, #ffffff);
+    border: 1px solid rgba(255,255,255,0.15);
     transition: all 0.25s; cursor: default;
     min-height: 54px;
   }
   .partner-chip:hover {
-    background: rgba(255,255,255,1);
+    background-color: rgba(255,255,255,1);
     border-color: rgba(0,191,255,0.5);
     transform: translateY(-2px);
     box-shadow: 0 6px 20px rgba(0,191,255,0.15);
@@ -1719,7 +1722,7 @@
 
     /* 5페이지 Experience: 제목 1.2배, 수상이력 라벨 위 간격 2배(3→6px), 수상 4개 글자 0.7배 */
     #experience .section-title { font-size: clamp(18px, 5.4vw, 24px) !important; }  /* ×1.2 */
-    [data-i18n="exp_awards_label"] { margin-top: 6px !important; }
+    [data-i18n="exp_awards_label"] { margin-top: 12px !important; }  /* 6 → 12 (다시 ×2) */
     .award-grid span[data-i18n] { font-size: 8.4px !important; }   /* 12 → 8.4 (×0.7) */
 
     /* 6페이지 Technology: 제목 1.5배 */
@@ -2863,7 +2866,7 @@
      위치: 우측 하단 고정
 ★★★ -->
 <div id="screen-size-debug" style="
-  display: block;
+  display: none;
   position: fixed; bottom: 12px; right: 12px; z-index: 99999;
   background: rgba(0,0,0,0.80); color: #00bfff;
   font-family: monospace; font-size: 12px; font-weight: bold;
