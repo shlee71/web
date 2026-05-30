@@ -3,7 +3,9 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="color-scheme" content="only light">
+<!-- 라이트 전용 선언 — 삼성인터넷 등 인앱 브라우저의 강제 다크모드 반전 방지 -->
+<meta name="color-scheme" content="light">
+
 <title>로직큐브 - 금융 시스템의 가치를 실현하는 기업</title>
 
 <!-- SEO description -->
@@ -15,8 +17,8 @@
 <meta property="og:locale" content="ko_KR">
 <meta property="og:title" content="로직큐브 - 금융 시스템의 가치를 실현하는 기업">
 <meta property="og:description" content="정밀하고 논리적인 설계로 금융 시스템의 본질적 가치를 구현합니다.">
-<meta property="og:url" content="https://shlee71.github.io/web/homepage/logiccube.html">
-<meta property="og:image" content="https://shlee71.github.io/web/homepage/public/images/og_image.png?v=2">
+<meta property="og:url" content="https://logiccube.github.io/web/homepage/logiccube.html">
+<meta property="og:image" content="https://logiccube.github.io/web/homepage/public/images/og_image.png?v=2">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:image:alt" content="LogicCube - 금융 시스템의 가치를 실현하는 기업">
@@ -36,13 +38,12 @@
     --white: #ffffff;
     --gray-light: #f0f4f8;
     --gray-mid: #7a8ea8;
-    color-scheme: only light;
   }
   * { margin:0; padding:0; box-sizing:border-box; }
-  html { scroll-behavior: auto; overflow-x: hidden; color-scheme: only light; }
-  body { font-family:'Noto Sans KR',sans-serif; overflow-x:hidden; max-width:100vw; -webkit-overflow-scrolling:touch; color-scheme: only light; }
+  :root { color-scheme: only light; }
+  html { scroll-behavior: auto; overflow-x: hidden; -webkit-text-size-adjust: 100%; -moz-text-size-adjust: 100%; text-size-adjust: 100%; }
+  body { font-family:'Noto Sans KR',sans-serif; overflow-x:hidden; max-width:100vw; -webkit-overflow-scrolling:touch; }
   * { -webkit-tap-highlight-color: transparent; box-sizing: border-box; }
-  img { forced-color-adjust: none; -webkit-forced-color-adjust: none; }
 
   /* ══ GNB — 고정 ══ */
   header {
@@ -137,7 +138,6 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    filter: brightness(1); /* Chromium Force Dark 차단 */
     position: relative;
     overflow: hidden;
   }
@@ -265,9 +265,6 @@
     font-size: clamp(26px, 3vw, 36px); font-weight: 700;
     color: var(--deep-blue); line-height: 1.3;
     margin-bottom: 56px; word-break: keep-all;
-  }
-  @media (min-width: 769px) {
-    [data-i18n="exp_title"] br { display: none; }
   }
   /* About 섹션 제목 — 영문/일문 3줄 방지: 폰트 상한을 낮춤 */
   #about .section-title {
@@ -627,7 +624,6 @@
 
     <div class="hero-btns">
       <a href="#contact" onclick="navJump('contact');return false;" class="btn-primary" data-i18n="hero_btn1">솔루션 상담하기</a>
-      <a href="#contact" onclick="navJump('contact');return false;" class="btn-ghost" data-i18n="hero_btn2">제안서 요청 →</a>
     </div>
   </div>
   <div class="hero-right">
@@ -751,7 +747,6 @@
     <div class="sol-grid">
       <div class="sol-card">
         <div class="sol-head">
-          <div class="sol-num">PRODUCT 01</div>
           <div class="sol-name">Cube*FEP</div>
           <div class="sol-sub" data-i18n="sol1_sub">대외계 솔루션</div>
         </div>
@@ -767,7 +762,6 @@
       </div>
       <div class="sol-card">
         <div class="sol-head">
-          <div class="sol-num">PRODUCT 02</div>
           <div class="sol-name">Cube*ITS</div>
           <div class="sol-sub" data-i18n="sol2_sub">통합 테스트 솔루션</div>
         </div>
@@ -783,12 +777,11 @@
       </div>
       <div class="sol-card">
         <div class="sol-head">
-          <div class="sol-num">PLATFORM</div>
           <div class="sol-name">Cube*MOM</div>
-          <div class="sol-sub" data-i18n="sol3_sub">메시지 큐잉 엔진</div>
+          <div class="sol-sub" data-i18n="sol3_sub">인터페이스 플랫폼</div>
         </div>
         <div class="sol-body">
-          <p class="sol-desc" data-i18n="sol3_desc">비동기 메시지 큐잉 기반 고성능 대외 연계 플랫폼. Config/Rule-Based 동적 라우팅 제어로 카드사·은행·VAN사 간 완벽한 연결을 지원합니다.</p>
+          <p class="sol-desc" data-i18n="sol3_desc">비동기 메시지 큐잉 기반 고성능 대외 연계 플랫폼. Config/Rule-Based 동적 라우팅 제어로 내부 시스템과 대외기관의 완벽한 연결을 지원합니다.</p>
           <div class="sol-tags">
             <span class="sol-tag">Async MQ</span>
             <span class="sol-tag">SAF</span>
@@ -810,7 +803,7 @@
 <section id="experience" class="section exp-section" style="background:var(--deep-blue); height:auto; min-height:100vh; overflow:hidden; position:relative; padding-bottom:70px;">
   <div style="width:100%; padding:28px 60px; display:flex; flex-direction:column; justify-content:center;">
     <div class="section-tag" style="color:var(--neon);">Track Record</div>
-    <h2 class="section-title" style="color:white; margin-bottom:24px;" data-i18n="exp_title">고객사와 함께한 소중한 시간이,<br> 로직큐브의 현재이며 미래입니다</h2>
+    <h2 class="section-title" style="color:white; margin-bottom:24px;" data-i18n="exp_title">고객사와 함께한 소중한 시간은 로직큐브의 현재이며 미래입니다</h2>
 
     <!-- 통계 -->
     <div class="exp-stats-grid" style="display:grid; grid-template-columns:repeat(4,1fr); gap:12px; margin-bottom:24px;">
@@ -887,33 +880,39 @@
     <!-- 3대 기술 특장점 -->
     <div style="display:grid; grid-template-columns:repeat(3,1fr); gap:16px; margin-bottom:20px;" class="tech-grid">
       <div class="tech-card">
-        <div class="tech-icon">⚡</div>
-        <div class="tech-name">High Speed</div>
-        <div class="tech-title" data-i18n="tech1_title">고속 처리</div>
-        <div class="tech-desc" data-i18n="tech1_desc">비동기 MOM 기반 초고속 패킷 처리. 금융 트랜잭션 실시간 라우팅으로 지연 최소화.</div>
-        <div class="tech-bar-wrap">
-          <div class="tech-bar-label"><span>Throughput</span><span style="color:var(--cobalt); font-weight:700;">99.9%</span></div>
-          <div class="tech-bar"><div class="tech-bar-fill" style="width:99.9%"></div></div>
+        <div class="tech-head">
+          <div class="tech-name">⚡ <span data-i18n="tech1_title">고속처리</span></div>
+        </div>
+        <div class="tech-body">
+          <div class="tech-desc" data-i18n="tech1_desc">비동기 MOM 기반 초고속 패킷 처리. 금융 트랜잭션 실시간 라우팅으로 지연 최소화.</div>
+          <div class="tech-bar-wrap">
+            <div class="tech-bar-label"><span>Throughput</span><span style="color:var(--cobalt); font-weight:700;">99.9%</span></div>
+            <div class="tech-bar"><div class="tech-bar-fill" style="width:99.9%"></div></div>
+          </div>
         </div>
       </div>
       <div class="tech-card">
-        <div class="tech-icon">📈</div>
-        <div class="tech-name">Scale</div>
-        <div class="tech-title" data-i18n="tech2_title">확장성</div>
-        <div class="tech-desc" data-i18n="tech2_desc">Active-Active 이중화로 고부하 환경에서도 무중단. 채널별 독립 비즈니스 로직 처리.</div>
-        <div class="tech-bar-wrap">
-          <div class="tech-bar-label"><span>Availability</span><span style="color:var(--cobalt); font-weight:700;">99.999%</span></div>
-          <div class="tech-bar"><div class="tech-bar-fill" style="width:99.999%"></div></div>
+        <div class="tech-head">
+          <div class="tech-name">📈 <span data-i18n="tech2_title">확장성</span></div>
+        </div>
+        <div class="tech-body">
+          <div class="tech-desc" data-i18n="tech2_desc">Active-Active 이중화로 고부하 환경에서도 무중단. 채널별 독립 비즈니스 로직 처리.</div>
+          <div class="tech-bar-wrap">
+            <div class="tech-bar-label"><span>Availability</span><span style="color:var(--cobalt); font-weight:700;">99.999%</span></div>
+            <div class="tech-bar"><div class="tech-bar-fill" style="width:99.999%"></div></div>
+          </div>
         </div>
       </div>
       <div class="tech-card">
-        <div class="tech-icon">🔧</div>
-        <div class="tech-name">Optimization</div>
-        <div class="tech-title" data-i18n="tech3_title">최적화</div>
-        <div class="tech-desc" data-i18n="tech3_desc">실시간 메모리 할당 및 프로세스 가속화. Config/Rule-Based 동적 라우팅 제어.</div>
-        <div class="tech-bar-wrap">
-          <div class="tech-bar-label"><span>Latency</span><span style="color:var(--cobalt); font-weight:700;">&lt; 1ms</span></div>
-          <div class="tech-bar"><div class="tech-bar-fill" style="width:95%"></div></div>
+        <div class="tech-head">
+          <div class="tech-name">🔧 <span data-i18n="tech3_title">최적화</span></div>
+        </div>
+        <div class="tech-body">
+          <div class="tech-desc" data-i18n="tech3_desc">실시간 메모리 할당 및 프로세스 가속화. Config/Rule-Based 동적 라우팅 제어.</div>
+          <div class="tech-bar-wrap">
+            <div class="tech-bar-label"><span>Latency</span><span style="color:var(--cobalt); font-weight:700;">&lt; 1ms</span></div>
+            <div class="tech-bar"><div class="tech-bar-fill" style="width:95%"></div></div>
+          </div>
         </div>
       </div>
     </div>
@@ -985,11 +984,7 @@
           <span class="tag">TEL</span>
           <span id="phone-tel"></span>
         </div>
-        <div class="contact-card-row">
-          <span class="tag">FAX</span>
-          <span id="phone-fax"></span>
-        </div>
-        <div class="contact-card-hint" id="phone-hint" data-i18n="contact_phone_hint">→ 탭하면 전화 연결</div>
+        <div class="contact-card-hint" id="phone-hint" data-i18n="contact_phone_hint" style="display:none;">→ 탭하면 전화 연결</div>
       </div>
 
       <!-- 주소 BOX -->
@@ -1010,7 +1005,6 @@
     <!-- CTA 버튼 -->
     <div style="display:flex; gap:10px; margin-top:4px; flex-wrap:wrap; justify-content:center;">
       <a href="#" onclick="(function(){var u='bizinfo',d='logiccube.co.kr';window.open('https://mail.google.com/mail/?view=cm&to='+u+'@'+d+'&su=문의하기&body=안녕하세요, 로직큐브(주)에 문의드립니다.','_blank');return false;})()" class="btn-primary" style="font-size:14px; padding:13px 32px;" data-i18n="contact_cta1">문의하기</a>
-      <a href="#" onclick="(function(){var u='bizinfo',d='logiccube.co.kr';window.open('https://mail.google.com/mail/?view=cm&to='+u+'@'+d+'&su=제안서 요청&body=안녕하세요, 로직큐브(주)에 제안서 요청드립니다.','_blank');return false;})()" class="btn-ghost" style="font-size:14px; padding:13px 28px;" data-i18n="contact_cta2">제안서 요청 →</a>
     </div>
     <div style="margin-top:48px; text-align:center; line-height:2.2;">
       <div style="font-size:12px; font-weight:600; color:rgba(255,255,255,0.5); font-family:'Montserrat',sans-serif;">© 2026 LogicCube Inc. All rights reserved.</div>
@@ -1028,15 +1022,15 @@
   .partner-chip {
     display: flex; align-items: center; justify-content: center;
     padding: 10px 8px; border-radius: 10px;
-    background: #ffffff !important; border: 1px solid rgba(255,255,255,0.15);
+    background-color: #ffffff;
+    /* 배경을 그라데이션(이미지)로 줘서 삼성인터넷 등 강제 다크모드의 반전을 회피 → 흰색 유지 */
+    background-image: linear-gradient(#ffffff, #ffffff);
+    border: 1px solid rgba(255,255,255,0.15);
     transition: all 0.25s; cursor: default;
     min-height: 54px;
-    color-scheme: light;
-    forced-color-adjust: none;
-    -webkit-forced-color-adjust: none;
   }
   .partner-chip:hover {
-    background: #ffffff !important;
+    background-color: rgba(255,255,255,1);
     border-color: rgba(0,191,255,0.5);
     transform: translateY(-2px);
     box-shadow: 0 6px 20px rgba(0,191,255,0.15);
@@ -1044,27 +1038,11 @@
   .partner-chip img {
     max-width: 100%; max-height: 30px;
     object-fit: contain;
+    /* multiply 제거: 로고 PNG에 흰 배경이 있으므로, 칩이 다크모드로 검게 변해도
+       로고의 흰 배경이 칩을 덮어 정상 표시됨 (multiply면 흰배경×검정=검정이 되어버림) */
     mix-blend-mode: normal;
-    filter: none !important;
+    filter: none;
     transition: opacity 0.25s;
-    color-scheme: light;
-  }
-  @media (prefers-color-scheme: dark) {
-    /* Values (2페이지) — 흰 배경 섹션 강제 복원 */
-    #values { background: #ffffff !important; }
-    #values .section-tag { color: #0047AB !important; }
-    #values .section-title { color: #001428 !important; }
-    .val-card {
-      background: #f0f4f8 !important;
-      border-color: #e2eaf4 !important;
-    }
-    .val-card:hover { background: #ffffff !important; }
-    .val-img { background: #ddeeff !important; }
-    .val-name { color: #0047AB !important; }
-    .val-desc { color: #001428 !important; }
-    /* Partner chips (5페이지) */
-    .partner-chip { background: #ffffff !important; }
-    .partner-chip img { filter: none !important; }
   }
   .partner-chip:hover img {
     opacity: 0.85;
@@ -1080,17 +1058,25 @@
 
   /* ══ Technology ══ */
   .tech-card {
-    background: white; border-radius: 16px; padding: 28px 24px;
+    border-radius: 16px; overflow: hidden;
     border: 1px solid #e2eaf4; transition: all 0.3s;
   }
   .tech-card:hover { transform: translateY(-4px); box-shadow: 0 12px 36px rgba(0,45,98,0.1); border-color: var(--cobalt); }
+  .tech-head {
+    background: linear-gradient(135deg, var(--deep-blue), var(--cobalt));
+    padding: 22px 24px;
+  }
+  .tech-body {
+    background: white;
+    padding: 20px 24px;
+  }
   .tech-icon { font-size: 28px; margin-bottom: 12px; }
   .tech-name {
-    font-family: 'Montserrat', sans-serif; font-size: 10.5px; font-weight: 800;
-    letter-spacing: 2px; text-transform: uppercase; color: var(--cobalt); margin-bottom: 6px;
+    font-family: 'Montserrat', sans-serif; font-size: 21px; font-weight: 800;
+    letter-spacing: 2px; text-transform: uppercase; color: white; margin-bottom: 0;
   }
   .tech-title { font-size: 17px; font-weight: 700; color: var(--deep-blue); margin-bottom: 10px; }
-  .tech-desc { font-size: 13px; color: var(--gray-mid); line-height: 1.7; margin-bottom: 18px; word-break: keep-all; }
+  .tech-desc { font-size: 19.5px; color: var(--gray-mid); line-height: 1.7; margin-bottom: 18px; word-break: keep-all; }
   .tech-bar-wrap { display: flex; flex-direction: column; gap: 6px; }
   .tech-bar-label { display: flex; justify-content: space-between; font-size: 11px; color: var(--gray-mid); }
   .tech-bar { height: 6px; background: #e8eef5; border-radius: 3px; overflow: hidden; }
@@ -1159,9 +1145,16 @@
     margin-top: 10px; font-weight: 500;
   }
 
-  /* ══════════════════════════════════════════
-     📱 반응형 — 태블릿 (768px 이하)
-  ══════════════════════════════════════════ */
+  /* ════════════════════════════════════════════════════════════
+     RESPONSIVE  ─  3 모드로 정리
+       • PC          : 769px 이상 → 위의 기본 스타일 사용 (이 영역 미적용)
+       • MOBILE 세로 : max-width 768px + portrait  (360×594 기준 단일 튜닝)
+       • MOBILE 가로 : orientation landscape + max-height 500px
+     아래 첫 블록은 좁은 화면(주로 세로) 공통 베이스이다.
+     가로 모드는 폭이 768px를 초과하므로 이 공통 블록의 영향을 받지 않는다.
+     ════════════════════════════════════════════════════════════ */
+
+  /* ───────────── MOBILE 공통 베이스 (max-width 768px) ───────────── */
   @media (max-width: 768px) {
 
     /* GNB */
@@ -1176,26 +1169,28 @@
     #heroPhaseB { left: 20px !important; right: 20px !important; }
 
     /* 공통 섹션 — 모바일에서 viewport 높이 고정
-       100dvh: 주소창이 숨겨진 상태의 최대 viewport 높이 (변동 없음)
+       100lvh: 주소창이 숨겨진 상태의 최대 viewport 높이 (변동 없음)
        이 방식은 주소창 표시 여부와 무관하게 다음 섹션이 노출되는 것을 방지한다.
        구형 브라우저용 fallback: 100vh */
     .section { height: auto; min-height: unset; padding-top: 56px; }
     #values, #about, #solutions, #experience, #technology, #contact {
+      min-height: 100vh;
       height: 100vh;
-      height: 100dvh;
-      max-height: 100dvh;
+      max-height: 100vh;
+      min-height: 100lvh;
+      height: 100lvh;
+      max-height: 100lvh;
       justify-content: flex-start !important;
       overflow: hidden !important;
     }
-    .section-title { font-size: clamp(22px, 6vw, 36px); margin-bottom: 28px !important; }
     .section-tag { font-size: 10px; }
 
     /* 1페이지 HERO */
-    /* Hero 모바일: 정확히 한 화면, 빈공간 없음 (100dvh로 주소창 변동 무관) */
+    /* Hero 모바일: 정확히 한 화면, 빈공간 없음 (100lvh로 주소창 변동 무관) */
     #hero {
       display: flex; flex-direction: column;
       min-height: 100vh; height: 100vh;
-      min-height: 100dvh; height: 100dvh;
+      min-height: 100lvh; height: 100lvh;
       overflow: hidden;
     }
     #hero .hero-left {
@@ -1247,7 +1242,9 @@
     .val-name { font-size: 15px !important; letter-spacing: 2px !important; margin-bottom: 2px; }
     .val-desc { font-size: 14px !important; line-height: 1.5; }
     .section-title { font-size: clamp(20px, 5.5vw, 28px); margin-bottom: 8px !important; }
-    #values .section-title { font-size: clamp(26px, 8vw, 40px) !important; }
+    /* "로직큐브가 추구하는 핵심가치"(14자)를 360px 폭 한 줄에 수용 — 2행 방지
+       (21.6px에서 약 296px < 가용 328px. nowrap은 협폭 잘림 위험이 있어 미사용) */
+    #values .section-title { font-size: clamp(20px, 6vw, 30px) !important; }
 
     /* 3페이지 About */
     #about { padding-top: 16px !important; padding-bottom: 0 !important; gap: 0 !important; background: var(--deep-blue) !important; overflow: hidden !important; clip-path: inset(0) !important; isolation: isolate !important; contain: layout !important; }
@@ -1312,7 +1309,7 @@
     #experience { padding-top: 16px !important; padding-bottom: 8px !important; justify-content: flex-start !important; }
     #experience .values-inner,
     #experience > div { padding: 4px 16px !important; }
-    #experience .section-title { margin-bottom: 10px !important; font-size: clamp(20px, 6vw, 30px) !important; line-height: 1.25 !important; }
+    #experience .section-title { margin-bottom: 10px !important; font-size: clamp(22px, 7vw, 36px) !important; line-height: 1.25 !important; }
     /* 통계 카드: padding만 살짝 줄이고 폰트는 유지 */
     .exp-stats-grid {
       grid-template-columns: repeat(2, 1fr) !important;
@@ -1346,15 +1343,18 @@
       grid-template-columns: 1fr !important;
       gap: 6px !important;
     }
-    .tech-card { padding: 10px 14px; }
+    .tech-card { padding: 0 !important; }
+    .tech-head { padding: 12px 14px !important; }
+    .tech-body { padding: 10px 14px !important; }
     .tech-icon { font-size: 20px !important; margin-bottom: 2px !important; }
-    .tech-name { font-size: 11px !important; }
+    .tech-name { font-size: 21px !important; }
     .tech-title { font-size: 15px !important; margin-bottom: 3px !important; }
-    .tech-desc { font-size: 13px !important; line-height: 1.4; margin-bottom: 0 !important; }
+    .tech-desc { font-size: 19.5px !important; line-height: 1.4; margin-bottom: 0 !important; }
     /* Throughput/Availability/Latency 바 숨김 */
     .tech-bar-wrap { display: none !important; }
     #technology [style*="flow-box"],
-    .flow-box { font-size: 10px; padding: 6px 8px; }
+    .flow-box { font-size: 10px; padding: 6px 8px; white-space: normal; }
+    .flow-arrow { font-size: 14px; }
     #technology [style*="border-radius:16px"] { padding: 8px 14px !important; margin-bottom: 8px !important; }
 
     /* 7페이지 Contact */
@@ -1401,37 +1401,20 @@
     .lang-label { display: none; }
 
     /* 로고와 Contact 버튼 간격 */
-    nav { margin-left: 1em; }
+    nav { margin-left: 1em; gap: 6px; }   /* CONTACT↔언어설정 간격 12px → 6px (50%) */
+    nav ul { gap: 6px; }                  /* 메뉴 항목 간격도 축소해 언어 버튼 잘림 방지 */
   }
 
-  /* ══════════════════════════════════════════
-     📱 반응형 — 소형 모바일 (480px 이하)
-  ══════════════════════════════════════════ */
-  @media (max-width: 480px) {
-    nav ul li { display: none !important; }
-    nav ul li:last-child { display: flex !important; }
-
-    .hero-title { font-size: clamp(22px, 8vw, 36px) !important; }
-    #hero .hero-right { height: 180px; }
-
-    .exp-stats-grid {
-      grid-template-columns: repeat(2, 1fr) !important;
-    }
-
-    .flow-box { white-space: normal !important; font-size: 10px; padding: 6px 8px; }
-    .flow-arrow { font-size: 14px; }
-  }
-
-
-  /* ══════════════════════════════════════════
-     📱 세로 모드 전용 (portrait)
-  ══════════════════════════════════════════ */
+  /* ───────────── MOBILE 세로 (portrait · 360×594 기준 단일 튜닝) ─────────────
+     - 한 번에 한 섹션만 보이는 스와이프 페이지 전환 시스템 포함
+     - 블록 후반의 "컴팩트 튜닝" 구간은 모든 세로 높이에 동일 적용
+       (이전의 높이별 분기 scale 0.90 / ≤597px 를 제거하고 단일화) */
   @media (max-width: 768px) and (orientation: portrait) {
     /* 5페이지 주요 파트너사 위 빈공간 */
     [data-i18n="exp_partners_label"] { margin-top: 1em !important; }
 
-    /* Hero 세로모드: 정확히 한 화면 (100dvh로 주소창 변동 무관) */
-    #hero { min-height: 100vh; height: 100vh; min-height: 100dvh; height: 100dvh; overflow: hidden; display: flex; flex-direction: column; }
+    /* Hero 세로모드: 정확히 한 화면 (100lvh로 주소창 변동 무관) */
+    #hero { min-height: 100vh; height: 100vh; min-height: 100lvh; height: 100lvh; overflow: hidden; display: flex; flex-direction: column; }
     /* hero-left: 콘텐츠 크기만큼만 차지, GNB 아래에서 시작 */
     #hero .hero-left {
       flex: 0 0 auto !important;
@@ -1548,27 +1531,27 @@
     html, body {
       overflow: hidden !important;
       height: 100vh !important;
-      height: 100dvh !important;
+      height: 100lvh !important;
       position: fixed !important;
       width: 100% !important;
-      background: var(--deep-blue) !important;
+      background: var(--deep-blue) !important;       /* 페이지 외곽 노출 시 흰바탕 방지 */
     }
     .section {
       position: fixed !important;
-      top: 50px !important;
+      top: 50px !important;                        /* GNB 높이를 살짝 줄임 (콘텐츠 공간 확보) */
       left: 0 !important;
       right: 0 !important;
       width: 100% !important;
-      height: calc(100vh - 50px) !important;       /* fallback */
-      height: calc(100dvh - 50px) !important;      /* 실제 보이는 뷰포트 기준 */
-      max-height: calc(100dvh - 50px) !important;
-      padding-top: 0 !important;
-      padding-bottom: 16px !important;
-      justify-content: flex-start !important;
+      height: calc(100vh - 50px) !important;       /* GNB 제외한 전체 높이 */
+      height: calc(100lvh - 50px) !important;
+      max-height: calc(100lvh - 50px) !important;
+      padding-top: 0 !important;                   /* 기본 padding-top:64px 제거 (top:50px이 대신함) */
+      padding-bottom: 16px !important;             /* 하단 여유 (다음 페이지 색상 노출 방지) */
+      justify-content: flex-start !important;      /* 콘텐츠를 위쪽부터 배치 */
       display: none !important;
-      overflow-y: auto !important;
+      overflow-y: auto !important;                 /* 콘텐츠가 길면 섹션 내부에서 스크롤 */
       -webkit-overflow-scrolling: touch !important;
-      overscroll-behavior: contain !important;
+      overscroll-behavior: contain !important;     /* 스크롤 바운스 차단 (흰바탕 노출 방지) */
       z-index: 1;
       box-sizing: border-box !important;
     }
@@ -1579,12 +1562,12 @@
     /* Hero는 padding-top:0 유지, padding-bottom:0 (비디오 영역 침범 방지) */
     #hero {
       padding-bottom: 0 !important;
-      max-height: 100dvh !important;
+      max-height: 100lvh !important;
     }
     #hero.mobile-active {
       top: 0 !important;
       height: 100vh !important;
-      height: 100dvh !important;
+      height: 100lvh !important;
       padding-bottom: 0 !important;
     }
     /* GNB는 항상 위에 */
@@ -1649,99 +1632,9 @@
     #contact [data-i18n="contact_addr"] {
       line-height: 1.4 !important;
     }
-  }
 
-
-  /* ══════════════════════════════════════════
-     📱 높이 반응형 — 중형 폰 세로모드 (600px ~ 649px)
-     SMS(607px) 등
-  ══════════════════════════════════════════ */
-  @media (max-width: 768px) and (min-height: 600px) and (max-height: 649px) and (orientation: portrait) {
-    #values, #about, #solutions, #experience, #technology, #contact {
-      transform: scale(0.90) !important;
-      transform-origin: top center !important;
-    }
-  }
-
-  /* ══════════════════════════════════════════
-     📱 높이 반응형 — 대형 뷰포트 (650px 이상)
-     네이버앱(654px), Chrome 등
-  ══════════════════════════════════════════ */
-  @media (max-width: 768px) and (min-height: 650px) and (orientation: portrait) {
-    #values, #about, #solutions, #experience, #technology, #contact {
-      transform: none !important;
-    }
-
-    /* ── 1페이지 Hero ── */
-    .hero-badge { font-size: 9px !important; padding: 4px 10px !important; margin-bottom: 8px !important; }
-    .hero-title { font-size: clamp(23px, 6.5vw, 28px) !important; }
-    #hero .hero-sub { font-size: 12px !important; line-height: 1.5 !important; margin-bottom: 12px !important; }
-    .btn-primary, .btn-ghost { padding: 10px 18px !important; font-size: 12px !important; }
-    .hero-btns { margin-top: 10px !important; gap: 8px !important; }
-    #hero .hero-right { height: 170px !important; }
-
-    /* ── 공통 ── */
-    .section-title { font-size: clamp(22px, 6vw, 30px) !important; margin-bottom: 10px !important; }
-    .section-tag   { font-size: 10px !important; }
-
-    /* ── 2페이지 Values ── */
-    #values { padding-top: 20px !important; }
-    .values-inner { padding: 4px 16px 0 !important; }
-    .values-grid  { gap: 8px !important; }
-    .val-card { padding: 10px 14px !important; gap: 6px !important; }
-    .val-img  { width: 48px !important; height: 48px !important; }
-    .val-name { font-size: 13px !important; letter-spacing: 2px !important; }
-    .val-desc { font-size: 13px !important; line-height: 1.5 !important; }
-
-    /* ── 3페이지 About ── */
-    #about { padding-top: 16px !important; }
-    #about .section-title { font-size: clamp(16px, 4.8vw, 22px) !important; }
-    .about-desc { font-size: 12px !important; margin-bottom: 8px !important; line-height: 1.6 !important; }
-    .about-features { gap: 6px !important; }
-    .about-feat { padding: 8px 14px !important; }
-    .feat-text h4 { font-size: 12px !important; }
-    .feat-text p  { font-size: 11px !important; }
-    #about .about-right { height: 220px !important; }
-
-    /* ── 4페이지 Solutions ── */
-    #solutions { padding-top: 18px !important; }
-    .solutions-inner { padding: 4px 16px 0 !important; }
-    #solutions .section-title { margin-bottom: 8px !important; }
-    .sol-grid { gap: 8px !important; }
-    .sol-head { padding: 8px 12px !important; }
-    .sol-body { padding: 8px 12px !important; font-size: 12px !important; }
-    .sol-name { font-size: 14px !important; }
-
-    /* ── 5페이지 Experience ── */
-    #experience { padding-top: 16px !important; }
-    #experience > div { padding: 4px 16px !important; }
-    #experience .section-title { font-size: clamp(20px, 6vw, 28px) !important; margin-bottom: 8px !important; }
-    .exp-stats-grid { gap: 8px !important; margin-bottom: 10px !important; }
-    .exp-stats-grid > div { padding: 10px 8px !important; }
-    [data-i18n="exp_partners_label"] { margin-top: 6px !important; margin-bottom: 6px !important; }
-    .partner-logo-grid { gap: 6px !important; }
-    .partner-chip { min-height: 34px !important; padding: 5px !important; }
-    .partner-chip img { max-height: 18px !important; }
-    [data-i18n="exp_awards_label"] { margin-top: 8px !important; margin-bottom: 6px !important; }
-    .award-grid { gap: 6px !important; }
-    .award-grid > div { padding: 6px 10px !important; font-size: 10px !important; }
-
-    /* ── 6페이지 Technology ── */
-    #technology { padding-top: 18px !important; }
-    #technology > div { padding: 4px 16px 0 !important; }
-    .tech-grid { gap: 8px !important; }
-    .tech-card { padding: 10px 12px !important; }
-
-    /* ── 7페이지 Contact ── */
-    #contact { padding-top: 18px !important; }
-    #contact > div { padding: 4px 16px !important; }
-  }
-
-  /* ══════════════════════════════════════════
-     📱 높이 반응형 — 소형 폰 세로모드 (597px 이하)
-     iPhone SE, Galaxy A 시리즈 등
-  ══════════════════════════════════════════ */
-  @media (max-width: 768px) and (max-height: 597px) and (orientation: portrait) {
+    /* ─────────── 컴팩트 튜닝 (360×594 기준 · 모든 세로 높이 적용) ───────────
+       이전의 높이별 분기(scale 0.90 / ≤597px)를 제거하고 단일화함 */
 
     /* ── Hero ── */
     .hero-badge { font-size: 8px !important; padding: 3px 8px !important; margin-bottom: 6px !important; }
@@ -1750,7 +1643,14 @@
     #hero .hero-sub { font-size: 11px !important; margin-bottom: 6px !important; line-height: 1.4 !important; }
     .hero-btns { margin-top: 6px !important; }
     .btn-primary, .btn-ghost { padding: 7px 12px !important; font-size: 11px !important; }
-    #hero .hero-right { height: 140px !important; }
+    /* 비디오 영역: 남는 세로 공간을 흡수해 높이(594~650)에 따라 자동 균형
+       (고정 높이 대신 flex-grow, 단 650에서 과대해지지 않도록 max-height 상한) */
+    #hero .hero-right {
+      flex: 1 1 auto !important;
+      height: auto !important;
+      min-height: 130px !important;
+      max-height: 230px !important;
+    }
 
     /* ── 공통 ── */
     .section-title { font-size: clamp(15px, 4.5vw, 20px) !important; margin-bottom: 4px !important; }
@@ -1802,10 +1702,13 @@
     #technology { padding-top: 8px !important; }
     #technology .section-title { font-size: clamp(15px, 4.5vw, 20px) !important; }
     .tech-grid { gap: 3px !important; }
-    .tech-card { padding: 5px 10px; }
+    .tech-card { padding: 0 !important; }
+    .tech-head { padding: 6px 10px !important; }
+    .tech-body { padding: 5px 10px !important; }
     .tech-icon { font-size: 14px !important; }
     .tech-title { font-size: 11px !important; }
-    .tech-desc { font-size: 9px !important; }
+    .tech-name { font-size: 21px !important; }
+    .tech-desc { font-size: 13.5px !important; }
     #technology [style*="border-radius:16px"] { padding: 5px 10px !important; margin-bottom: 4px !important; }
 
     /* ── 7페이지 Contact ── */
@@ -1816,11 +1719,42 @@
     .contact-card-row { font-size: 11px !important; }
     .contact-card-hint { font-size: 9px !important; }
     .contact-grid { gap: 6px !important; }
+
+    /* ═══════════ 사용자 요청 미세조정 (카카오/모바일 세로 기준) ═══════════ */
+
+    /* 2페이지 Values: 제목↔박스 간격 2배(4→8px), 박스 이미지 1.5배(유지), 글자는 1.5×의 95% */
+    #values .section-title { margin-bottom: 8px !important; font-size: clamp(19px, 5.7vw, 28.5px) !important; }  /* ×0.95 */
+    .val-img  { width: 51px !important; height: 51px !important; }   /* 34 → 51 (유지) */
+    .val-name { font-size: 15.68px !important; }                     /* 16.5 × 0.95 */
+    .val-desc { font-size: 14.25px !important; }                     /* 15 × 0.95 */
+
+    /* 3페이지 About: 제목·본문·이미지 1.2배 */
+    #about .section-title { font-size: clamp(18px, 5.4vw, 24px) !important; }  /* ×1.2 */
+    .about-desc   { font-size: 12px !important; }    /* 10 → 12 */
+    .feat-text h4 { font-size: 12px !important; }    /* 10 → 12 */
+    .feat-text p  { font-size: 10.8px !important; }  /* 9 → 10.8 */
+    #about .about-right { height: 216px !important; padding-top: 0 !important; margin-top: 31px !important; } /* height: ×1.2, gap÷2(62→31px), img×1.05 */
+    #about .about-right img { transform: scale(1.05) !important; transform-origin: center center !important; }
+
+    /* 4페이지 Solutions: 제목 1.5배, 박스 내 본문 줄간격 약 절반(1.8→1.4) */
+    #solutions .section-title { font-size: clamp(22.5px, 6.75vw, 30px) !important; }  /* ×1.5 */
+    .sol-desc { line-height: 1.2 !important; }   /* 1.8 → 1.2 (줄간격 더 좁힘) */
+
+    /* 5페이지 Experience: 제목 1.2배, 수상이력 라벨 위 간격 2배(3→6px), 수상 4개 글자 0.7배 */
+    #experience .section-title { font-size: clamp(18px, 5.4vw, 24px) !important; }  /* ×1.2 */
+    [data-i18n="exp_awards_label"] { margin-top: 12px !important; }  /* 6 → 12 (다시 ×2) */
+    .award-grid span[data-i18n] { font-size: 8.4px !important; }   /* 12 → 8.4 (×0.7) */
+
+    /* 6페이지 Technology: 제목 1.5배 */
+    #technology .section-title { font-size: clamp(22.5px, 6.75vw, 30px) !important; }  /* ×1.5 */
+
+    /* 7페이지 Contact: 부제 0.8배 */
+    #contact [data-i18n="contact_sub"] { font-size: 12px !important; }  /* 15 → 12 */
   }
 
-  /* ══════════════════════════════════════════
-     📱 가로 모드 (landscape, 높이 500px 이하)
-  ══════════════════════════════════════════ */
+  /* ───────────── MOBILE 가로 (landscape · 높이 500px 이하) ─────────────
+     가로 모드는 폭이 768px를 초과하므로 위 세로/공통 블록이 적용되지 않는다.
+     따라서 이 블록이 가로 레이아웃을 단독으로 정의한다. */
   @media (max-height: 500px) and (orientation: landscape) {
     .section { min-height: 100svh; height: auto; padding-top: 52px; }
     header { height: 52px; }
@@ -1892,37 +1826,6 @@
 </style>
 
 <script>
-  // Samsung Internet Smart Dark Mode 차단
-  // CSS color-scheme을 무시하는 구형 삼성 브라우저를 위해 JS로 직접 스타일 주입
-  (function() {
-    var s = document.createElement('style');
-    s.id = 'force-light-override';
-    s.textContent = [
-      '#values { background-color: #ffffff !important; color-scheme: only light !important; }',
-      '.values-inner { background-color: #ffffff !important; }',
-      '.val-card { background-color: #f0f4f8 !important; border-color: #e2eaf4 !important; color-scheme: only light !important; }',
-      '.val-card:hover { background-color: #ffffff !important; }',
-      '.val-name { color: #0047AB !important; }',
-      '.val-desc { color: #001428 !important; }',
-      '.section-tag { color: #0047AB !important; }',
-      '#values .section-title { color: #001428 !important; }',
-      '.partner-chip { background-color: #ffffff !important; color-scheme: only light !important; }',
-      '.partner-chip img { filter: none !important; -webkit-filter: none !important; }'
-    ].join('\n');
-    document.head.appendChild(s);
-
-    // Smart Dark Mode가 DOM 변형 후 적용될 경우를 대비한 MutationObserver
-    var mo = new MutationObserver(function() {
-      var el = document.getElementById('force-light-override');
-      if (!el) { document.head.appendChild(s); }
-    });
-    document.addEventListener('DOMContentLoaded', function() {
-      mo.observe(document.head, { childList: true, subtree: false });
-    });
-  })();
-</script>
-
-<script>
   // ══════════════════════════════════════════
   //  i18n 번역 데이터
   // ══════════════════════════════════════════
@@ -1957,10 +1860,10 @@
       sol1_desc:    '지연 없는 연결, 지능형 트래픽 분산의 표준. 실시간 다이나믹 로드 밸런싱으로 네트워크 가용성을 극대화하고 24/365 무중단 서비스를 실현합니다.',
       sol2_sub:     '통합 테스트 솔루션',
       sol2_desc:    '금융권 차세대 프로젝트를 위한 지능형 통합 테스트 솔루션. Script 기반 테스트와 부하 테스트로 시스템 안정성을 사전에 완벽하게 검증합니다.',
-      sol3_sub:     '메시지 큐잉 엔진',
-      sol3_desc:    '비동기 메시지 큐잉 기반 고성능 대외 연계 플랫폼. Config/Rule-Based 동적 라우팅 제어로 카드사·은행·VAN사 간 완벽한 연결을 지원합니다.',
+      sol3_sub:     '인터페이스 플랫폼',
+      sol3_desc:    '비동기 메시지 큐잉 기반 고성능 대외 연계 플랫폼. Config/Rule-Based 동적 라우팅 제어로 내부 시스템과 대외기관의 완벽한 연결을 지원합니다.',
       // Experience
-      exp_title:          '고객사와 함께한 소중한 시간이,<br> 로직큐브의 현재이며 미래입니다',
+      exp_title:          '고객사와 함께한 소중한 시간이 로직큐브의 현재이며 미래입니다',
       exp_stat1:          '년 금융 IT 경험',
       exp_stat2:          '완료 프로젝트',
       exp_stat3:          '글로벌 진출 국가',
@@ -1979,7 +1882,7 @@
       country_kz:         '카자흐스탄',
       // Technology
       tech_title:   '독보적인 기술력',
-      tech1_title:  '고속 처리',
+      tech1_title:  '고속처리',
       tech1_desc:   '비동기 MOM 기반 초고속 패킷 처리. 금융 트랜잭션 실시간 라우팅으로 지연 최소화.',
       tech2_title:  '확장성',
       tech2_desc:   'Active-Active 이중화로 고부하 환경에서도 무중단. 채널별 독립 비즈니스 로직 처리.',
@@ -1994,7 +1897,7 @@
       contact_sub:         '귀사를 위한 최적화된 솔루션과 데이터의 가치를 실현합니다.',
       contact_sub2:        '지금 바로 문의하세요.',
       contact_email_label: '이메일 / 웹',
-      contact_phone_label: '전화 / 팩스',
+      contact_phone_label: '전화',
       contact_addr_label:  '주소',
       contact_addr:        '서울시 송파구 법원로 11길 25<br>에이치비지니스파크 A동 1212호',
       contact_email_hint:  '→ Gmail로 바로 보내기',
@@ -2033,8 +1936,8 @@
       sol1_desc:    'The standard for latency-free connectivity and intelligent traffic distribution. Maximize network availability with real-time dynamic load balancing and achieve 24/365 uninterrupted service.',
       sol2_sub:     'Integrated Testing Solution',
       sol2_desc:    'Intelligent integrated testing solution for next-generation financial projects. Thoroughly validate system stability in advance with script-based and load testing.',
-      sol3_sub:     'Message Queuing Engine',
-      sol3_desc:    'High-performance external connectivity platform based on asynchronous message queuing. Config/Rule-Based dynamic routing control supports seamless connections between card companies, banks, and VAN providers.',
+      sol3_sub:     'Interface Platform',
+      sol3_desc:    'High-performance external connectivity platform based on asynchronous message queuing. Config/Rule-Based dynamic routing control supports seamless connections between internal systems and external institutions.',
       // Experience
       exp_title:          'Precious Moments with Our Clients<br>Define Our Present and Future',
       exp_stat1:          'Years of Financial IT',
@@ -2070,7 +1973,7 @@
       contact_sub:         'We deliver optimized solutions and realize the value of your data.',
       contact_sub2:        'Contact us today.',
       contact_email_label: 'EMAIL / WEB',
-      contact_phone_label: 'PHONE / FAX',
+      contact_phone_label: 'PHONE',
       contact_addr_label:  'ADDRESS',
       contact_addr:        'A-1212, Hbusinesspark, Beobwon-ro 11-gil, Songpa-gu, Seoul, 05836,<br>Rep. of KOREA',
       contact_email_hint:  '→ Send via Gmail',
@@ -2109,8 +2012,8 @@
       sol1_desc:    '零延迟连接与智能流量分发的标准方案。通过实时动态负载均衡最大化网络可用性，实现24/365不间断服务。',
       sol2_sub:     '综合测试解决方案',
       sol2_desc:    '面向金融行业新一代项目的智能综合测试解决方案。通过脚本测试和压力测试，提前全面验证系统稳定性。',
-      sol3_sub:     '消息队列引擎',
-      sol3_desc:    '基于异步消息队列的高性能对外连接平台。通过Config/Rule-Based动态路由控制，支持卡公司、银行与VAN商之间的无缝连接。',
+      sol3_sub:     '接口平台',
+      sol3_desc:    '基于异步消息队列的高性能对外连接平台。通过Config/Rule-Based动态路由控制，支持内部系统与对外机构之间的无缝连接。',
       // Experience
       exp_title:          '与客户携手共度的珍贵时光<br>塑造着罗辑魔方的现在与未来',
       exp_stat1:          '年金融IT经验',
@@ -2146,7 +2049,7 @@
       contact_sub:         '为贵公司提供最优化的解决方案，实现数据价值。',
       contact_sub2:        '立即联系我们。',
       contact_email_label: '邮件 / 网站',
-      contact_phone_label: '电话 / 传真',
+      contact_phone_label: '电话',
       contact_addr_label:  '地址',
       contact_addr:        'A-1212, Hbusinesspark, Beobwon-ro 11-gil, Songpa-gu, Seoul, 05836,<br>Rep. of KOREA',
       contact_email_hint:  '→ 通过Gmail发送',
@@ -2185,8 +2088,8 @@
       sol1_desc:    '遅延ゼロの接続と、インテリジェントなトラフィック分散の標準。リアルタイムダイナミックロードバランシングでネットワーク可用性を最大化し、24/365の無停止サービスを実現します',
       sol2_sub:     '統合テストソリューション',
       sol2_desc:    '金融業界の次世代プロジェクト向けインテリジェント統合テストソリューション。スクリプトテストと負荷テストでシステムの安定性を事前に完全検証します',
-      sol3_sub:     'メッセージキューイングエンジン',
-      sol3_desc:    '非同期メッセージキューイングベースの高性能対外連携プラットフォーム。Config/Rule-Basedダイナミックルーティング制御で、カード会社・銀行・VAN事業者間の完全な接続を支援します',
+      sol3_sub:     'インターフェースプラットフォーム',
+      sol3_desc:    '非同期メッセージキューイングベースの高性能対外連携プラットフォーム。Config/Rule-Basedダイナミックルーティング制御で、内部システムと対外機関の完全な接続を支援します',
       // Experience
       exp_title:          'お客様とともに紡いできた大切な時間が<br>ロジックキューブの現在であり未来です',
       exp_stat1:          '年の金融IT経験',
@@ -2222,7 +2125,7 @@
       contact_sub:         '貴社のための最適化されたソリューションでデータの価値を実現します。',
       contact_sub2:        '今すぐお問い合わせください。',
       contact_email_label: 'メール / Web',
-      contact_phone_label: '電話 / FAX',
+      contact_phone_label: '電話',
       contact_addr_label:  '住所',
       contact_addr:        'A-1212, Hbusinesspark, Beobwon-ro 11-gil, Songpa-gu, Seoul, 05836,<br>Rep. of KOREA',
       contact_email_hint:  '→ Gmailで送信',
@@ -2261,8 +2164,8 @@
       sol1_desc:    'Tiêu chuẩn kết nối không độ trễ và phân phối lưu lượng thông minh. Tối đa hóa tính sẵn sàng của mạng bằng cân bằng tải động thời gian thực, đảm bảo dịch vụ liên tục 24/365.',
       sol2_sub:     'Giải pháp kiểm thử tích hợp',
       sol2_desc:    'Giải pháp kiểm thử tích hợp thông minh cho các dự án thế hệ tiếp theo trong ngành tài chính. Xác minh toàn diện tính ổn định hệ thống trước triển khai bằng kiểm thử kịch bản và kiểm thử tải.',
-      sol3_sub:     'Engine hàng đợi tin nhắn',
-      sol3_desc:    'Nền tảng kết nối đối ngoại hiệu năng cao dựa trên Message Queue bất đồng bộ. Điều khiển định tuyến động Config/Rule-Based hỗ trợ kết nối liền mạch giữa công ty thẻ, ngân hàng và nhà cung cấp VAN.',
+      sol3_sub:     'Nền tảng giao diện',
+      sol3_desc:    'Nền tảng kết nối đối ngoại hiệu năng cao dựa trên Message Queue bất đồng bộ. Điều khiển định tuyến động Config/Rule-Based hỗ trợ kết nối liền mạch giữa hệ thống nội bộ và các tổ chức đối ngoại.',
       // Experience
       exp_title:          'Những năm tháng đồng hành cùng khách hàng<br>là hiện tại và tương lai của LogicCube',
       exp_stat1:          'Năm kinh nghiệm IT tài chính',
@@ -2298,7 +2201,7 @@
       contact_sub:         'Chúng tôi hiện thực hóa giá trị dữ liệu với giải pháp tối ưu dành riêng cho doanh nghiệp của bạn.',
       contact_sub2:        'Hãy liên hệ với chúng tôi ngay hôm nay.',
       contact_email_label: 'Email / Web',
-      contact_phone_label: 'Điện thoại / Fax',
+      contact_phone_label: 'Điện thoại',
       contact_addr_label:  'Địa chỉ',
       contact_addr:        'A-1212, Hbusinesspark, Beobwon-ro 11-gil, Songpa-gu, Seoul, 05836,<br>Rep. of KOREA',
       contact_email_hint:  '→ Gửi qua Gmail',
@@ -2579,16 +2482,13 @@
   (function() {
     function setPhoneByLang(lang) {
       var telEl  = document.getElementById('phone-tel');
-      var faxEl  = document.getElementById('phone-fax');
       var hintEl = document.getElementById('phone-hint');
-      if (!telEl || !faxEl) return;
+      if (!telEl) return;
       if (lang === 'ko') {
-        telEl.textContent = '02) 6281-8181~2';
-        faxEl.textContent = '02) 6971-8521';
+        telEl.textContent = '02) 6281-8181';
         if (hintEl) hintEl.textContent = '→ 탭하면 전화 연결';
       } else {
-        telEl.textContent = '+82 2-6281-8181~2';
-        faxEl.textContent = '+82 2-6971-8521';
+        telEl.textContent = '+82 2-6281-8181';
         if (hintEl) hintEl.textContent = '→ Tap to call';
       }
     }
@@ -2657,6 +2557,9 @@
     // 모바일 클릭 시 전화 연결
     var isMobile = /Android|iPhone|iPad|iPod|Mobile/i.test(navigator.userAgent);
     if (isMobile) {
+      // 탭 전화연결 안내문은 모바일에서만 노출 (PC에서는 숨김 유지)
+      var phoneHint = document.getElementById('phone-hint');
+      if (phoneHint) phoneHint.style.display = '';
       var phoneCard = document.getElementById('phone-card');
       if (phoneCard) {
         phoneCard.style.cursor = 'pointer';
@@ -2978,12 +2881,12 @@
 </div>
 
 
-<!-- ★★★ 화면크기 표시 디버그 (비활성화 상태)
-     활성화 방법: 아래 display:none 을 display:block 으로 변경
+<!-- ★★★ 화면크기 표시 디버그 (현재 활성화 — 테스트용)
+     끄려면 아래 display:block 을 display:none 으로 변경
      위치: 우측 하단 고정
 ★★★ -->
 <div id="screen-size-debug" style="
-  display: block;
+  display: none;
   position: fixed; bottom: 12px; right: 12px; z-index: 99999;
   background: rgba(0,0,0,0.80); color: #00bfff;
   font-family: monospace; font-size: 12px; font-weight: bold;
