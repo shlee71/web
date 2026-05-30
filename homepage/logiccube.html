@@ -920,23 +920,25 @@
     <!-- 데이터 흐름도 -->
     <div style="background:white; border-radius:16px; padding:14px 24px; border:1px solid #e2eaf4;">
       <div class="flow-title" style="font-size:11px; font-weight:700; letter-spacing:2px; text-transform:uppercase; color:var(--cobalt); margin-bottom:10px; font-family:'Montserrat',sans-serif;">Data Flow Architecture</div>
-      <div class="flow-body" style="display:flex; align-items:center; justify-content:space-between; gap:8px; flex-wrap:wrap;">
-        <div class="flow-box" style="background:#f0f4ff;" data-i18n="flow_biz">업무 시스템</div>
+      <div class="flow-body" style="display:flex; align-items:center; gap:8px; flex-wrap:wrap;">
+        <div class="flow-box" style="background:#f0f4ff;" data-i18n="flow_biz">승인 시스템</div>
         <div class="flow-arrow">→</div>
-        <div class="flow-box" style="background:linear-gradient(135deg,var(--deep-blue),var(--cobalt)); color:white; border-color:var(--cobalt);">
-          Cube*FEP<br><span style="font-size:10px; opacity:0.7;" data-i18n="flow_fep_sub">대외계 솔루션</span>
+        <div style="display:flex; flex-direction:column; align-items:center; gap:6px;">
+          <div class="flow-box" style="background:linear-gradient(135deg,var(--deep-blue),var(--cobalt)); color:white; border-color:var(--cobalt);">
+            Cube*FEP<br><span style="font-size:10px; opacity:0.7;" data-i18n="flow_fep_sub">대외계 솔루션</span>
+          </div>
+          <div style="display:flex; gap:6px;">
+            <div class="flow-tag" style="background:rgba(0,191,255,0.1); color:var(--cobalt);">Fail-Over</div>
+            <div class="flow-tag" style="background:rgba(0,191,255,0.1); color:var(--cobalt);">SAF</div>
+            <div class="flow-tag" style="background:rgba(0,191,255,0.1); color:var(--cobalt);">ISO8583</div>
+          </div>
         </div>
         <div class="flow-arrow">→</div>
         <div class="flow-box" style="background:#f0f4ff;">VISA / Master</div>
         <div class="flow-arrow" style="color:var(--gray-mid)">↕</div>
         <div class="flow-box" style="background:#f0f4ff;" data-i18n="flow_van">VAN사</div>
         <div class="flow-arrow" style="color:var(--gray-mid)">↕</div>
-        <div class="flow-box" style="background:#f0f4ff;" data-i18n="flow_related">관계기관</div>
-        <div style="margin-left:auto; display:flex; gap:8px;">
-          <div class="flow-tag" style="background:rgba(0,191,255,0.1); color:var(--cobalt);">Fail-Over</div>
-          <div class="flow-tag" style="background:rgba(0,191,255,0.1); color:var(--cobalt);">SAF</div>
-          <div class="flow-tag" style="background:rgba(0,191,255,0.1); color:var(--cobalt);">ISO8583</div>
-        </div>
+        <div class="flow-box" style="background:#f0f4ff;" data-i18n="flow_related">대외기관</div>
       </div>
     </div>
   </div>
@@ -1713,9 +1715,7 @@
     .tech-title { font-size: 11px !important; }
     .tech-name { font-size: 18.95px !important; }
     .tech-desc { font-size: 13.5px !important; }
-    #technology [style*="border-radius:16px"] { padding: 0 !important; overflow: hidden !important; margin-bottom: 4px !important; }
-    .flow-title { background: linear-gradient(135deg, var(--deep-blue), var(--cobalt)) !important; color: white !important; padding: 6px 10px !important; margin-bottom: 0 !important; border-bottom: none !important; }
-    .flow-body { padding: 5px 10px !important; }
+    #technology [style*="border-radius:16px"] { padding: 5px 10px !important; margin-bottom: 4px !important; }
 
     /* ── 7페이지 Contact ── */
     #contact { padding-top: 6px !important; }
@@ -1894,10 +1894,10 @@
       tech2_desc:   'Active-Active 이중화로 고부하 환경에서도 무중단. 채널별 독립 비즈니스 로직 처리.',
       tech3_title:  '최적화',
       tech3_desc:   '실시간 메모리 할당 및 프로세스 가속화. Config/Rule-Based 동적 라우팅 제어.',
-      flow_biz:     '업무 시스템',
+      flow_biz:     '승인 시스템',
       flow_fep_sub: '대외계 솔루션',
       flow_van:     'VAN사',
-      flow_related: '관계기관',
+      flow_related: '대외기관',
       // Contact
       contact_title:       '새로운 연결의 시작',
       contact_sub:         '귀사를 위한 최적화된 솔루션과 데이터의 가치를 실현합니다.',
