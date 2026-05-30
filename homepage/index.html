@@ -17,8 +17,8 @@
 <meta property="og:locale" content="ko_KR">
 <meta property="og:title" content="로직큐브 - 금융 시스템의 가치를 실현하는 기업">
 <meta property="og:description" content="정밀하고 논리적인 설계로 금융 시스템의 본질적 가치를 구현합니다.">
-<meta property="og:url" content="https://shlee71.github.io/web/homepage/logiccube.html">
-<meta property="og:image" content="https://shlee71.github.io/web/homepage/public/images/og_image.png?v=2">
+<meta property="og:url" content="https://logiccube.github.io/web/homepage/logiccube.html">
+<meta property="og:image" content="https://logiccube.github.io/web/homepage/public/images/og_image.png?v=2">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:image:alt" content="LogicCube - 금융 시스템의 가치를 실현하는 기업">
@@ -747,7 +747,6 @@
     <div class="sol-grid">
       <div class="sol-card">
         <div class="sol-head">
-          <div class="sol-num">PRODUCT 01</div>
           <div class="sol-name">Cube*FEP</div>
           <div class="sol-sub" data-i18n="sol1_sub">대외계 솔루션</div>
         </div>
@@ -763,7 +762,6 @@
       </div>
       <div class="sol-card">
         <div class="sol-head">
-          <div class="sol-num">PRODUCT 02</div>
           <div class="sol-name">Cube*ITS</div>
           <div class="sol-sub" data-i18n="sol2_sub">통합 테스트 솔루션</div>
         </div>
@@ -779,12 +777,11 @@
       </div>
       <div class="sol-card">
         <div class="sol-head">
-          <div class="sol-num">PLATFORM</div>
           <div class="sol-name">Cube*MOM</div>
-          <div class="sol-sub" data-i18n="sol3_sub">메시지 큐잉 엔진</div>
+          <div class="sol-sub" data-i18n="sol3_sub">인터페이스 플랫폼</div>
         </div>
         <div class="sol-body">
-          <p class="sol-desc" data-i18n="sol3_desc">비동기 메시지 큐잉 기반 고성능 대외 연계 플랫폼. Config/Rule-Based 동적 라우팅 제어로 카드사·은행·VAN사 간 완벽한 연결을 지원합니다.</p>
+          <p class="sol-desc" data-i18n="sol3_desc">비동기 메시지 큐잉 기반 고성능 대외 연계 플랫폼. Config/Rule-Based 동적 라우팅 제어로 내부 시스템과 대외기관의 완벽한 연결을 지원합니다.</p>
           <div class="sol-tags">
             <span class="sol-tag">Async MQ</span>
             <span class="sol-tag">SAF</span>
@@ -806,7 +803,7 @@
 <section id="experience" class="section exp-section" style="background:var(--deep-blue); height:auto; min-height:100vh; overflow:hidden; position:relative; padding-bottom:70px;">
   <div style="width:100%; padding:28px 60px; display:flex; flex-direction:column; justify-content:center;">
     <div class="section-tag" style="color:var(--neon);">Track Record</div>
-    <h2 class="section-title" style="color:white; margin-bottom:24px;" data-i18n="exp_title">고객사와 함께한 소중한 시간은<br>로직큐브의 현재이며 미래입니다</h2>
+    <h2 class="section-title" style="color:white; margin-bottom:24px;" data-i18n="exp_title">고객사와 함께한 소중한 시간은 로직큐브의 현재이며 미래입니다</h2>
 
     <!-- 통계 -->
     <div class="exp-stats-grid" style="display:grid; grid-template-columns:repeat(4,1fr); gap:12px; margin-bottom:24px;">
@@ -883,57 +880,65 @@
     <!-- 3대 기술 특장점 -->
     <div style="display:grid; grid-template-columns:repeat(3,1fr); gap:16px; margin-bottom:20px;" class="tech-grid">
       <div class="tech-card">
-        <div class="tech-icon">⚡</div>
-        <div class="tech-name">High Speed</div>
-        <div class="tech-title" data-i18n="tech1_title">고속 처리</div>
-        <div class="tech-desc" data-i18n="tech1_desc">비동기 MOM 기반 초고속 패킷 처리. 금융 트랜잭션 실시간 라우팅으로 지연 최소화.</div>
-        <div class="tech-bar-wrap">
-          <div class="tech-bar-label"><span>Throughput</span><span style="color:var(--cobalt); font-weight:700;">99.9%</span></div>
-          <div class="tech-bar"><div class="tech-bar-fill" style="width:99.9%"></div></div>
+        <div class="tech-head">
+          <div class="tech-name">⚡ <span data-i18n="tech1_title">고속처리</span></div>
+        </div>
+        <div class="tech-body">
+          <div class="tech-desc" data-i18n="tech1_desc">비동기 MOM 기반 초고속 패킷 처리. 금융 트랜잭션 실시간 라우팅으로 지연 최소화.</div>
+          <div class="tech-bar-wrap">
+            <div class="tech-bar-label"><span>Throughput</span><span style="color:var(--cobalt); font-weight:700;">99.9%</span></div>
+            <div class="tech-bar"><div class="tech-bar-fill" style="width:99.9%"></div></div>
+          </div>
         </div>
       </div>
       <div class="tech-card">
-        <div class="tech-icon">📈</div>
-        <div class="tech-name">Scale</div>
-        <div class="tech-title" data-i18n="tech2_title">확장성</div>
-        <div class="tech-desc" data-i18n="tech2_desc">Active-Active 이중화로 고부하 환경에서도 무중단. 채널별 독립 비즈니스 로직 처리.</div>
-        <div class="tech-bar-wrap">
-          <div class="tech-bar-label"><span>Availability</span><span style="color:var(--cobalt); font-weight:700;">99.999%</span></div>
-          <div class="tech-bar"><div class="tech-bar-fill" style="width:99.999%"></div></div>
+        <div class="tech-head">
+          <div class="tech-name">📈 <span data-i18n="tech2_title">확장성</span></div>
+        </div>
+        <div class="tech-body">
+          <div class="tech-desc" data-i18n="tech2_desc">Active-Active 이중화로 고부하 환경에서도 무중단. 채널별 독립 비즈니스 로직 처리.</div>
+          <div class="tech-bar-wrap">
+            <div class="tech-bar-label"><span>Availability</span><span style="color:var(--cobalt); font-weight:700;">99.999%</span></div>
+            <div class="tech-bar"><div class="tech-bar-fill" style="width:99.999%"></div></div>
+          </div>
         </div>
       </div>
       <div class="tech-card">
-        <div class="tech-icon">🔧</div>
-        <div class="tech-name">Optimization</div>
-        <div class="tech-title" data-i18n="tech3_title">최적화</div>
-        <div class="tech-desc" data-i18n="tech3_desc">실시간 메모리 할당 및 프로세스 가속화. Config/Rule-Based 동적 라우팅 제어.</div>
-        <div class="tech-bar-wrap">
-          <div class="tech-bar-label"><span>Latency</span><span style="color:var(--cobalt); font-weight:700;">&lt; 1ms</span></div>
-          <div class="tech-bar"><div class="tech-bar-fill" style="width:95%"></div></div>
+        <div class="tech-head">
+          <div class="tech-name">🔧 <span data-i18n="tech3_title">최적화</span></div>
+        </div>
+        <div class="tech-body">
+          <div class="tech-desc" data-i18n="tech3_desc">실시간 메모리 할당 및 프로세스 가속화. Config/Rule-Based 동적 라우팅 제어.</div>
+          <div class="tech-bar-wrap">
+            <div class="tech-bar-label"><span>Latency</span><span style="color:var(--cobalt); font-weight:700;">&lt; 1ms</span></div>
+            <div class="tech-bar"><div class="tech-bar-fill" style="width:95%"></div></div>
+          </div>
         </div>
       </div>
     </div>
 
     <!-- 데이터 흐름도 -->
     <div style="background:white; border-radius:16px; padding:14px 24px; border:1px solid #e2eaf4;">
-      <div style="font-size:11px; font-weight:700; letter-spacing:2px; text-transform:uppercase; color:var(--cobalt); margin-bottom:10px; font-family:'Montserrat',sans-serif;">Data Flow Architecture</div>
-      <div style="display:flex; align-items:center; justify-content:space-between; gap:8px; flex-wrap:wrap;">
-        <div class="flow-box" style="background:#f0f4ff;" data-i18n="flow_biz">업무 시스템</div>
+      <div class="flow-title" style="font-size:11px; font-weight:700; letter-spacing:2px; text-transform:uppercase; color:var(--cobalt); margin-bottom:10px; font-family:'Montserrat',sans-serif;">Data Flow Architecture</div>
+      <div class="flow-body" style="display:flex; align-items:center; gap:8px; flex-wrap:wrap;">
+        <div class="flow-box" style="background:#f0f4ff;" data-i18n="flow_biz">승인 시스템</div>
         <div class="flow-arrow">→</div>
-        <div class="flow-box" style="background:linear-gradient(135deg,var(--deep-blue),var(--cobalt)); color:white; border-color:var(--cobalt);">
-          Cube*FEP<br><span style="font-size:10px; opacity:0.7;" data-i18n="flow_fep_sub">대외계 솔루션</span>
+        <div style="display:flex; flex-direction:column; align-items:center; gap:6px;">
+          <div class="flow-box" style="background:linear-gradient(135deg,var(--deep-blue),var(--cobalt)); color:white; border-color:var(--cobalt);">
+            Cube*FEP<br><span style="font-size:10px; opacity:0.7;" data-i18n="flow_fep_sub">대외계 솔루션</span>
+          </div>
+          <div style="display:flex; gap:6px;">
+            <div class="flow-tag" style="background:rgba(0,191,255,0.1); color:var(--cobalt);">Fail-Over</div>
+            <div class="flow-tag" style="background:rgba(0,191,255,0.1); color:var(--cobalt);">SAF</div>
+            <div class="flow-tag" style="background:rgba(0,191,255,0.1); color:var(--cobalt);">ISO8583</div>
+          </div>
         </div>
         <div class="flow-arrow">→</div>
         <div class="flow-box" style="background:#f0f4ff;">VISA / Master</div>
         <div class="flow-arrow" style="color:var(--gray-mid)">↕</div>
         <div class="flow-box" style="background:#f0f4ff;" data-i18n="flow_van">VAN사</div>
         <div class="flow-arrow" style="color:var(--gray-mid)">↕</div>
-        <div class="flow-box" style="background:#f0f4ff;" data-i18n="flow_related">관계기관</div>
-        <div style="margin-left:auto; display:flex; gap:8px;">
-          <div class="flow-tag" style="background:rgba(0,191,255,0.1); color:var(--cobalt);">Fail-Over</div>
-          <div class="flow-tag" style="background:rgba(0,191,255,0.1); color:var(--cobalt);">SAF</div>
-          <div class="flow-tag" style="background:rgba(0,191,255,0.1); color:var(--cobalt);">ISO8583</div>
-        </div>
+        <div class="flow-box" style="background:#f0f4ff;" data-i18n="flow_related">대외기관</div>
       </div>
     </div>
   </div>
@@ -1055,17 +1060,25 @@
 
   /* ══ Technology ══ */
   .tech-card {
-    background: white; border-radius: 16px; padding: 28px 24px;
+    border-radius: 16px; overflow: hidden;
     border: 1px solid #e2eaf4; transition: all 0.3s;
   }
   .tech-card:hover { transform: translateY(-4px); box-shadow: 0 12px 36px rgba(0,45,98,0.1); border-color: var(--cobalt); }
+  .tech-head {
+    background: linear-gradient(135deg, var(--deep-blue), var(--cobalt));
+    padding: 22px 24px;
+  }
+  .tech-body {
+    background: white;
+    padding: 20px 24px;
+  }
   .tech-icon { font-size: 28px; margin-bottom: 12px; }
   .tech-name {
-    font-family: 'Montserrat', sans-serif; font-size: 10.5px; font-weight: 800;
-    letter-spacing: 2px; text-transform: uppercase; color: var(--cobalt); margin-bottom: 6px;
+    font-family: 'Montserrat', sans-serif; font-size: 21px; font-weight: 800;
+    letter-spacing: 2px; text-transform: uppercase; color: white; margin-bottom: 0;
   }
   .tech-title { font-size: 17px; font-weight: 700; color: var(--deep-blue); margin-bottom: 10px; }
-  .tech-desc { font-size: 13px; color: var(--gray-mid); line-height: 1.7; margin-bottom: 18px; word-break: keep-all; }
+  .tech-desc { font-size: 19.5px; color: var(--gray-mid); line-height: 1.7; margin-bottom: 18px; word-break: keep-all; }
   .tech-bar-wrap { display: flex; flex-direction: column; gap: 6px; }
   .tech-bar-label { display: flex; justify-content: space-between; font-size: 11px; color: var(--gray-mid); }
   .tech-bar { height: 6px; background: #e8eef5; border-radius: 3px; overflow: hidden; }
@@ -1086,6 +1099,10 @@
   .flow-tag {
     padding: 5px 12px; border-radius: 20px;
     font-size: 11px; font-weight: 600; font-family: 'Montserrat', sans-serif;
+  }
+  .flow-title {
+    border-bottom: 1.5px solid rgba(0,71,171,0.25);
+    padding-bottom: 8px;
   }
 
   /* ══ Contact ══ */
@@ -1332,11 +1349,13 @@
       grid-template-columns: 1fr !important;
       gap: 6px !important;
     }
-    .tech-card { padding: 10px 14px; }
+    .tech-card { padding: 0 !important; }
+    .tech-head { padding: 12px 14px !important; }
+    .tech-body { padding: 10px 14px !important; }
     .tech-icon { font-size: 20px !important; margin-bottom: 2px !important; }
-    .tech-name { font-size: 11px !important; }
+    .tech-name { font-size: 21px !important; }
     .tech-title { font-size: 15px !important; margin-bottom: 3px !important; }
-    .tech-desc { font-size: 13px !important; line-height: 1.4; margin-bottom: 0 !important; }
+    .tech-desc { font-size: 19.5px !important; line-height: 1.4; margin-bottom: 0 !important; }
     /* Throughput/Availability/Latency 바 숨김 */
     .tech-bar-wrap { display: none !important; }
     #technology [style*="flow-box"],
@@ -1665,11 +1684,11 @@
     #solutions { padding-top: 8px !important; }
     .solutions-inner { padding: 2px 12px 0 !important; }
     #solutions .section-title { font-size: clamp(15px, 4.5vw, 20px) !important; }
-    .sol-grid { gap: 4px; }
+    .sol-grid { gap: 8px; }
     .sol-head { padding: 5px 10px; }
     .sol-body { padding: 5px 10px; font-size: 10px !important; }
     .sol-name { font-size: 12px !important; }
-    .sol-desc { margin-bottom: 2px !important; }
+    .sol-desc { margin-bottom: 4px !important; }
     .sol-tag { font-size: 7px !important; }
 
     /* ── 5페이지 Experience ── */
@@ -1688,11 +1707,14 @@
     /* ── 6페이지 Technology ── */
     #technology { padding-top: 8px !important; }
     #technology .section-title { font-size: clamp(15px, 4.5vw, 20px) !important; }
-    .tech-grid { gap: 3px !important; }
-    .tech-card { padding: 5px 10px; }
+    .tech-grid { gap: 3px !important; margin-bottom: 10px !important; }
+    .tech-card { padding: 0 !important; }
+    .tech-head { padding: 6px 10px !important; }
+    .tech-body { padding: 5px 10px !important; }
     .tech-icon { font-size: 14px !important; }
     .tech-title { font-size: 11px !important; }
-    .tech-desc { font-size: 9px !important; }
+    .tech-name { font-size: 18.95px !important; }
+    .tech-desc { font-size: 13.5px !important; }
     #technology [style*="border-radius:16px"] { padding: 5px 10px !important; margin-bottom: 4px !important; }
 
     /* ── 7페이지 Contact ── */
@@ -1717,7 +1739,8 @@
     .about-desc   { font-size: 12px !important; }    /* 10 → 12 */
     .feat-text h4 { font-size: 12px !important; }    /* 10 → 12 */
     .feat-text p  { font-size: 10.8px !important; }  /* 9 → 10.8 */
-    #about .about-right { height: 216px !important; } /* 180 → 216 (×1.2) */
+    #about .about-right { height: 216px !important; padding-top: 0 !important; margin-top: 31px !important; } /* height: ×1.2, gap÷2(62→31px), img×1.05 */
+    #about .about-right img { transform: scale(0.9975) !important; transform-origin: center center !important; }
 
     /* 4페이지 Solutions: 제목 1.5배, 박스 내 본문 줄간격 약 절반(1.8→1.4) */
     #solutions .section-title { font-size: clamp(22.5px, 6.75vw, 30px) !important; }  /* ×1.5 */
@@ -1843,10 +1866,10 @@
       sol1_desc:    '지연 없는 연결, 지능형 트래픽 분산의 표준. 실시간 다이나믹 로드 밸런싱으로 네트워크 가용성을 극대화하고 24/365 무중단 서비스를 실현합니다.',
       sol2_sub:     '통합 테스트 솔루션',
       sol2_desc:    '금융권 차세대 프로젝트를 위한 지능형 통합 테스트 솔루션. Script 기반 테스트와 부하 테스트로 시스템 안정성을 사전에 완벽하게 검증합니다.',
-      sol3_sub:     '메시지 큐잉 엔진',
-      sol3_desc:    '비동기 메시지 큐잉 기반 고성능 대외 연계 플랫폼. Config/Rule-Based 동적 라우팅 제어로 카드사·은행·VAN사 간 완벽한 연결을 지원합니다.',
+      sol3_sub:     '인터페이스 플랫폼',
+      sol3_desc:    '비동기 메시지 큐잉 기반 고성능 대외 연계 플랫폼. Config/Rule-Based 동적 라우팅 제어로 내부 시스템과 대외기관의 완벽한 연결을 지원합니다.',
       // Experience
-      exp_title:          '고객사와 함께한 소중한 시간이<br>로직큐브의 현재이며 미래입니다',
+      exp_title:          '고객사와 함께한 소중한 시간이 로직큐브의 현재이며 미래입니다',
       exp_stat1:          '년 금융 IT 경험',
       exp_stat2:          '완료 프로젝트',
       exp_stat3:          '글로벌 진출 국가',
@@ -1865,16 +1888,16 @@
       country_kz:         '카자흐스탄',
       // Technology
       tech_title:   '독보적인 기술력',
-      tech1_title:  '고속 처리',
+      tech1_title:  '고속처리',
       tech1_desc:   '비동기 MOM 기반 초고속 패킷 처리. 금융 트랜잭션 실시간 라우팅으로 지연 최소화.',
       tech2_title:  '확장성',
       tech2_desc:   'Active-Active 이중화로 고부하 환경에서도 무중단. 채널별 독립 비즈니스 로직 처리.',
       tech3_title:  '최적화',
       tech3_desc:   '실시간 메모리 할당 및 프로세스 가속화. Config/Rule-Based 동적 라우팅 제어.',
-      flow_biz:     '업무 시스템',
+      flow_biz:     '승인 시스템',
       flow_fep_sub: '대외계 솔루션',
       flow_van:     'VAN사',
-      flow_related: '관계기관',
+      flow_related: '대외기관',
       // Contact
       contact_title:       '새로운 연결의 시작',
       contact_sub:         '귀사를 위한 최적화된 솔루션과 데이터의 가치를 실현합니다.',
@@ -1919,10 +1942,10 @@
       sol1_desc:    'The standard for latency-free connectivity and intelligent traffic distribution. Maximize network availability with real-time dynamic load balancing and achieve 24/365 uninterrupted service.',
       sol2_sub:     'Integrated Testing Solution',
       sol2_desc:    'Intelligent integrated testing solution for next-generation financial projects. Thoroughly validate system stability in advance with script-based and load testing.',
-      sol3_sub:     'Message Queuing Engine',
-      sol3_desc:    'High-performance external connectivity platform based on asynchronous message queuing. Config/Rule-Based dynamic routing control supports seamless connections between card companies, banks, and VAN providers.',
+      sol3_sub:     'Interface Platform',
+      sol3_desc:    'High-performance external connectivity platform based on asynchronous message queuing. Config/Rule-Based dynamic routing control supports seamless connections between internal systems and external institutions.',
       // Experience
-      exp_title:          'Precious Moments with Our Clients<br>Define Our Present and Future',
+      exp_title:          'Precious Moments with Our Clients Define Our Present and Future',
       exp_stat1:          'Years of Financial IT',
       exp_stat2:          'Projects Completed',
       exp_stat3:          'Countries Reached',
@@ -1941,7 +1964,7 @@
       country_kz:         'Kazakhstan',
       // Technology
       tech_title:   'Unrivaled Technology',
-      tech1_title:  'High-Speed Processing',
+      tech1_title:  'High-Speed',
       tech1_desc:   'Ultra-fast packet processing based on async MOM. Minimize latency with real-time financial transaction routing.',
       tech2_title:  'Scalability',
       tech2_desc:   'Active-Active redundancy ensures zero downtime even under heavy load. Independent business logic per channel.',
@@ -1995,8 +2018,8 @@
       sol1_desc:    '零延迟连接与智能流量分发的标准方案。通过实时动态负载均衡最大化网络可用性，实现24/365不间断服务。',
       sol2_sub:     '综合测试解决方案',
       sol2_desc:    '面向金融行业新一代项目的智能综合测试解决方案。通过脚本测试和压力测试，提前全面验证系统稳定性。',
-      sol3_sub:     '消息队列引擎',
-      sol3_desc:    '基于异步消息队列的高性能对外连接平台。通过Config/Rule-Based动态路由控制，支持卡公司、银行与VAN商之间的无缝连接。',
+      sol3_sub:     '接口平台',
+      sol3_desc:    '基于异步消息队列的高性能对外连接平台。通过Config/Rule-Based动态路由控制，支持内部系统与对外机构之间的无缝连接。',
       // Experience
       exp_title:          '与客户携手共度的珍贵时光<br>塑造着罗辑魔方的现在与未来',
       exp_stat1:          '年金融IT经验',
@@ -2071,8 +2094,8 @@
       sol1_desc:    '遅延ゼロの接続と、インテリジェントなトラフィック分散の標準。リアルタイムダイナミックロードバランシングでネットワーク可用性を最大化し、24/365の無停止サービスを実現します',
       sol2_sub:     '統合テストソリューション',
       sol2_desc:    '金融業界の次世代プロジェクト向けインテリジェント統合テストソリューション。スクリプトテストと負荷テストでシステムの安定性を事前に完全検証します',
-      sol3_sub:     'メッセージキューイングエンジン',
-      sol3_desc:    '非同期メッセージキューイングベースの高性能対外連携プラットフォーム。Config/Rule-Basedダイナミックルーティング制御で、カード会社・銀行・VAN事業者間の完全な接続を支援します',
+      sol3_sub:     'インターフェースプラットフォーム',
+      sol3_desc:    '非同期メッセージキューイングベースの高性能対外連携プラットフォーム。Config/Rule-Basedダイナミックルーティング制御で、内部システムと対外機関の完全な接続を支援します',
       // Experience
       exp_title:          'お客様とともに紡いできた大切な時間が<br>ロジックキューブの現在であり未来です',
       exp_stat1:          '年の金融IT経験',
@@ -2147,10 +2170,10 @@
       sol1_desc:    'Tiêu chuẩn kết nối không độ trễ và phân phối lưu lượng thông minh. Tối đa hóa tính sẵn sàng của mạng bằng cân bằng tải động thời gian thực, đảm bảo dịch vụ liên tục 24/365.',
       sol2_sub:     'Giải pháp kiểm thử tích hợp',
       sol2_desc:    'Giải pháp kiểm thử tích hợp thông minh cho các dự án thế hệ tiếp theo trong ngành tài chính. Xác minh toàn diện tính ổn định hệ thống trước triển khai bằng kiểm thử kịch bản và kiểm thử tải.',
-      sol3_sub:     'Engine hàng đợi tin nhắn',
-      sol3_desc:    'Nền tảng kết nối đối ngoại hiệu năng cao dựa trên Message Queue bất đồng bộ. Điều khiển định tuyến động Config/Rule-Based hỗ trợ kết nối liền mạch giữa công ty thẻ, ngân hàng và nhà cung cấp VAN.',
+      sol3_sub:     'Nền tảng giao diện',
+      sol3_desc:    'Nền tảng kết nối đối ngoại hiệu năng cao dựa trên Message Queue bất đồng bộ. Điều khiển định tuyến động Config/Rule-Based hỗ trợ kết nối liền mạch giữa hệ thống nội bộ và các tổ chức đối ngoại.',
       // Experience
-      exp_title:          'Những năm tháng đồng hành cùng khách hàng<br>là hiện tại và tương lai của LogicCube',
+      exp_title:          'Những năm tháng đồng hành cùng khách hàng là hiện tại và tương lai của LogicCube',
       exp_stat1:          'Năm kinh nghiệm IT tài chính',
       exp_stat2:          'Dự án hoàn thành',
       exp_stat3:          'Quốc gia triển khai',
