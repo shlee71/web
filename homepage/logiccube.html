@@ -920,7 +920,7 @@
     <!-- 데이터 흐름도 -->
     <div style="background:white; border-radius:16px; padding:14px 24px; border:1px solid #e2eaf4;">
       <div class="flow-title" style="font-size:11px; font-weight:700; letter-spacing:2px; text-transform:uppercase; color:var(--cobalt); margin-bottom:10px; font-family:'Montserrat',sans-serif;">Data Flow Architecture</div>
-      <div style="display:flex; align-items:center; justify-content:space-between; gap:8px; flex-wrap:wrap;">
+      <div class="flow-body" style="display:flex; align-items:center; justify-content:space-between; gap:8px; flex-wrap:wrap;">
         <div class="flow-box" style="background:#f0f4ff;" data-i18n="flow_biz">업무 시스템</div>
         <div class="flow-arrow">→</div>
         <div class="flow-box" style="background:linear-gradient(135deg,var(--deep-blue),var(--cobalt)); color:white; border-color:var(--cobalt);">
@@ -1711,9 +1711,11 @@
     .tech-body { padding: 5px 10px !important; }
     .tech-icon { font-size: 14px !important; }
     .tech-title { font-size: 11px !important; }
-    .tech-name { font-size: 19.95px !important; }
+    .tech-name { font-size: 18.95px !important; }
     .tech-desc { font-size: 13.5px !important; }
-    #technology [style*="border-radius:16px"] { padding: 5px 10px !important; margin-bottom: 4px !important; }
+    #technology [style*="border-radius:16px"] { padding: 0 !important; overflow: hidden !important; margin-bottom: 4px !important; }
+    .flow-title { background: linear-gradient(135deg, var(--deep-blue), var(--cobalt)) !important; color: white !important; padding: 6px 10px !important; margin-bottom: 0 !important; border-bottom: none !important; }
+    .flow-body { padding: 5px 10px !important; }
 
     /* ── 7페이지 Contact ── */
     #contact { padding-top: 6px !important; }
